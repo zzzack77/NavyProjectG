@@ -1,20 +1,21 @@
 .header {
-    font-size: 40px;
+    font-size: 65px;
     -unity-text-align: upper-center;
     color: rgb(255, 255, 255);
 }
 
 .button {
-    width: 220px;
-    height: 80px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: rgb(89, 97, 111);
-    align-self: flex-start;
-    margin-top: 60px;
-    margin-left: 60px;
-    font-size: 40px;
+    width: auto;
+    height: 12%;
+    font-size: 44px;
     color: rgb(255, 255, 255);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.label {
+    -unity-text-align: upper-center;
+    font-size: 35px;
 }

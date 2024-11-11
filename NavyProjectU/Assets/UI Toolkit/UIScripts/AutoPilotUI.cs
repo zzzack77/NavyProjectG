@@ -30,7 +30,7 @@ public class AutoPilotUI : MonoBehaviour
         autoButton.RegisterCallback<ClickEvent>(OnAutoPress);
 
     }
-    //Unregisters each button when the UI is disabled
+    //Unregisters each button when the UI is disableda
     private void OnDisable()
     {
         remoteButton.UnregisterCallback<ClickEvent>(OnAutoPress);
