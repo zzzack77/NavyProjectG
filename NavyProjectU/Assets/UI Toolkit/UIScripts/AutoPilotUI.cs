@@ -28,6 +28,7 @@ public class AutoPilotUI : MonoBehaviour
 
         //example code for button press, will call function "OnAutoPress"
         autoButton.RegisterCallback<ClickEvent>(OnAutoPress);
+        
 
     }
     //Unregisters each button when the UI is disableda
