@@ -17,10 +17,10 @@
     background-color: rgb(137, 137, 137);
     border-right-width: 4px;
     border-bottom-width: 6px;
-    border-left-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-top-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
+    border-left-color: rgb(48, 48, 48);
+    border-right-color: rgb(48, 48, 48);
+    border-top-color: rgb(48, 48, 48);
+    border-bottom-color: rgb(48, 48, 48);
 }
 
 .label {
