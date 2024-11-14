@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class AutoPilotUI : MonoBehaviour
 {
     private UIDocument _document;
+    private PrivateVariables _variables;
 
     //LHS buttons
     private Button remoteButton;
@@ -24,6 +25,7 @@ public class AutoPilotUI : MonoBehaviour
     private void Awake()
     {
         _document = GetComponent<UIDocument>();
+        _variables = GetComponent<PrivateVariables>();
 
         //Query searches each button name
         remoteButton = _document.rootVisualElement.Q("remoteB") as Button;
@@ -44,9 +46,14 @@ public class AutoPilotUI : MonoBehaviour
 
 
         //explample changing text code
+        
+
+    }
+    private void Update()
+    {
         var _headingOutputL = _document.rootVisualElement.Q("headingOutputL") as Label;
 
-        _headingOutputL.text = "000.0";
+        _headingOutputL.text = _variables.Heading.ToString();
 
     }
     //Unregisters each button when the UI is disableda
@@ -63,6 +70,7 @@ public class AutoPilotUI : MonoBehaviour
     private void OnREMOTEPress(ClickEvent evt)
     {
         UnityEngine.Debug.Log("You pressed the REMOTE button.");
+        _variables.Heading = _variables.Heading + 10;
     }
     private void OnNAVPress(ClickEvent evt)
     {
@@ -70,10 +78,12 @@ public class AutoPilotUI : MonoBehaviour
     }
     private void OnAUTOPress(ClickEvent evt)
     {
+        _variables.IsAuto = true;
         UnityEngine.Debug.Log("You pressed the AUTO button.");
     }
     private void OnMANUALPress(ClickEvent evt)
     {
+        _variables.IsAuto = false;
         UnityEngine.Debug.Log("You pressed the MANUAL button.");
     }
     private void OnNFUPress(ClickEvent evt)
