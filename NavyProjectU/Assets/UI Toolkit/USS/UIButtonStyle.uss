@@ -45,3 +45,10 @@
     border-bottom-width: 6px;
     border-right-width: 4px;
 }
+
+.unity-button:hover {
+    background-color: rgb(94, 94, 94);
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}

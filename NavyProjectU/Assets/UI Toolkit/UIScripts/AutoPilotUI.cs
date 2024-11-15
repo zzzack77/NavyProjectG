@@ -54,6 +54,7 @@ public class AutoPilotUI : MonoBehaviour
         var _headingOutputL = _document.rootVisualElement.Q("headingOutputL") as Label;
 
         _headingOutputL.text = _variables.Heading.ToString();
+        
 
     }
     //Unregisters each button when the UI is disableda
