@@ -9,15 +9,15 @@ public class PrivateVariables : MonoBehaviour
     /*Using variables tutorial
      * declare variable.
      
-    private PrivateVariables _variables;
+    private PrivateVariables _PrivateVariables;
 
      * in start/awake get the component
      
-    _variables = GetComponent<PrivateVariables>();
+    _PrivateVariables = GetComponent<PrivateVariables>();
     
-     * then call varaible by referenecing used name e.g. _variables
+     * then call varaible by referenecing used name e.g. _PrivateVariables
     
-    _variables.instertYourVariableHere = 0;
+    _PrivateVariables.instertYourVariableHere = 0;
      */
 
     //rotation variables
@@ -26,9 +26,19 @@ public class PrivateVariables : MonoBehaviour
     private float roll;
 
     //ui variables
-    private float setCourse;
+    private float settingAutoCourse;
+    [SerializeField]
+    private float setAutoCourse;
     private float distanceFromGround;
     private bool isAuto;
+
+    //scrip variables
+    private AutoPilotUI autoPilotUI;
+
+    private void Awake()
+    {
+        autoPilotUI = GetComponent<AutoPilotUI>();
+    }
 
     //getters and setters
     public float Heading 
@@ -37,13 +47,28 @@ public class PrivateVariables : MonoBehaviour
         set
         {
             if (value < 0) heading = value + 360;
-            if (value > 360) heading = value - 360;
+            else if (value >= 360) heading = value - 360;
             else heading = value;
+            autoPilotUI.OnHeadingUpdate();
         }
     }
+    public float SettingAutoCourse
+    {
+        get => settingAutoCourse;
+        set
+        {
+            if (value < 0) settingAutoCourse = value + 360;
+            else if (value >= 360) settingAutoCourse = value - 360;
+            else settingAutoCourse = value;
+            
+
+            autoPilotUI.OnSettingAutoCourseUpdate();
+        }
+    }
+    public float SetAutoCourse { get => setAutoCourse; set => setAutoCourse = value; }
+
     public float Pitch { get => pitch; set => pitch = value; }
     public float Roll { get => roll; set => roll = value; }
-    public float SetCourse { get => setCourse; set => setCourse = value; }
     public bool IsAuto { get => isAuto; set => isAuto = value; }
 
 }

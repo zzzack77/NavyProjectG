@@ -8,8 +8,11 @@ using UnityEngine.UIElements;
 
 public class AutoPilotUI : MonoBehaviour
 {
-    private UIDocument _document;
-    private PrivateVariables _variables;
+    //useful code not beging used anymore
+    //manualButton.AddToClassList("buttonClicked");
+
+    private UIDocument _UIDocumentdocument;
+    private PrivateVariables _PrivateVariables;
 
     //LHS buttons
     private Button remoteButton;
@@ -18,52 +21,79 @@ public class AutoPilotUI : MonoBehaviour
     private Button manualButton;
     private Button nfuButton;
 
+    //Middle buttons
+    private Button leftButton;
+    private Button rightButton;
+    private Button enterButton;
+    private Button radiusButton;
+    private Button rateButton;
+    private Button paramButton;
+    private Button epButton;
+
     //Text
     private Label _headingOutputL;
-
-    public int a = 0;
-
-    //colours
-
-
+    private Label _setCourseOutputL;
 
     private void Awake()
     {
-        _document = GetComponent<UIDocument>();
-        _variables = GetComponent<PrivateVariables>();
+        //get component variables assigned here
+        _UIDocumentdocument = GetComponent<UIDocument>();
+        _PrivateVariables = GetComponent<PrivateVariables>();
 
         //Query searches each button name
-        remoteButton = _document.rootVisualElement.Q("remoteB") as Button;
-        navButton = _document.rootVisualElement.Q("navB") as Button;
-        autoButton = _document.rootVisualElement.Q("autoB") as Button;
-        manualButton = _document.rootVisualElement.Q("manualB") as Button;
-        nfuButton = _document.rootVisualElement.Q("nfuB") as Button;
+        //LHS buttons.
+        remoteButton = _UIDocumentdocument.rootVisualElement.Q("remoteB") as Button;
+        navButton = _UIDocumentdocument.rootVisualElement.Q("navB") as Button;
+        autoButton = _UIDocumentdocument.rootVisualElement.Q("autoB") as Button;
+        manualButton = _UIDocumentdocument.rootVisualElement.Q("manualB") as Button;
+        nfuButton = _UIDocumentdocument.rootVisualElement.Q("nfuB") as Button;
+
+        //Middle buttons.
+        leftButton = _UIDocumentdocument.rootVisualElement.Q("leftB") as Button;
+        rightButton = _UIDocumentdocument.rootVisualElement.Q("rightB") as Button;
+        enterButton = _UIDocumentdocument.rootVisualElement.Q("enterB") as Button;
+        radiusButton = _UIDocumentdocument.rootVisualElement.Q("radiusB") as Button;
+        rateButton = _UIDocumentdocument.rootVisualElement.Q("rateB") as Button;
+        paramButton = _UIDocumentdocument.rootVisualElement.Q("paramAdjustB") as Button;
+        epButton = _UIDocumentdocument.rootVisualElement.Q("epB") as Button;
 
 
-        //example code for button press, will call function "OnAutoPress"
-        
-        
+
+        //button listener, will call funcations on press.
         remoteButton.RegisterCallback<ClickEvent>(OnREMOTEPress);
         navButton.RegisterCallback<ClickEvent>(OnNAVPress);
         autoButton.RegisterCallback<ClickEvent>(OnAUTOPress);
         manualButton.RegisterCallback<ClickEvent>(OnMANUALPress);
         nfuButton.RegisterCallback<ClickEvent>(OnNFUPress);
 
+        leftButton.RegisterCallback<ClickEvent>(OnLeftPress);
+        rightButton.RegisterCallback<ClickEvent>(OnRightPress);
+        enterButton.RegisterCallback<ClickEvent>(OnEnterPress);
+        radiusButton.RegisterCallback<ClickEvent>(OnRadiusPress);
+        rateButton.RegisterCallback<ClickEvent>(OnRatePress);
+        paramButton.RegisterCallback<ClickEvent>(OnParamPress);
+        epButton.RegisterCallback<ClickEvent>(OnEpPress);
 
-        //explample changing text code
-        
-        
+
+        //set manual as defult.
+        HighlightSelectedButton(3);
     }
     private void Update()
     {
-        var _headingOutputL = _document.rootVisualElement.Q("headingOutputL") as Label;
-
-        _headingOutputL.text = _variables.Heading.ToString();
-        
-        
-
+     
     }
-    //Unregisters each button when the UI is disableda
+    //function is called from PrivateVariables everytime Heading is updated.
+    public void OnHeadingUpdate()
+    {
+        var _headingOutputL = _UIDocumentdocument.rootVisualElement.Q("headingOutputL") as Label;
+        _headingOutputL.text = _PrivateVariables.Heading.ToString("000.0");
+    }
+    public void OnSettingAutoCourseUpdate()
+    {
+        var _setCourseOutputL = _UIDocumentdocument.rootVisualElement.Q("setCourseOutputL") as Label;
+        _setCourseOutputL.text = _PrivateVariables.SettingAutoCourse.ToString("000.0");
+    }
+    //Unregisters each button when the UI is disabled
     private void OnDisable()
     {
         remoteButton.UnregisterCallback<ClickEvent>(OnREMOTEPress);
@@ -78,7 +108,7 @@ public class AutoPilotUI : MonoBehaviour
     {
         HighlightSelectedButton(0);
         UnityEngine.Debug.Log("You pressed the REMOTE button.");
-        _variables.Heading = _variables.Heading + 10;
+        _PrivateVariables.Heading = _PrivateVariables.Heading + 10;
     }
     private void OnNAVPress(ClickEvent evt)
     {
@@ -89,17 +119,19 @@ public class AutoPilotUI : MonoBehaviour
     private void OnAUTOPress(ClickEvent evt)
     {
         HighlightSelectedButton(2);
+        _PrivateVariables.IsAuto = true;
 
-        _variables.IsAuto = true;
+        _PrivateVariables.SettingAutoCourse = _PrivateVariables.Heading;
+
         UnityEngine.Debug.Log("You pressed the AUTO button.");
     }
     private void OnMANUALPress(ClickEvent evt)
     {
         HighlightSelectedButton(3);
 
-        manualButton.AddToClassList("buttonClicked");
+        
 
-        _variables.IsAuto = false;
+        _PrivateVariables.IsAuto = false;
         UnityEngine.Debug.Log("You pressed the MANUAL button.");
         
     }
@@ -109,6 +141,36 @@ public class AutoPilotUI : MonoBehaviour
 
         
         UnityEngine.Debug.Log("You pressed the NFU button.");
+    }
+    private void OnLeftPress(ClickEvent evt)
+    {
+        _PrivateVariables.SettingAutoCourse = _PrivateVariables.SettingAutoCourse - 1; ;
+    }
+    private void OnRightPress(ClickEvent evt)
+    {
+        _PrivateVariables.SettingAutoCourse++;
+
+    }
+    private void OnEnterPress(ClickEvent evt)
+    {
+        _PrivateVariables.SetAutoCourse = _PrivateVariables.SettingAutoCourse;
+    }
+    private void OnRadiusPress(ClickEvent evt)
+    {
+        UnityEngine.Debug.Log("You pressed a button.");
+
+    }
+    private void OnRatePress(ClickEvent evt)
+    {
+        UnityEngine.Debug.Log("You pressed a button.");
+    }
+    private void OnParamPress(ClickEvent evt)
+    {
+        UnityEngine.Debug.Log("You pressed a button.");
+    }
+    private void OnEpPress(ClickEvent evt)
+    {
+        UnityEngine.Debug.Log("You pressed a button.");
     }
     private void HighlightSelectedButton(int number)
     {
@@ -124,14 +186,9 @@ public class AutoPilotUI : MonoBehaviour
         string hexColorB = "#9BEFFF";
 
         //attempts to parse the hex colour to a unity colour
-        if (ColorUtility.TryParseHtmlString(hexColorDB, out colorDB)) ;
-        else UnityEngine.Debug.Log("error1");
-
-        if (ColorUtility.TryParseHtmlString(hexColorG, out colorGrey)) ;
-        else UnityEngine.Debug.Log("error2");
-
-        if (ColorUtility.TryParseHtmlString(hexColorB, out colorBlue)) ;
-        else UnityEngine.Debug.Log("error3");
+        ColorUtility.TryParseHtmlString(hexColorDB, out colorDB);
+        ColorUtility.TryParseHtmlString(hexColorG, out colorGrey);
+        ColorUtility.TryParseHtmlString(hexColorB, out colorBlue);
 
         //depending on which button is pressed, e.g. remote button = 0, nav button = 1
         //change the background to dark blue and the text to blue and change all the other
