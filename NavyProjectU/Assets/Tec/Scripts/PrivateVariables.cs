@@ -60,8 +60,6 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) settingAutoCourse = value + 360;
             else if (value >= 360) settingAutoCourse = value - 360;
             else settingAutoCourse = value;
-            
-
             autoPilotUI.OnSettingAutoCourseUpdate();
         }
     }

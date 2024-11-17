@@ -129,8 +129,6 @@ public class AutoPilotUI : MonoBehaviour
     {
         HighlightSelectedButton(3);
 
-        
-
         _PrivateVariables.IsAuto = false;
         UnityEngine.Debug.Log("You pressed the MANUAL button.");
         
@@ -138,7 +136,6 @@ public class AutoPilotUI : MonoBehaviour
     private void OnNFUPress(ClickEvent evt)
     {
         HighlightSelectedButton(4);
-
         
         UnityEngine.Debug.Log("You pressed the NFU button.");
     }
