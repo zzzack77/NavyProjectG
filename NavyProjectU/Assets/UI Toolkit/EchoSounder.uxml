@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="HeaderVE" style="flex-grow: 1; height: 10%;" />
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; height: 65%; flex-direction: row;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 15%;" />
+            <ui:VisualElement style="flex-grow: 1; width: 15%;" />
+            <ui:VisualElement style="flex-grow: 1; width: 40%;">
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; width: 30%;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; height: 25%; flex-direction: row;">
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement style="flex-grow: 1; flex-direction: column;">
+                <ui:VisualElement style="flex-grow: 1; height: 20%;" />
+                <ui:VisualElement style="flex-grow: 1; flex-direction: column; height: 80%;">
+                    <ui:VisualElement style="flex-grow: 1;">
+                        <ui:VisualElement style="flex-grow: 1;" />
+                        <ui:VisualElement style="flex-grow: 1;" />
+                        <ui:VisualElement style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
