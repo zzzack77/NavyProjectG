@@ -1,0 +1,60 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(63, 86, 96);">
+        <ui:VisualElement name="HeaderVE" style="flex-grow: 1; height: 10%;">
+            <ui:Label tabindex="-1" text="Echo Sounder" parse-escape-sequences="true" display-tooltip-when-elided="true" name="echoSounderL" class="header" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MiddleHozVE" style="flex-grow: 1; height: 65%; flex-direction: row;">
+            <ui:VisualElement name="BuzzerVE" style="flex-grow: 1; width: 15%; flex-direction: column;">
+                <ui:VisualElement name="spacer1VE" style="flex-grow: 1; height: 80%;" />
+                <ui:Button text="BUZZER&#10;RESET" parse-escape-sequences="true" display-tooltip-when-elided="true" name="buzzerB" class="buttonS" style="margin-right: 35px; margin-left: 14px; height: 15%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UnitVE" style="flex-grow: 1; width: 15%; justify-content: space-between; padding-right: 20px; padding-left: 20px;">
+                <ui:VisualElement name="spacer2VE" style="flex-grow: 1; height: 20%; max-height: none; justify-content: flex-start; align-items: flex-start;" />
+                <ui:VisualElement name="unitBVE" style="flex-grow: 1; height: 80%; justify-content: space-between;">
+                    <ui:Button text="FATHOM" parse-escape-sequences="true" display-tooltip-when-elided="true" name="fathomB" class="buttonS" style="height: 20%;" />
+                    <ui:Button text="FEET" parse-escape-sequences="true" display-tooltip-when-elided="true" name="feetB" class="buttonS" style="height: 20%;" />
+                    <ui:Button text="METER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="meterB" class="buttonS" style="height: 20%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="DepthVE" style="flex-grow: 1; width: 40%;">
+                <ui:VisualElement name="OutputVE" style="flex-grow: 1; height: 30%;" />
+                <ui:VisualElement name="DepthLOVE1" style="flex-grow: 1; padding-top: 40px; padding-right: 40px; padding-bottom: 40px; padding-left: 40px; height: 30%;">
+                    <ui:VisualElement name="depthLOVE2" style="flex-grow: 1; background-color: rgb(137, 137, 137); flex-direction: row-reverse;">
+                        <ui:Label tabindex="-1" text="0.0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="depthLO" class="header" style="-unity-text-align: middle-left; font-size: 124px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="depthLVE" style="flex-grow: 1; height: 10%;">
+                    <ui:Label tabindex="-1" text="DEPTH&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DepthL" class="label" />
+                </ui:VisualElement>
+                <ui:VisualElement name="LocationBVE" style="flex-grow: 1; height: 30%; flex-direction: row; justify-content: space-between; align-self: center; align-items: stretch; width: 60%; padding-bottom: 98px;">
+                    <ui:Button text="BOW" parse-escape-sequences="true" display-tooltip-when-elided="true" name="bowB" class="buttonS" style="width: 45%;" />
+                    <ui:Button text="STERN" parse-escape-sequences="true" display-tooltip-when-elided="true" name="sternB" class="buttonS" style="width: 45%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="AlarmOutputVE" style="flex-grow: 1; width: 30%;">
+                <ui:VisualElement name="spacer3VE" style="flex-grow: 1; height: 80%;" />
+                <ui:VisualElement name="alarmMargVE" style="flex-grow: 1; height: 20%; padding-top: 20px; padding-bottom: 20px; padding-right: 100px; padding-left: 20px;">
+                    <ui:VisualElement name="alarmBorderVE" style="flex-grow: 1; background-color: rgb(137, 137, 137); flex-direction: row-reverse;">
+                        <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="alarmL" class="label" style="-unity-text-align: middle-right;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="FooterVE" style="flex-grow: 1; height: 25%; flex-direction: row;">
+            <ui:VisualElement name="PowerVE" style="flex-grow: 1; width: 60%;">
+                <ui:Button text="POWER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="powerB" class="buttonS" style="position: absolute; top: 169px; left: 37px; min-width: 165px; min-height: 82px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="AlarmVE" style="flex-grow: 1; flex-direction: column; width: 40%;">
+                <ui:VisualElement name="AlarmLVE" style="flex-grow: 1; height: 20%; padding-left: 214px; padding-right: 95px;">
+                    <ui:Label tabindex="-1" text="ALARM LIMIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="alarmLimitL" class="label" />
+                </ui:VisualElement>
+                <ui:VisualElement name="AlarmB1VE" style="flex-grow: 1; flex-direction: row; height: 80%; padding-left: 174px; padding-right: 36px; padding-top: 35px; padding-bottom: 87px; justify-content: space-between;">
+                    <ui:Button text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="100B" class="buttonS" style="width: 150px;" />
+                    <ui:Button text="10" parse-escape-sequences="true" display-tooltip-when-elided="true" name="10B" class="buttonS" style="width: 150px;" />
+                    <ui:Button text="1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="1B" class="buttonS" style="width: 150px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

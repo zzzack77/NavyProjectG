@@ -19,7 +19,7 @@
                     <ui:Label tabindex="-1" text="RATE OF TURN" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rotL" class="label" style="-unity-text-align: upper-center;" />
                     <ui:Slider high-value="35" low-value="-35" view-data-key="0" name="rotSlider" style="margin-right: 400px; margin-left: 400px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-color: rgb(71, 145, 159); opacity: 1;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="setCourseVE" style="flex-grow: 1; height: 25px; width: 100%; flex-direction: row; align-self: center; max-width: none; max-height: 150px; min-width: auto; flex-basis: auto; align-items: center; background-color: rgba(0, 0, 0, 0); justify-content: center;">
+                <ui:VisualElement name="SetCourseVE" style="flex-grow: 1; height: 25px; width: 100%; flex-direction: row; align-self: center; max-width: none; max-height: 150px; min-width: auto; flex-basis: auto; align-items: center; background-color: rgba(0, 0, 0, 0); justify-content: center;">
                     <ui:VisualElement name="ftmVE" style="flex-grow: 1; align-self: flex-start; width: auto; flex-direction: column; max-width: 400px;">
                         <ui:VisualElement name="ftmLVE" style="flex-grow: 1; height: 12%;">
                             <ui:Label tabindex="-1" text="FIXED TURN MODE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ftmL" class="label" style="-unity-text-align: upper-center; font-size: 30px;" />
@@ -44,7 +44,7 @@
                     <ui:VisualElement name="spacer3" style="flex-grow: 1;" />
                     <ui:Label tabindex="-1" text="00&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rcRightOutputL" class="label" style="margin-right: 510px; margin-top: 0; padding-top: 0; color: rgb(224, 212, 97);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="rudderSlidersVE" style="flex-grow: 1; flex-direction: row; height: auto; max-height: 56px; margin-left: 400px; margin-right: 400px;">
+                <ui:VisualElement name="RudderSlidersVE" style="flex-grow: 1; flex-direction: row; height: auto; max-height: 56px; margin-left: 400px; margin-right: 400px;">
                     <ui:VisualElement name="sliderBarLeftVE" style="flex-grow: 1; height: 200px;">
                         <ui:Slider high-value="100" low-value="0" show-input-field="false" name="leftSlider" style="background-color: rgb(161, 31, 31); border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 15px; margin-right: 0;" />
                     </ui:VisualElement>
@@ -61,7 +61,7 @@
                 <ui:VisualElement name="FooterVE" style="flex-grow: 1;" />
             </ui:VisualElement>
             <ui:VisualElement name="RightMarginVE" style="flex-grow: 1; height: 100%; width: 0; max-width: 300px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; min-width: 150px;" />
-            <ui:Button text="!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="epB" class="buttonS" style="position: absolute; top: 104px; left: 1676px; text-shadow: 8.1px 0 0 rgba(0, 0, 0, 0); -unity-text-outline-width: -1px; background-color: rgb(161, 37, 37); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); height: 70px; width: 70px;" />
+            <ui:Button text="!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="epB" class="buttonS" style="position: absolute; top: 104px; left: 1676px; text-shadow: 8.1px 0 0 rgba(0, 0, 0, 0); -unity-text-outline-width: -1px; background-color: rgb(161, 31, 31); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); height: 70px; width: 70px;" />
             <ui:Button text="PARAM ADJUST" parse-escape-sequences="true" display-tooltip-when-elided="true" name="paramAdjustB" class="buttonS" style="position: absolute; top: 890px; left: 1586px; height: 70px;" />
         </ui:VisualElement>
     </ui:VisualElement>
