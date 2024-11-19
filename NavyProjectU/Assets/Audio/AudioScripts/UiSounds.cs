@@ -11,7 +11,17 @@ public class UiSounds : MonoBehaviour
     {
         UIAudios.clip = sfx1;
         UIAudios.Play();
+    }
 
-        //Repeat for different buttons
+    public void Button2()
+    {
+        UIAudios.clip = sfx2;
+        UIAudios.Play();
+    }
+
+    public void Button3()
+    {
+        UIAudios.clip = sfx3;
+        UIAudios.Play();
     }
 }

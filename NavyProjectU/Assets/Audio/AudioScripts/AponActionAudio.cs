@@ -6,7 +6,8 @@ public class AponActionAudio : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public AudioClip clips;
+    public AudioClip clip1, clip2 ;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,7 +18,13 @@ public class AponActionAudio : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            audioSource.clip = clips;
+            audioSource.clip = clip1;
+            audioSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            audioSource.clip = clip2;
             audioSource.Play();
         }
     }
