@@ -1,0 +1,68 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; height: 100%; width: 100%; align-self: stretch; flex-direction: column; background-color: rgb(63, 86, 96);">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 100%; height: 100%; align-self: flex-start; align-items: auto; flex-direction: row;">
+            <ui:VisualElement name="LeftMarginVE" style="flex-grow: 1; height: 100%; width: 0; align-self: flex-start; max-width: 50px;" />
+            <ui:VisualElement name="ButtonVE" style="flex-grow: 1; height: 100%; width: 0; max-width: 250px; justify-content: space-between; padding-top: 150px; padding-bottom: 150px; min-width: 150px;">
+                <ui:Button text="REMOTE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="remoteB" class="button" />
+                <ui:Button text="NAV" parse-escape-sequences="true" display-tooltip-when-elided="true" name="navB" class="button" />
+                <ui:Button text="AUTO" parse-escape-sequences="true" display-tooltip-when-elided="true" name="autoB" class="button" />
+                <ui:Button text="MANUAL" parse-escape-sequences="true" display-tooltip-when-elided="true" name="manualB" class="button" />
+                <ui:Button text="NFU" parse-escape-sequences="true" display-tooltip-when-elided="true" name="nfuB" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MiddleVE" tabindex="42" style="flex-grow: 1; height: 100%; align-self: center; margin-left: 50px; margin-right: 50px;">
+                <ui:Label tabindex="-1" text="STEERING SYSTEM" parse-escape-sequences="true" display-tooltip-when-elided="true" name="steeringSystemL" class="header" style="margin-top: 43px;" />
+                <ui:Label tabindex="-1" text="HEADING" parse-escape-sequences="true" display-tooltip-when-elided="true" name="headingL" class="label" />
+                <ui:Label tabindex="-1" text="000.0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="headingOutputL" class="label" style="font-size: 67px; color: rgb(155, 239, 255);" />
+                <ui:VisualElement name="spacer1VE" style="flex-grow: 1; height: 0; max-height: 46px;" />
+                <ui:VisualElement name="rotVE" style="flex-grow: 1; min-height: 53px; max-height: 128px;">
+                    <ui:Label tabindex="-1" text="RATE OF TURN" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rotL" class="label" style="-unity-text-align: upper-center;" />
+                    <ui:Slider high-value="35" low-value="-35" view-data-key="0" name="rotSlider" style="margin-right: 400px; margin-left: 400px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-color: rgb(71, 145, 159); opacity: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="SetCourseVE" style="flex-grow: 1; height: 25px; width: 100%; flex-direction: row; align-self: center; max-width: none; max-height: 150px; min-width: auto; flex-basis: auto; align-items: center; background-color: rgba(0, 0, 0, 0); justify-content: center;">
+                    <ui:VisualElement name="ftmVE" style="flex-grow: 1; align-self: flex-start; width: auto; flex-direction: column; max-width: 400px;">
+                        <ui:VisualElement name="ftmLVE" style="flex-grow: 1; height: 12%;">
+                            <ui:Label tabindex="-1" text="FIXED TURN MODE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ftmL" class="label" style="-unity-text-align: upper-center; font-size: 30px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="ftmBVE" style="flex-grow: 1; height: 60%; flex-direction: row; justify-content: flex-start; align-self: stretch; padding-top: 20px;">
+                            <ui:Button text="RADIUS" parse-escape-sequences="true" display-tooltip-when-elided="true" name="radiusB" class="buttonS" style="max-width: 0; min-width: 175px; max-height: none; height: 60px; width: auto; margin-right: 42px; font-size: 24px; -unity-text-align: middle-center; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; color: rgb(255, 255, 255);" />
+                            <ui:Button text="RATE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rateB" class="buttonS" style="height: 60px; width: auto; min-width: 175px; margin-left: 0; font-size: 24px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="setCourseVE" style="flex-grow: 1; height: 100%; width: 0; padding-right: 0; margin-right: 0; max-width: none; align-self: center;">
+                        <ui:Label tabindex="-1" text="SET COURSE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="setCourseL" class="label" style="-unity-text-align: upper-center; margin-top: 20px; margin-bottom: 0;" />
+                        <ui:Label tabindex="-1" text="000.0" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="false" name="setCourseOutputL" class="label" style="-unity-text-align: upper-center; font-size: 49px; margin-top: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="enterVE" style="flex-grow: 1; width: auto; height: 100%; max-width: 400px; align-self: center;">
+                        <ui:Button text="ENTER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enterB" class="buttonS" style="max-width: 41%; max-height: 100px; margin-top: 64px; height: 60px; min-width: 175px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="spacer2VE" style="flex-grow: 1; height: 0; max-height: 46px;" />
+                <ui:Label tabindex="-1" text="RUDDER COMMAND" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rudderCommandL" class="label" />
+                <ui:VisualElement name="rcVE" style="flex-grow: 1; flex-direction: row; height: 0; max-height: 44px;">
+                    <ui:Label tabindex="-1" text="00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rcLeftOutputL" class="label" style="margin-left: 510px; margin-top: 0; padding-top: 0; color: rgb(224, 211, 96);" />
+                    <ui:VisualElement name="spacer3" style="flex-grow: 1;" />
+                    <ui:Label tabindex="-1" text="00&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rcRightOutputL" class="label" style="margin-right: 510px; margin-top: 0; padding-top: 0; color: rgb(224, 212, 97);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RudderSlidersVE" style="flex-grow: 1; flex-direction: row; height: auto; max-height: 56px; margin-left: 400px; margin-right: 400px;">
+                    <ui:VisualElement name="sliderBarLeftVE" style="flex-grow: 1; height: 200px;">
+                        <ui:Slider high-value="100" low-value="0" show-input-field="false" name="leftSlider" style="background-color: rgb(161, 31, 31); border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 15px; margin-right: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="sliderBarRightVE" style="flex-grow: 1; height: 200px;">
+                        <ui:Slider show-input-field="false" high-value="100" name="rightSlider" style="margin-left: 0; background-color: rgb(71, 145, 159); border-top-right-radius: 15px; border-bottom-right-radius: 15px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="TURN" parse-escape-sequences="true" display-tooltip-when-elided="true" name="turnL" class="label" style="-unity-text-align: upper-center;" />
+                <ui:VisualElement name="TurnButtonsVE" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: center; height: 0;">
+                    <ui:Button text="&lt;&lt;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="leftB" class="buttonS" style="width: 100px; height: 70px;" />
+                    <ui:VisualElement name="spacer4VE" style="flex-grow: 1; min-width: 125px; max-width: 150px;" />
+                    <ui:Button text="&gt;&gt;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="rightB" class="buttonS" style="-unity-text-align: middle-center; width: 100px; height: 70px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="FooterVE" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightMarginVE" style="flex-grow: 1; height: 100%; width: 0; max-width: 300px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; min-width: 150px;" />
+            <ui:Button text="!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="epB" class="buttonS" style="position: absolute; top: 104px; left: 1676px; text-shadow: 8.1px 0 0 rgba(0, 0, 0, 0); -unity-text-outline-width: -1px; background-color: rgb(161, 31, 31); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); height: 70px; width: 70px;" />
+            <ui:Button text="PARAM ADJUST" parse-escape-sequences="true" display-tooltip-when-elided="true" name="paramAdjustB" class="buttonS" style="position: absolute; top: 890px; left: 1586px; height: 70px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
