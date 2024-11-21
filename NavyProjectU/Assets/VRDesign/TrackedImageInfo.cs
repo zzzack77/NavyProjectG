@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
 public class TrackedImageInfo : MonoBehaviour
 {
+    public TextMeshProUGUI debugText;
     [SerializeField]
 ARTrackedImageManager m_TrackedImageManager;
 
@@ -28,6 +30,8 @@ void OnChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         // Handle removed event
     }
+
+    ListAllImages();
 }
 void ListAllImages()
 {
@@ -39,5 +43,12 @@ void ListAllImages()
         Debug.Log($"Image: {trackedImage.referenceImage.name} is at " +
                   $"{trackedImage.transform.position}");
     }
+
+        debugText.text = "There are" + m_TrackedImageManager.trackables.count + "images being tracked.";
 }
+
+public void Update()
+    {
+        debugText.text = "There are" + m_TrackedImageManager.trackables.count + "images being tracked.";
+    }
 }
