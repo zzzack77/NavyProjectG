@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -46,7 +47,6 @@ public class AudioFunctions : MonoBehaviour
     public float pitch;
 
     private float Throttle;
-
 
     void Start()
     {
