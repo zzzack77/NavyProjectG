@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -226,5 +227,10 @@ public class AudioFunctions : MonoBehaviour
 
         audioSource.clip = SFail;
         audioSource.PlayOneShot(SFail, 0.5f);
+    }
+
+    void AmbientShipSound()
+    {
+
     }
 }
