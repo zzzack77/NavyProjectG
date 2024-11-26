@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class AudioFunctions : MonoBehaviour
 {
+    #region AudioSources
     public AudioSource audioSource;
+    public AudioSource BoatAmbiences;
+    public AudioSource WeatherAudio;
+    public AudioSource GFAudio;
+    public AudioSource APFAudio;
+    public AudioSource RIFAudio;
+    public AudioSource LFAudio;
+    public AudioSource SFAudio;
+    #endregion
 
-    public AudioClip BoatEngine, Waves, Rain, Storm, Wind, GFail, APFail, RIFail, LFail, SFail;
+    public AudioClip BoatEngine, Waves, Rain, Storm, Wind, GFail, APFail, RIFail, LFail, SFail, BoatAmbience;
 
     #region VolumesVars
     public float BoatEngineVolume;
@@ -22,8 +32,7 @@ public class AudioFunctions : MonoBehaviour
     public bool IsRaining;
     public bool IsStorming;
 
-    public GameObject Rainer;
-    public GameObject Stormer;
+    public GameObject Weather;
     #endregion
 
     #region FaultAlarmsVars
@@ -41,6 +50,12 @@ public class AudioFunctions : MonoBehaviour
 
     public GameObject SF;
     public bool S;
+    #endregion
+
+    #region RandomBoatAmbience
+    public float t = 1f;
+    public float RandomSound = 0f;
+    public GameObject BA;
     #endregion
 
     public Transform SpawnLocation;
@@ -83,8 +98,7 @@ public class AudioFunctions : MonoBehaviour
         //Set it to calm
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Destroy(Rainer);
-            Destroy(Stormer);
+            Destroy(Weather);
         }
 
         //Gyro Failure
@@ -147,90 +161,119 @@ public class AudioFunctions : MonoBehaviour
                 Destroy(SF);
             }
         }
+
+        t = t * Time.deltaTime;
+
+        if (t == 4)
+        {
+            AmbientShipSound();
+        }
+        else if (t == 6)
+        {
+            Destroy(BA);
+        }
+
     }
 
     void Raining()
     {
         if (IsRaining == true)
         {
-            Destroy(Stormer);
+            Destroy(Weather);
         }
 
-        Instantiate(Rainer, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
+        Instantiate(Weather, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
         
-        audioSource = GetComponent<AudioSource>();
+        WeatherAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = Rain;
-        audioSource.PlayOneShot(Rain, RainVolume);
+        WeatherAudio.clip = Rain;
+        WeatherAudio.PlayOneShot(Rain, RainVolume);
     }
 
     void Storming()
     {
         if (IsRaining == true)
         {
-            Destroy(Rainer);
+            Destroy(Weather);
         }
 
-        Instantiate(Stormer, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
+        Instantiate(Weather, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        WeatherAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = Storm;
-        audioSource.PlayOneShot(Storm, StormVolume);
+        WeatherAudio.clip = Storm;
+        WeatherAudio.PlayOneShot(Storm, StormVolume);
     }
 
     void GyroFailure()
     {
         Instantiate(GF, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        GFAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = GFail;
-        audioSource.PlayOneShot(GFail, 0.5f);
+        GFAudio.clip = GFail;
+        GFAudio.PlayOneShot(GFail, 0.5f);
     }
 
     void AutopilotFailure()
     {
         Instantiate(APF, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        APFAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = APFail;
-        audioSource.PlayOneShot(APFail, 0.5f);
+        APFAudio.clip = APFail;
+        APFAudio.PlayOneShot(APFail, 0.5f);
     }
 
     void RudderIndicatorFailure()
     {
         Instantiate(RIF, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        RIFAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = RIFail;
-        audioSource.PlayOneShot(RIFail, 0.5f);
+        RIFAudio.clip = RIFail;
+        RIFAudio.PlayOneShot(RIFail, 0.5f);
     }
 
     void LogFailure()
     {
         Instantiate(LF, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        LFAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = LFail;
-        audioSource.PlayOneShot(LFail, 0.5f);
+        LFAudio.clip = LFail;
+        LFAudio.PlayOneShot(LFail, 0.5f);
     }
 
     void SystemFailure()
     {
         Instantiate(SF, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
 
-        audioSource = GetComponent<AudioSource>();
+        SFAudio = GetComponent<AudioSource>();
 
-        audioSource.clip = SFail;
-        audioSource.PlayOneShot(SFail, 0.5f);
+        SFAudio.clip = SFail;
+        SFAudio.PlayOneShot(SFail, 0.5f);
     }
 
     void AmbientShipSound()
     {
+        RandomSound = Random.Range(1, 10);
 
+        if (RandomSound <= 5)
+        {
+                Instantiate(BA, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
+
+                BoatAmbiences = GetComponent<AudioSource>();
+
+                BoatAmbiences.clip = BoatAmbience;
+                BoatAmbiences.PlayOneShot(BoatAmbience, 0.5f);
+
+            if (t == 6)
+            {
+                t = 1;
+                Destroy(BA);
+            }
+
+        }
     }
 }
