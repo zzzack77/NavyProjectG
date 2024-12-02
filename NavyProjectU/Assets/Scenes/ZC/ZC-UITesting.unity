@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 11028831}
   - component: {fileID: 11028833}
   - component: {fileID: 11028834}
+  - component: {fileID: 11028835}
   m_Layer: 5
   m_Name: UIAutoPilotDocument
   m_TagString: Untagged
@@ -197,6 +198,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setAutoCourse: 0
+--- !u!114 &11028835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11028830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad753f1cd0080c544bf2bc802c74925e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _document: {fileID: 0}
+  uiAssets:
+  - {fileID: 9197481963319205126, guid: 762a79ba3bf1d3e41b7ccf412927d3e1, type: 3}
+  - {fileID: 9197481963319205126, guid: 0b6ee73d8d58d2147a54a29716b5e17e, type: 3}
 --- !u!1 &894099353
 GameObject:
   m_ObjectHideFlags: 0
