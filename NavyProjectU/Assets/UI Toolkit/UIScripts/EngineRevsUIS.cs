@@ -86,8 +86,8 @@ public class EngineRevsUIS : MonoBehaviour
         // Smoothly update the yellow dials to follow the predicted (white) dials
         portPropellerPitchCurrent = UpdateDialTrue(portPropellerPitchTrue, portPropellerPitchRate, portPropellerPitchCurrent, portPropellerPitchTarget, -4, 9);
         starboardPropellerPitchCurrent = UpdateDialTrue(starboardPropellerPitchTrue, starboardPropellerPitchRate, starboardPropellerPitchCurrent, starboardPropellerPitchTarget, -4, 9);
-        portPropellerRPMCurrent = UpdateDialTrue(portPropellerRPMTrue, portPropellerRPMRate, portPropellerRPMCurrent, portPropellerRPMTarget, -250, 500);
-        starboardPropellerRPMCurrent = UpdateDialTrue(starboardPropellerRPMTrue, starboardPropellerRPMRate, starboardPropellerRPMCurrent, starboardPropellerRPMTarget, -250, 500);
+        portPropellerRPMCurrent = UpdateDialTrue(portPropellerRPMTrue, portPropellerRPMRate, portPropellerRPMCurrent, portPropellerRPMTarget, 0, 600);
+        starboardPropellerRPMCurrent = UpdateDialTrue(starboardPropellerRPMTrue, starboardPropellerRPMRate, starboardPropellerRPMCurrent, starboardPropellerRPMTarget, 0, 600);
 
 
         // Tester functions to show they are working
@@ -116,22 +116,21 @@ public class EngineRevsUIS : MonoBehaviour
     public void SetPortPropellerRPMPredicted(float rpm)
     {
         portPropellerRPMTarget = Mathf.Clamp(rpm, -250f, 250f);
-        UpdateDialPredicted(portPropellerRPMPredicted, portPropellerRPMTarget, -250, 500);
+        UpdateDialPredicted(portPropellerRPMPredicted, portPropellerRPMTarget, 0, 600);
     }
 
     public void SetStarboardPropellerRPMPredicted(float rpm)
     {
         starboardPropellerRPMTarget = Mathf.Clamp(rpm, -250f, 250f);
-        UpdateDialPredicted(starboardPropellerRPMPredicted, starboardPropellerRPMTarget, -250, 500);
+        UpdateDialPredicted(starboardPropellerRPMPredicted, starboardPropellerRPMTarget, 0, 600);
     }
 
     // Function to set the rotation for the Port Engine (RPM)
     public void SetPortEngineRPM(float rpm)
     {
         // Clamp RPM to range 0 to 3000
-        float clampedRPM = Mathf.Clamp(rpm, 0f, 3000f);
-        float angleInTurns = clampedRPM / 3000f;
-        portEngineRPM.style.rotate = new Rotate(new Angle(angleInTurns, AngleUnit.Turn));
+        float clampedRPM = Mathf.Clamp(rpm, -3000f, 3000f);
+        UpdateDialPredicted(portEngineRPM, clampedRPM, 0, 7000);
     }
 
     // Function to set the rotation for the Starboard Engine (RPM)
@@ -139,8 +138,7 @@ public class EngineRevsUIS : MonoBehaviour
     {
         // Clamp RPM to range 0 to 3000
         float clampedRPM = Mathf.Clamp(rpm, 0f, 3000f);
-        float angleInTurns = clampedRPM / 3000f;
-        starboardEngineRPM.style.rotate = new Rotate(new Angle(angleInTurns, AngleUnit.Turn));
+        UpdateDialPredicted(starboardEngineRPM, clampedRPM, 0, 7000);
     }
 
     // Updates the predicted (white) dials
