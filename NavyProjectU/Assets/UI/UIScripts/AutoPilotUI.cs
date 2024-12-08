@@ -34,7 +34,7 @@ public class AutoPilotUI : MonoBehaviour
     private Label _headingOutputL;
     private Label _setCourseOutputL;
 
-    private void Awake()
+    private void start()
     {
         //get component variables assigned here
         _UIDocumentdocument = GetComponent<UIDocument>();

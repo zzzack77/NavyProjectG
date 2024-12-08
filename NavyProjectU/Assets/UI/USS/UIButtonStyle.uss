@@ -80,3 +80,54 @@
     border-bottom-width: 2px;
     border-left-width: 2px;
 }
+
+.IndicatorBox {
+    max-width: 28%;
+    background-color: rgb(38, 43, 56);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    max-height: 100%;
+    border-left-color: rgb(255, 255, 252);
+    border-right-color: rgb(255, 255, 252);
+    border-top-color: rgb(255, 255, 252);
+    border-bottom-color: rgb(255, 255, 252);
+    border-top-width: 7px;
+    border-right-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 7px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.yellowDial {
+    position: absolute;
+    background-color: rgb(210, 210, 107);
+    width: 5px;
+    height: 100px;
+    transform-origin: bottom;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    align-self: center;
+    top: 100px;
+}
+
+.whiteDial {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 5px;
+    height: 105px;
+    transform-origin: bottom;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    align-self: center;
+    justify-content: center;
+    top: 95px;
+}
