@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
+    <Style src="project://database/Assets/UI/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
     <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; background-color: rgb(137, 137, 137);">
         <ui:VisualElement name="LeftMargineVE" style="flex-grow: 1; max-width: 10%;" />
         <ui:VisualElement name="IndicatorVE" style="flex-grow: 1; flex-direction: column; max-width: 80%;">
@@ -7,29 +7,41 @@
                 <ui:Label tabindex="-1" text="PROPULSION INDICATORS&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="propulsionIndicatorsL" class="header" style="-unity-font-style: bold; margin-top: 16px;" />
             </ui:VisualElement>
             <ui:VisualElement name="TopIndicatorVE" style="flex-grow: 1; flex-direction: row; justify-content: center; max-height: 40%;">
-                <ui:VisualElement name="PortPropellerPitchVE" class="IndicatorBox" style="flex-grow: 1; justify-content: center;">
-                    <ui:VisualElement name="portPropellerPitchPredictedD" class="whiteDial" style="flex-grow: 1;" />
-                    <ui:VisualElement name="portPropellerPitchTrueD" class="yellowDial" style="flex-grow: 1;" />
+                <ui:VisualElement name="PortPropellerPitchVE" class="IndicatorBox" style="flex-grow: 1; justify-content: center; background-image: none;">
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="portPropellerPitchPredictedD" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="portPropellerPitchTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="PortEngineVE" class="IndicatorBox" style="flex-grow: 1;">
-                    <ui:VisualElement name="portEngineRPMD" class="yellowDial" />
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="portEngineRPMD" class="yellowDial" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="StarboardPropellerPitchVE" class="IndicatorBox" style="flex-grow: 1;">
-                    <ui:VisualElement name="starboardPropellerPitchPredictedD" class="whiteDial" style="flex-grow: 1;" />
-                    <ui:VisualElement name="starboardPropellerPitchTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="starboardPropellerPitchPredictedD" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="starboardPropellerPitchTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="BottomIdicatorVE" style="flex-grow: 1; flex-direction: row; justify-content: center; max-height: 40%;">
                 <ui:VisualElement name="PortPropellerRPMVE" class="IndicatorBox" style="flex-grow: 1;">
-                    <ui:VisualElement name="portPropellerRPMPredictedD" class="whiteDial" style="flex-grow: 1;" />
-                    <ui:VisualElement name="portPropellerRPMTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="portPropellerRPMPredictedD" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="portPropellerRPMTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="StarboardEngineVE" class="IndicatorBox" style="flex-grow: 1;">
-                    <ui:VisualElement name="starboardEngineRPMD" class="yellowDial" style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="starboardEngineRPMD" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="StarboardPropellerRPMVE" class="IndicatorBox" style="flex-grow: 1;">
-                    <ui:VisualElement name="starboardPropellerRPMPredictedD" class="whiteDial" style="flex-grow: 1;" />
-                    <ui:VisualElement name="starboardPropellerRPMTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/Dial_Pitch_Port.png?fileID=2800000&amp;guid=5e86ea90ed3633145a1a8a5ef99e244b&amp;type=3#Dial_Pitch_Port&quot;);">
+                        <ui:VisualElement name="starboardPropellerRPMPredictedD" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="starboardPropellerRPMTrueD" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="FooterVE" style="flex-grow: 1; max-height: 5%;" />
