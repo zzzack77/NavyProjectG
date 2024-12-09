@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEditor;
 //fusing static UnityEngine.Rendering.DebugUI;
 
-public class AutoPilotSoftTouch : MonoBehaviour
+public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    private PrivateVariables _PrivateVariables;
     // Buttons
     public Button autoButton;
     public Button manualButton;
@@ -15,24 +18,52 @@ public class AutoPilotSoftTouch : MonoBehaviour
     // Panels
     public GameObject autoPanel;
     public GameObject NFUPanel;
+    public GameObject headingPanel;
+    public GameObject setCoursePanel;
+
+    public Scrollbar leftScrollbar;
+    public Scrollbar rightScrollbar;
+
 
     // Which steering type
     public bool isAuto;
     public bool isManual;
     public bool isNfu;
 
+    // Bool types
+    public bool isLeftNFUPressed;
+    public bool isRightNFUPressed;
+
     public void Start()
     {
+        _PrivateVariables = GetComponent<PrivateVariables>();
+
         // Defult manual steering mode
         PressManualButton();
-
-        // Defult bottom panel Auto Pilot
-        if (autoPanel != null && NFUPanel != null)
+    }
+    private void Update()
+    {
+        // Tester function to check heading changes correctly
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            autoPanel.SetActive(true);
-            NFUPanel.SetActive(false);
+            if (_PrivateVariables != null)
+            {
+                _PrivateVariables.Heading = _PrivateVariables.Heading + 10;
+            }
         }
     }
+    private void FixedUpdate()
+    {
+        if (isLeftNFUPressed)
+        {
+
+        }
+        if (isRightNFUPressed)
+        {
+
+        }
+    }
+
     // Auto pilot button press
     public void PressAutoButton()
     {
@@ -42,11 +73,15 @@ public class AutoPilotSoftTouch : MonoBehaviour
         isManual = false;
         isNfu = false;
 
+        // Update visual pannel at bottom of UI
         if (autoPanel != null && NFUPanel != null)
         {
             autoPanel.SetActive(true);
             NFUPanel.SetActive(false);
         }
+
+        // Set the auto pilot "set course" to the current heading value
+        _PrivateVariables.SettingAutoCourse = _PrivateVariables.Heading;
     }
 
     // Manual button press
@@ -54,9 +89,17 @@ public class AutoPilotSoftTouch : MonoBehaviour
     {
         UpdateButtonStyle(1);
         
+
         isAuto = false;
         isManual = true;
         isNfu = false;
+
+        // Update visual pannel at bottom of UI
+        if (autoPanel != null && NFUPanel != null)
+        {
+            autoPanel.SetActive(false);
+            NFUPanel.SetActive(false);
+        }
     }
 
     // NFU button press
@@ -68,14 +111,24 @@ public class AutoPilotSoftTouch : MonoBehaviour
         isManual = false;
         isNfu = true;
 
+        // Update visual pannel at bottom of UI
         if (autoPanel != null && NFUPanel != null)
         {
             autoPanel.SetActive(false);
             NFUPanel.SetActive(true);
         }
     }
+
+    // Changes the Set Course text by -1
+    public void PressAutoLeftButton() { _PrivateVariables.SettingAutoCourse = _PrivateVariables.SettingAutoCourse - 1; }
+    // Changes the Set Course text by +1
+    public void PressAutoRightButton() { _PrivateVariables.SettingAutoCourse++; }
+    // Sets the auto pilot to the value you have inputted
+    public void PressEnterButton() { _PrivateVariables.SetAutoCourse = _PrivateVariables.SettingAutoCourse; }
+
     
-    public void ChangeButtonColor(Button button, Color color)
+    // Update colour syle for selected buttons
+    private void ChangeButtonColor(Button button, Color color)
     {
         if (button != null)
         {
@@ -86,7 +139,7 @@ public class AutoPilotSoftTouch : MonoBehaviour
             }
         }
     }
-    public void ChangeTextColor(Button button, Color color)
+    private void ChangeTextColor(Button button, Color color)
     {
         TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null)
@@ -94,7 +147,7 @@ public class AutoPilotSoftTouch : MonoBehaviour
             buttonText.color = color;
         }
     }
-    public void UpdateButtonStyle(int number)
+    private void UpdateButtonStyle(int number)
     {
         // Variables
         Color colorDB = Color.black;
@@ -148,4 +201,40 @@ public class AutoPilotSoftTouch : MonoBehaviour
 
         }
     }
+
+    // Updating labels on text
+    public void OnHeadingUpdate()
+    {
+        TextMeshProUGUI headingText = headingPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (headingText != null)
+        {
+            headingText.text = _PrivateVariables.Heading.ToString("000.0");
+        }
+    }
+    public void OnSettingAutoCourseUpdate()
+    {
+        TextMeshProUGUI setCourseText = setCoursePanel.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (setCourseText != null)
+        {
+            setCourseText.text = _PrivateVariables.SettingAutoCourse.ToString("000.0");
+        }
+    }
+
+    // Event triggers so holding buttons down can work
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    // Button listeners to change Rudder Command
+    public void PressNFULeftButtonDown() { isLeftNFUPressed = true; }
+    public void PressNFULeftButtonUp() { isLeftNFUPressed = false; }
+    public void PressNFURightButtonDown() { isRightNFUPressed = true; }
+    public void PressNFURightButtonUp() { isRightNFUPressed = false; }
 }

@@ -20,24 +20,26 @@ public class PrivateVariables : MonoBehaviour
     _PrivateVariables.instertYourVariableHere = 0;
      */
 
-    //rotation variables
+    // Rotation variables
     private float heading;
     private float pitch;
     private float roll;
 
-    //ui variables
+    // UI variables
     private float settingAutoCourse;
     [SerializeField]
     private float setAutoCourse;
     private float distanceFromGround;
     private bool isAuto;
 
-    //scrip variables
-    private AutoPilotUI autoPilotUI;
+    // Script variables
+    //private AutoPilotUI autoPilotUI;
+    private AutoPilotSoftTouch autopilotoftTouch;
 
     private void Awake()
     {
-        autoPilotUI = GetComponent<AutoPilotUI>();
+        //autoPilotUI = GetComponent<AutoPilotUI>();
+        autopilotoftTouch = GetComponent<AutoPilotSoftTouch>();
     }
 
     //getters and setters
@@ -49,7 +51,7 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) heading = value + 360;
             else if (value >= 360) heading = value - 360;
             else heading = value;
-            autoPilotUI.OnHeadingUpdate();
+            autopilotoftTouch.OnHeadingUpdate();
         }
     }
     public float SettingAutoCourse
@@ -60,7 +62,7 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) settingAutoCourse = value + 360;
             else if (value >= 360) settingAutoCourse = value - 360;
             else settingAutoCourse = value;
-            autoPilotUI.OnSettingAutoCourseUpdate();
+            autopilotoftTouch.OnSettingAutoCourseUpdate();
         }
     }
     public float SetAutoCourse { get => setAutoCourse; set => setAutoCourse = value; }
