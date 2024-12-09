@@ -34,6 +34,8 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
     public bool isLeftNFUPressed;
     public bool isRightNFUPressed;
 
+    private float scrollbarSpeed = 0.01f;
+
     public void Start()
     {
         _PrivateVariables = GetComponent<PrivateVariables>();
@@ -56,10 +58,36 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         if (isLeftNFUPressed)
         {
+            Debug.Log("b");
 
+            if (rightScrollbar.size > 0)
+            {
+                Debug.Log("down");
+                rightScrollbar.size = rightScrollbar.size - scrollbarSpeed;
+            }
+            else
+            {
+                Debug.Log("down");
+
+                leftScrollbar.size = leftScrollbar.size + scrollbarSpeed;
+            }
         }
         if (isRightNFUPressed)
         {
+            Debug.Log("b");
+
+            if (leftScrollbar.size > 0)
+            {
+                Debug.Log("down");
+
+                leftScrollbar.size = leftScrollbar.size - scrollbarSpeed;
+            }
+            else
+            {
+                Debug.Log("down");
+
+                rightScrollbar.size = rightScrollbar.size + scrollbarSpeed;
+            }
 
         }
     }

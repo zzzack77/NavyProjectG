@@ -434,6 +434,56 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1029198592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 59641952326014400, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
+  m_PrefabInstance: {fileID: 1159202584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1029198598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029198592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 133674961}
+          m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
+          m_MethodName: PressNFURightButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 133674961}
+          m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
+          m_MethodName: PressNFURightButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1077454981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7076192214294845965, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
@@ -537,7 +587,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 133674961}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
-          m_MethodName: PressNFULeftButton
+          m_MethodName: PressNFULeftButtonDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -553,7 +603,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 133674961}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
-          m_MethodName: PressNFURightButton
+          m_MethodName: PressNFULeftButtonUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -926,6 +976,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7906639842249756881, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1145583806}
+    - targetCorrespondingSourceObject: {fileID: 59641952326014400, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1029198598}
   m_SourcePrefab: {fileID: 100100000, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
 --- !u!1 &1159202585 stripped
 GameObject:
