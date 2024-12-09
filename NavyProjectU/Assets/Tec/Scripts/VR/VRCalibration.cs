@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
 
 public class VRCalibration : MonoBehaviour
 {
     private GameObject xrOrigin;
     public GameObject cameraGO;
-    private TrackedPoseDriver trackedPoseDriver; // Reference to the main cameras tracked pose driver
+
+    public GameObject leftHand;
+    public GameObject rightHand;
+    float lx = 0.0f;
+    float rx = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
-        trackedPoseDriver = cameraGO.GetComponent<TrackedPoseDriver>();
+        
         xrOrigin = GameObject.Find("XR Origin");
 
         if (xrOrigin == null)
@@ -27,14 +32,19 @@ public class VRCalibration : MonoBehaviour
         {
             VRResetRotation();
         }
+
+        lx = leftHand.transform.localPosition.x;
+        rx = rightHand.transform.localPosition.x;
+        Debug.Log(lx);
+        Debug.Log(rx);
     }
 
     public void VRResetRotation()
     {
-        trackedPoseDriver.enabled = false;
+       
         cameraGO.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         Debug.Log("R Key Pressed");
-        trackedPoseDriver.enabled = true;
+        
     }
 
     public void VRCalibrationMethod()
