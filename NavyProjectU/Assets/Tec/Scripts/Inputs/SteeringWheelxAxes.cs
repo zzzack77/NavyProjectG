@@ -9,9 +9,7 @@ public class SteeringWheelxAxes : MonoBehaviour
 
     void Update()
     {
-        
-        
-        
+
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
             LogitechGSDK.DIJOYSTATE2ENGINES rec;
@@ -21,7 +19,7 @@ public class SteeringWheelxAxes : MonoBehaviour
         }
         else
         {
-            print("No Steering Wheel Connected");
+           // print("No Steering Wheel Connected");
         }
     }
 }
