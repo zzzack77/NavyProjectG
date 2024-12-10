@@ -183,6 +183,8 @@ public class AudioFunctions : MonoBehaviour
         }
 
         Instantiate(Weather, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
+
+        Debug.Log("D");
         
         WeatherAudio = GetComponent<AudioSource>();
 
@@ -198,6 +200,8 @@ public class AudioFunctions : MonoBehaviour
         }
 
         Instantiate(Weather, transform.position = SpawnLocation.position, transform.rotation = SpawnLocation.rotation);
+
+        Debug.Log("T");
 
         WeatherAudio = GetComponent<AudioSource>();
 

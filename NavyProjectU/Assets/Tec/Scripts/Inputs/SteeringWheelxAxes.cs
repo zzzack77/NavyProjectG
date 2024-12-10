@@ -23,7 +23,7 @@ public class SteeringWheelxAxes : MonoBehaviour
         }
         else
         {
-            print("No Steering Wheel Connected");
+            //print("No Steering Wheel Connected");
         }
     }
 }
