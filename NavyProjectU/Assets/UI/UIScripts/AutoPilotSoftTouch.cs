@@ -21,6 +21,9 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
     public GameObject headingPanel;
     public GameObject setCoursePanel;
 
+    public GameObject leftRudderPanel;
+    public GameObject rightRudderPanel;
+
     public Scrollbar leftScrollbar;
     public Scrollbar rightScrollbar;
 
@@ -71,6 +74,16 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
 
                 leftScrollbar.size = leftScrollbar.size + scrollbarSpeed;
             }
+            TextMeshProUGUI leftRudderText = leftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = rightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+
+            if (leftRudderText != null && rightRudderPanel != null)
+            {
+                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+
+            }
         }
         if (isRightNFUPressed)
         {
@@ -87,6 +100,16 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
                 Debug.Log("down");
 
                 rightScrollbar.size = rightScrollbar.size + scrollbarSpeed;
+            }
+            TextMeshProUGUI leftRudderText = leftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = rightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+
+            if (leftRudderText != null && rightRudderPanel != null)
+            {
+                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+
             }
 
         }
