@@ -7,13 +7,11 @@ public class SteeringWheelxAxes : MonoBehaviour
     LogitechGSDK.LogiControllerPropertiesData properties;
     public float xAxes;
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
+        
+        
+        
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
             LogitechGSDK.DIJOYSTATE2ENGINES rec;
