@@ -26,20 +26,23 @@ public class PrivateVariables : MonoBehaviour
     private float roll;
 
     // UI variables
-    private float settingAutoCourse;
     [SerializeField]
     private float setAutoCourse;
+    private float settingAutoCourse;
     private float distanceFromGround;
     private bool isAuto;
+    private bool isBow;
 
     // Script variables
     //private AutoPilotUI autoPilotUI;
     private AutoPilotSoftTouch autopilotoftTouch;
+    private EchoSounderSoftTouch echoSounderSoftTouch;
 
     private void Awake()
     {
         //autoPilotUI = GetComponent<AutoPilotUI>();
         autopilotoftTouch = GetComponent<AutoPilotSoftTouch>();
+        echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
     }
 
     //getters and setters
@@ -67,6 +70,16 @@ public class PrivateVariables : MonoBehaviour
     }
     public float SetAutoCourse { get => setAutoCourse; set => setAutoCourse = value; }
 
+    public float DistanceFromGround
+    {
+        get => distanceFromGround;
+        set
+        {
+            distanceFromGround = value;
+            echoSounderSoftTouch.UpdateDepthLabel(value);
+        }
+    }
+    public bool IsBow { get => isBow; set => isBow = value; }
     public float Pitch { get => pitch; set => pitch = value; }
     public float Roll { get => roll; set => roll = value; }
     public bool IsAuto { get => isAuto; set => isAuto = value; }
