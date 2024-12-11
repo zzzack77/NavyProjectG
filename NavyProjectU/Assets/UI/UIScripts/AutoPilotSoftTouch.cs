@@ -87,17 +87,14 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
         }
         if (isRightNFUPressed)
         {
-            Debug.Log("b");
 
             if (leftScrollbar.size > 0)
             {
-                Debug.Log("down");
 
                 leftScrollbar.size = leftScrollbar.size - scrollbarSpeed;
             }
             else
             {
-                Debug.Log("down");
 
                 rightScrollbar.size = rightScrollbar.size + scrollbarSpeed;
             }
