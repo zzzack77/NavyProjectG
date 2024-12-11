@@ -20,24 +20,29 @@ public class PrivateVariables : MonoBehaviour
     _PrivateVariables.instertYourVariableHere = 0;
      */
 
-    //rotation variables
+    // Rotation variables
     private float heading;
     private float pitch;
     private float roll;
 
-    //ui variables
-    private float settingAutoCourse;
+    // UI variables
     [SerializeField]
     private float setAutoCourse;
+    private float settingAutoCourse;
     private float distanceFromGround;
     private bool isAuto;
+    private bool isBow;
 
-    //scrip variables
-    private AutoPilotUI autoPilotUI;
+    // Script variables
+    //private AutoPilotUI autoPilotUI;
+    private AutoPilotSoftTouch autopilotoftTouch;
+    private EchoSounderSoftTouch echoSounderSoftTouch;
 
     private void Awake()
     {
-        autoPilotUI = GetComponent<AutoPilotUI>();
+        //autoPilotUI = GetComponent<AutoPilotUI>();
+        autopilotoftTouch = GetComponent<AutoPilotSoftTouch>();
+        echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
     }
 
     //getters and setters
@@ -49,7 +54,7 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) heading = value + 360;
             else if (value >= 360) heading = value - 360;
             else heading = value;
-            autoPilotUI.OnHeadingUpdate();
+            autopilotoftTouch.OnHeadingUpdate();
         }
     }
     public float SettingAutoCourse
@@ -60,11 +65,21 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) settingAutoCourse = value + 360;
             else if (value >= 360) settingAutoCourse = value - 360;
             else settingAutoCourse = value;
-            autoPilotUI.OnSettingAutoCourseUpdate();
+            autopilotoftTouch.OnSettingAutoCourseUpdate();
         }
     }
     public float SetAutoCourse { get => setAutoCourse; set => setAutoCourse = value; }
 
+    public float DistanceFromGround
+    {
+        get => distanceFromGround;
+        set
+        {
+            distanceFromGround = value;
+            echoSounderSoftTouch.UpdateDepthLabel(value);
+        }
+    }
+    public bool IsBow { get => isBow; set => isBow = value; }
     public float Pitch { get => pitch; set => pitch = value; }
     public float Roll { get => roll; set => roll = value; }
     public bool IsAuto { get => isAuto; set => isAuto = value; }
