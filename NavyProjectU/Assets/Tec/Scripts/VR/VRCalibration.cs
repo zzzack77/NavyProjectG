@@ -8,11 +8,13 @@ public class VRCalibration : MonoBehaviour
 {
     private GameObject xrOrigin;
     public GameObject cameraGO;
-
-    public GameObject leftHand;
-    public GameObject rightHand;
+    public GameObject testObject;
+    public GameObject leftHand, rightHand; 
+    public GameObject leftWheelGripPoint, rightWheelGripPoint;
+    public GameObject userOriginpos;
     float lx = 0.0f;
     float rx = 0.0f;
+    Vector3 handMiddlePosDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class VRCalibration : MonoBehaviour
         {
             Debug.Log("XR Origin Game Object Not Found!");
         }
+        StartCoroutine(CalibrationCountdown());
     }
 
     // Update is called once per frame
@@ -30,25 +33,42 @@ public class VRCalibration : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            VRResetRotation();
+            StartCoroutine(CalibrationCountdown());
         }
-
-        lx = leftHand.transform.localPosition.x;
-        rx = rightHand.transform.localPosition.x;
-        Debug.Log(lx);
-        Debug.Log(rx);
     }
 
     public void VRResetRotation()
     {
-       
-        cameraGO.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-        Debug.Log("R Key Pressed");
-        
+        // Get current hand positions
+        Vector3 realLeftHandPos = leftHand.transform.position;
+        Vector3 realRightHandPos = rightHand.transform.position;
+
+        // Get virtual wheel grip points
+        Vector3 virtualLeftGripPos = leftWheelGripPoint.transform.position;
+        Vector3 virtualRightGripPos = rightWheelGripPoint.transform.position;
+
+        // Calculate position offset
+        handMiddlePosDistance = (leftHand.transform.position - rightHand.transform.position) / 2;
+        Vector3 virtualMidPoint = (virtualLeftGripPos - virtualRightGripPos) / 2;
+        Vector3 positionOffset = virtualMidPoint - handMiddlePosDistance;
+        positionOffset = new Vector3(positionOffset.x, 0, positionOffset.z);
+
+        // Calculate rotation offset
+        Vector3 realForward = (realRightHandPos - realLeftHandPos).normalized;
+        Vector3 virtualForward = (virtualRightGripPos - virtualLeftGripPos).normalized;
+        Quaternion fullRotationOffset = Quaternion.FromToRotation(realForward, virtualForward);
+        Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
+        Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
+
+        float scalingFactor = 2f;
+        xrOrigin.transform.position = userOriginpos.transform.position;
+        xrOrigin.transform.rotation = yAxisRotationOffset * xrOrigin.transform.rotation;
     }
 
-    public void VRCalibrationMethod()
-    {
 
+    private IEnumerator CalibrationCountdown()
+    {
+        yield return new WaitForSeconds(3f);
+        VRResetRotation();
     }
 }
