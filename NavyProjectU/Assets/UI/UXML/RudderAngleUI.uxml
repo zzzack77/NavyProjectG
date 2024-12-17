@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ContainerVE" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="LeftContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; margin-left: 150px; margin-right: 150px;">
+            <ui:VisualElement style="flex-grow: 1; max-height: 150px;" />
+            <ui:VisualElement style="flex-grow: 1; max-height: 100px;" />
+            <ui:VisualElement style="flex-grow: 1; min-height: 300px; max-height: 300px; height: 300px; margin-right: 150px; margin-left: 150px;" />
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; min-width: 50%;" />
+    </ui:VisualElement>
+</ui:UXML>
