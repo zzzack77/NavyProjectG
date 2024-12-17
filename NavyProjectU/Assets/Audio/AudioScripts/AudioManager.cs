@@ -46,19 +46,19 @@ public class AudioManager : MonoBehaviour
 
     public void BoatThrottle()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.W)) 
         {
             keyPressStartTime = Time.time;  
             IsOn = true;
         }
 
-        if (Input.GetKey(KeyCode.Space))  
+        if (Input.GetKey(KeyCode.W))  
         {
             
             keyHoldDuration = Time.time - keyPressStartTime;        
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))  
+        if (Input.GetKeyUp(KeyCode.W))  
         {
             keyPressStartTime = -1f;                               
 
