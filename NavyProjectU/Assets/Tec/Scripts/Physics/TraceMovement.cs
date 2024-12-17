@@ -27,13 +27,10 @@ public class TraceMovement : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log(gameObject.name);
-
         RaycastHit hit;
         bool traceHit = Physics.Raycast(transform.position, -transform.up, out hit, 10.0f);
 
         UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.red);
-        UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
         if (traceType == "Bouyancy")
         {
@@ -63,7 +60,7 @@ public class TraceMovement : MonoBehaviour
         {
 
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.yellow);
-            UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
+            UnityEngine.Debug.DrawRay(transform.position, transform.forward * 4.0f, Color.blue);
 
             if (traceHit)
             {

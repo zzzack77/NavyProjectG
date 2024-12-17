@@ -32,31 +32,23 @@ public class ShipMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //Ray ray;
-
-        //ray = new Ray(transform.position, transform.forward);
-        //if(Physics.Raycast(ray, out RaycastHit hit))
-        //{
-        //    Debug.Log("HitTest");
-        //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-        //}
+    {       
 
         Vector3 forwardDirection = transform.forward;
 
+        
+        // Throttle code slowly ups the throttle the longer you press the forward and backward keys.
+        // This will need to be mapped to the throttle axis once we connect it all up.
+
         if (Input.GetKey(KeyCode.W))
         {
-            //Debug.Log("Hello");
+            
             accelInput = accelInput + 0.001f;
-            //rb.AddForceAtPosition(forwardDirection * 200.0f, transform.position);
-
+            
             if(accelInput > 1.0f)
             {
                 accelInput = 1.0f;
             }
-
-            //UnityEngine.Debug.Log(accelInput);
         }
         else if(Input.GetKey(KeyCode.S))
         {
@@ -66,10 +58,10 @@ public class ShipMovement : MonoBehaviour
             {
                 accelInput = -1.0f;
             }
-
-            //UnityEngine.Debug.Log(accelInput);
-
         }
+
+        // Steering code turns the rudder when the A and D keys are pressed.
+        // Once the steering wheel is connected to the project, this will need to be mapped to its axis.
 
         if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
         {
@@ -78,19 +70,15 @@ public class ShipMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             steeringInput = 1.0f;
-            //UnityEngine.Debug.Log("A");
+
         }
         else if (Input.GetKey(KeyCode.D))
         {
             steeringInput = -1.0f;
-            //UnityEngine.Debug.Log("D");
         }
         else
         {
             steeringInput = 0.0f;
         }
-
-        //UnityEngine.Debug.Log(steeringInput);
-
     }
 }
