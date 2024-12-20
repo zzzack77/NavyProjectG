@@ -1,12 +1,45 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="ContainerVE" style="flex-grow: 1; flex-direction: row;">
-        <ui:VisualElement name="LeftContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; margin-left: 150px; margin-right: 150px;">
-            <ui:VisualElement style="flex-grow: 1; max-height: 150px;" />
-            <ui:VisualElement style="flex-grow: 1; max-height: 100px;" />
-            <ui:VisualElement style="flex-grow: 1; min-height: 300px; max-height: 300px; height: 300px; margin-right: 150px; margin-left: 150px;" />
-            <ui:VisualElement style="flex-grow: 1;" />
-            <ui:VisualElement style="flex-grow: 1;" />
+    <Style src="project://database/Assets/UI/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
+    <ui:VisualElement name="ContainerVE" style="flex-grow: 1; flex-direction: row; background-color: rgb(38, 43, 56);">
+        <ui:VisualElement name="LeftContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; margin-left: 210px; margin-right: 210px;">
+            <ui:Label tabindex="-1" text="RUDDER ANGLE" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" />
+            <ui:Label tabindex="-1" text="DEGREES" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" style="font-size: 30px;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.35); max-height: 572px; min-height: 80px;">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/UIArt/Rudder%20Angle%20UI.png?fileID=2800000&amp;guid=b93615b3f3c114d4b9bd7857c36145a0&amp;type=3#Rudder Angle UI&quot;);">
+                    <ui:VisualElement name="leftRudderAngleDial" class="whiteDial" style="flex-grow: 1; top: 148px; left: 276px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label tabindex="-1" text="CLINOMETER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" style="font-size: 32px;" />
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; max-height: 361px; height: 15px; padding-bottom: 50px; padding-right: 150px; padding-left: 150px;">
+                <ui:VisualElement style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.35);">
+                    <ui:VisualElement style="flex-grow: 1; height: 80%;">
+                        <ui:VisualElement name="leftRudderAngleDial" class="whiteDial" style="flex-grow: 1; top: 120px; left: 118px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; height: 15%;">
+                        <ui:Label tabindex="-1" text="0.0" parse-escape-sequences="true" display-tooltip-when-elided="true" class="label" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 20px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="RightContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; min-width: 50%;" />
+        <ui:VisualElement name="LeftContainerVE" style="flex-grow: 1; width: 50%; max-width: 50%; margin-left: 210px; margin-right: 210px;">
+            <ui:Label tabindex="-1" text="RUDDER ANGLE" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" />
+            <ui:Label tabindex="-1" text="DEGREES" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" style="font-size: 30px;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.35); max-height: 572px; min-height: 80px;">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/UIArt/Rudder%20Angle%20UI.png?fileID=2800000&amp;guid=b93615b3f3c114d4b9bd7857c36145a0&amp;type=3#Rudder Angle UI&quot;);">
+                    <ui:VisualElement name="leftRudderAngleDial" class="whiteDial" style="flex-grow: 1; top: 148px; left: 276px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label tabindex="-1" text="CLINOMETER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" style="font-size: 32px;" />
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; max-height: 361px; height: 15px; padding-bottom: 50px; padding-right: 150px; padding-left: 150px;">
+                <ui:VisualElement style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.35);">
+                    <ui:VisualElement style="flex-grow: 1; height: 80%;">
+                        <ui:VisualElement name="leftRudderAngleDial" class="whiteDial" style="flex-grow: 1; top: 120px; left: 118px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; height: 15%;">
+                        <ui:Label tabindex="-1" text="0.0" parse-escape-sequences="true" display-tooltip-when-elided="true" class="label" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 20px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
