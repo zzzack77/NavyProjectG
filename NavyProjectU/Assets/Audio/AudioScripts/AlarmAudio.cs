@@ -21,7 +21,7 @@ public class AlarmAudio : MonoBehaviour
 
     public void Alarm()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
 
             AlarmSource.clip = FaultAlarm;
