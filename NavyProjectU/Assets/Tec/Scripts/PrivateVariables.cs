@@ -33,6 +33,16 @@ public class PrivateVariables : MonoBehaviour
     private bool isAuto;
     private bool isBow;
 
+    // Failures / Errors
+    private bool systemFailure;
+    private bool gyroFailure;
+    private bool steeringGearFailure;
+    private bool autoPilotFailure;
+    private bool logFailure;
+    private bool rudderIndicatorFailure;
+
+
+
     // Script variables
     //private AutoPilotUI autoPilotUI;
     private AutoPilotSoftTouch autopilotoftTouch;
@@ -83,5 +93,15 @@ public class PrivateVariables : MonoBehaviour
     public float Pitch { get => pitch; set => pitch = value; }
     public float Roll { get => roll; set => roll = value; }
     public bool IsAuto { get => isAuto; set => isAuto = value; }
+
+    // Failures / Errors
+    public bool SystemFailure { get => systemFailure; set => systemFailure = value; }
+    public bool GyroFailure { get => gyroFailure; set => gyroFailure = value; }
+    public bool SteeringGearFailure { get => steeringGearFailure; set => steeringGearFailure = value; }
+    public bool AutoPilotFailure { get => autoPilotFailure; set => autoPilotFailure = value; }
+    public bool LogFailure { get => logFailure; set => logFailure = value; }
+    public bool RudderIndicatorFailure { get => rudderIndicatorFailure; set => rudderIndicatorFailure = value; }
+
+
 
 }
