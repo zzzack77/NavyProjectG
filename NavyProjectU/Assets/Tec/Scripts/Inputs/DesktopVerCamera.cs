@@ -1,30 +1,57 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DesktopVerCamera : MonoBehaviour
+public class SimpleCameraMovement : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
+    public float moveSpeed = 5f; // Speed of movement
 
     private float xRotation = 0f;
+    private float yRotation = 0f;
+
+    private bool cameraCanMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Lock the cursor to the center of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        StartCoroutine(CameraWait());
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (cameraCanMove)
+        {
+            // Get mouse input
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Adjust vertical rotation (inverted Y-axis for a natural feel)
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp rotation to avoid flipping
+            // Adjust the camera's rotation for looking up and down
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Prevent the camera from flipping over
 
-        // Combine vertical and horizontal rotation
-        transform.localRotation = Quaternion.Euler(xRotation, transform.localRotation.eulerAngles.y + mouseX, 0f);
+            yRotation += mouseX;
+
+            // Rotate the camera horizontally (around the Y-axis)
+            transform.Rotate(Vector3.up * mouseX);
+
+            // Apply vertical rotation by adjusting the camera's local rotation around the X-axis
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        }
+     
+
+        
+
+
+    }
+    IEnumerator CameraWait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        cameraCanMove = true;
     }
 }
