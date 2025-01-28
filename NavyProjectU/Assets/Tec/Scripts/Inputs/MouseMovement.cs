@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,33 +13,25 @@ public class MouseMovement : MonoBehaviour
     private float mouseX;
     private float mouseY;
 
+    [SerializeField] private float maxX = 2050;
+    [SerializeField] private float minX = -150;
+    [SerializeField] private float maxY = 1050;
+    [SerializeField] private float minY = 50;
 
-    [SerializeField] private float floatX;
-    [SerializeField] private float floatY;
-
-    [SerializeField] private float maxX;
-    [SerializeField] private float minX;
-    [SerializeField] private float maxY;
-    [SerializeField] private float minY;
     Vector3 mousePos;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        // Get the mouse position
         mousePos = Input.mousePosition;
-        Debug.Log(mousePos);
 
-        if (mousePos.x >= maxX)
+        // Horizontal movement logic (X-Axis)
+        if (mousePos.x >= maxX) // Moving to the right
         {
             mouseX = 1f * moveSpeed * Time.deltaTime;
         }
-        else if (mousePos.x <= minX)
+        else if (mousePos.x <= minX) // Moving to the left
         {
             mouseX = -1f * moveSpeed * Time.deltaTime;
         }
@@ -49,11 +40,12 @@ public class MouseMovement : MonoBehaviour
             mouseX = 0f;
         }
 
-        if (mousePos.y >= maxY)
+        // Vertical movement logic (Y-Axis)
+        if (mousePos.y >= maxY) // Moving up
         {
             mouseY = 1f * moveSpeed * Time.deltaTime;
         }
-        else if (mousePos.y <= minY)
+        else if (mousePos.y <= minY) // Moving down
         {
             mouseY = -1f * moveSpeed * Time.deltaTime;
         }
@@ -62,17 +54,14 @@ public class MouseMovement : MonoBehaviour
             mouseY = 0f;
         }
 
-        
-
-        // Adjust the camera's rotation for looking up and down
+        // Adjust the camera's rotation for looking up and down (X axis)
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Prevent the camera from flipping over
 
+        // Adjust the camera's rotation for left and right (Y axis)
         yRotation += mouseX;
 
-
-        // Apply vertical rotation by adjusting the camera's local rotation around the X-axis
+        // Apply the rotations to the camera
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
     }
 }
