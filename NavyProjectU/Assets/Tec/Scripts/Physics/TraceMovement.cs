@@ -68,11 +68,11 @@ public class TraceMovement : MonoBehaviour
 
                 Vector3 traceWorldVel = boatRigidBody.GetPointVelocity(transform.position);
 
-                UnityEngine.Debug.Log(traceWorldVel.magnitude);
+                //UnityEngine.Debug.Log(traceWorldVel.magnitude);
 
                 float steeringVel = Vector3.Dot(steeringDir, traceWorldVel);
 
-                UnityEngine.Debug.Log(steeringVel);
+                //UnityEngine.Debug.Log(steeringVel);
 
 
                 float desiredVelChange = -steeringVel * parentScript.dragFactor;
@@ -89,24 +89,26 @@ public class TraceMovement : MonoBehaviour
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
             //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
-            if (traceHit)
+            Vector3 accelDir = transform.forward;
+
+            if (parentScript.accelInput != 0.0f)
             {
-                Vector3 accelDir = transform.forward;
+                float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
-                if (parentScript.accelInput != 0.0f)
-                {
-                    float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
+                float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed) / parentScript.boatTopSpeed);
 
-                    float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed) / parentScript.boatTopSpeed);
+                float availableTorque = parentScript.shipPower * parentScript.accelInput;
 
-                    float availableTorque = parentScript.shipPower * parentScript.accelInput;
+                boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
-                    boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
+                //UnityEngine.Debug.Log(boatRigidBody.velocity.magnitude);
 
-                    //UnityEngine.Debug.Log(boatRigidBody.velocity.magnitude);
-
-                }
             }
+
+            //if (traceHit)
+            //{
+                
+            //}
         }
     }
 }
