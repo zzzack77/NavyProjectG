@@ -29,6 +29,7 @@ public class WorldSpaceButtonClick : MonoBehaviour
                     // If the button was clicked, invoke the button click event
                     button.onClick.Invoke();
                     Debug.Log("Button Clicked!");
+
                 }
             }
         }
