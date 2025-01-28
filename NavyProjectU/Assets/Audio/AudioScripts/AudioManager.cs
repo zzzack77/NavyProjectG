@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource BoatSource;
     public AudioClip BoatIdle, Horn;
 
-    private float keyPressStartTime = -1f;  
-    private float keyHoldDuration = 0f;     
+    public float keyPressStartTime = -1f;  
+    public float keyHoldDuration;     
     public float BoatRev;
 
     public bool IsOn;
@@ -46,23 +46,45 @@ public class AudioManager : MonoBehaviour
 
     public void BoatThrottle()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.S)) 
         {
             keyPressStartTime = Time.time;  
             IsOn = true;
         }
 
-        if (Input.GetKey(KeyCode.Space))  
+        if (Input.GetKey(KeyCode.S))  
         {
             
             keyHoldDuration = Time.time - keyPressStartTime;        
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))  
+        if (Input.GetKeyUp(KeyCode.S))  
         {
             keyPressStartTime = -1f;                               
 
-            keyHoldDuration = 0f;
+            keyHoldDuration = BoatRev;
+
+            IsOn = false;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            keyPressStartTime = Time.time;
+            IsOn = true;
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+
+            keyHoldDuration = Time.time - keyPressStartTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            keyPressStartTime = -1f;
+
+            keyHoldDuration = BoatRev;
 
             IsOn = false;
 
