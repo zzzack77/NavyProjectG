@@ -37,8 +37,6 @@ public class SimpleCameraMovement : MonoBehaviour
 
             yRotation += mouseX;
 
-            // Rotate the camera horizontally (around the Y-axis)
-            transform.Rotate(Vector3.up * mouseX);
 
             // Apply vertical rotation by adjusting the camera's local rotation around the X-axis
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);

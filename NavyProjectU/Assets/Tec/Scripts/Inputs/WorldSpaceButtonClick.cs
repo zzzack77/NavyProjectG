@@ -24,10 +24,17 @@ public class WorldSpaceButtonClick : MonoBehaviour
                 Debug.Log("you hit summin");
                 Debug.Log(hit.collider.gameObject.ToString());
                 // Check if the raycast hit the button's collider
-                if (hit.collider != null && hit.collider.gameObject == button.gameObject)
+                if (hit.collider != null && hit.collider.gameObject.CompareTag("Button"))
                 {
                     // If the button was clicked, invoke the button click event
-                    button.onClick.Invoke();
+                    hit.collider.GetComponent<Button>().onClick.Invoke();
+                    Debug.Log("Button Clicked!");
+                }
+
+                if (hit.collider != null && hit.collider.gameObject.CompareTag("AutoPilot"))
+                {
+                    // If the button was clicked, invoke the button click event
+                   // hit.collider.GetComponent<Button>().OnPointerDown(hit.collider.GetComponent<>().eventData);
                     Debug.Log("Button Clicked!");
                 }
             }
