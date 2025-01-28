@@ -10,39 +10,174 @@ using UnityEditor;
 public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private PrivateVariables _PrivateVariables;
+
+    
+    
+
     // Buttons
-    public Button autoButton;
-    public Button manualButton;
-    public Button nfuButton;
+    private Button autoButton;
+    private Button manualButton;
+    private Button nfuButton;
+
+    private Button AUTOleftButton;
+    private Button AUTOrightButton;
+
+    private Button AUTOenterButton;
+
+    // Heading
+    private GameObject headingPanel;
 
     // Panels
-    public GameObject autoPanel;
-    public GameObject NFUPanel;
-    public GameObject headingPanel;
-    public GameObject setCoursePanel;
+    private GameObject autoPanel;
+    private GameObject NFUPanel;
 
-    public GameObject leftRudderPanel;
-    public GameObject rightRudderPanel;
+    private GameObject AUTOsetCoursePanel;
 
-    public Scrollbar leftScrollbar;
-    public Scrollbar rightScrollbar;
+    // NFU
+    private GameObject NFUleftRudderPanel;
+    private GameObject NFUrightRudderPanel;
+
+    private Scrollbar NFUleftScrollbar;
+    private Scrollbar NFUrightScrollbar;
 
 
     // Which steering type
-    public bool isAuto;
-    public bool isManual;
-    public bool isNfu;
+    private bool isAuto;
+    private bool isManual;
+    private bool isNfu;
 
     // Bool types
-    public bool isLeftNFUPressed;
-    public bool isRightNFUPressed;
+    private bool isLeftNFUPressed;
+    private bool isRightNFUPressed;
 
     private float scrollbarSpeed = 0.01f;
 
     public void Start()
     {
+        Debug.Log("hello world");
         _PrivateVariables = GetComponent<PrivateVariables>();
 
+        GameObject AutoPSoftTouch = GameObject.Find("AutoPSoftTouch");
+        if (AutoPSoftTouch != null)
+        {
+            Button[] buttons = AutoPSoftTouch.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                // Assign the buttons by name
+                if (button.name == "autoB")
+                {
+                    autoButton = button;
+                    Debug.Log("1");
+                }
+                if (button.name == "manualB")
+                {
+                    manualButton = button;
+                    Debug.Log("2");
+
+                }
+                if (button.name == "nfuB")
+                {
+                    nfuButton = button;
+                    Debug.Log("3");
+
+                }
+                if (button.name == "AUTOleftB")
+                {
+                    AUTOleftButton = button;
+                    Debug.Log("4");
+
+                }
+                if (button.name == "AUTOrightB")
+                {
+                    AUTOrightButton = button;
+                    Debug.Log("5");
+
+                }
+                if (button.name == "AUTOenterB")
+                {
+                    AUTOenterButton = button;
+                }
+                // Listeners
+                if (autoButton != null)
+                {
+                    autoButton.onClick.AddListener(PressAutoButton);
+                }
+                if (manualButton != null)
+                {
+                    manualButton.onClick.AddListener(PressManualButton);
+                }
+                if (nfuButton != null)
+                {
+                    nfuButton.onClick.AddListener(PressNfuButton);
+                }
+                if (AUTOleftButton != null)
+                {
+                    AUTOleftButton.onClick.AddListener(PressAutoLeftButton);
+                }
+                if (AUTOrightButton != null)
+                {
+                    AUTOrightButton.onClick.AddListener(PressAutoRightButton);
+                }
+                if (AUTOenterButton != null)
+                {
+                    AUTOenterButton.onClick.AddListener(PressEnterButton);
+                }
+            }
+
+            Transform[] gameobjects = AutoPSoftTouch.GetComponentsInChildren<Transform>();
+            foreach (Transform transform in gameobjects)
+            {
+                GameObject gameObject = transform.gameObject;
+                if (gameObject.name == "headingP")
+                {
+                    headingPanel = gameObject;
+                    Debug.Log("6");
+
+                }
+                if (gameObject.name == "autoPilotP")
+                {
+                    autoPanel = gameObject;
+                    Debug.Log("7");
+
+                }
+                if (gameObject.name == "NFUP")
+                {
+                    NFUPanel = gameObject;
+                    Debug.Log("8");
+
+                }
+                if (gameObject.name == "AUTOsetCourseP")
+                {
+                    AUTOsetCoursePanel = gameObject;
+                    Debug.Log("9");
+
+                }
+                if (gameObject.name == "NFUsetCourseLeftP")
+                {
+                    NFUleftRudderPanel = gameObject;
+                    Debug.Log("10");
+
+                }
+                if (gameObject.name == "NFUsetCourseRightP")
+                {
+                    NFUrightRudderPanel = gameObject;
+                    Debug.Log("11");
+
+                }
+            }
+            Scrollbar[] scrollbars = AutoPSoftTouch.GetComponentsInChildren<Scrollbar>();
+            foreach (Scrollbar scrollbar in scrollbars)
+            {
+                if (scrollbar.name == "NFUScrollbarLeft")
+                {
+                    NFUleftScrollbar = scrollbar;
+                }
+                if (scrollbar.name == "NFUScrollbarRight")
+                {
+                    NFUrightScrollbar = scrollbar;
+                }
+            }
+        }
         // Defult manual steering mode
         PressManualButton();
     }
@@ -63,25 +198,25 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             Debug.Log("b");
 
-            if (rightScrollbar.size > 0)
+            if (NFUrightScrollbar.size > 0)
             {
                 Debug.Log("down");
-                rightScrollbar.size = rightScrollbar.size - scrollbarSpeed;
+                NFUrightScrollbar.size = NFUrightScrollbar.size - scrollbarSpeed;
             }
             else
             {
                 Debug.Log("down");
 
-                leftScrollbar.size = leftScrollbar.size + scrollbarSpeed;
+                NFUleftScrollbar.size = NFUleftScrollbar.size + scrollbarSpeed;
             }
-            TextMeshProUGUI leftRudderText = leftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
-            TextMeshProUGUI rightRudderText = rightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI leftRudderText = NFUleftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = NFUrightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
 
 
-            if (leftRudderText != null && rightRudderPanel != null)
+            if (leftRudderText != null && NFUrightRudderPanel != null)
             {
-                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
-                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+                leftRudderText.text = (NFUleftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (NFUrightScrollbar.size * 35).ToString("000.0");
 
             }
         }
@@ -89,26 +224,26 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             Debug.Log("b");
 
-            if (leftScrollbar.size > 0)
+            if (NFUleftScrollbar.size > 0)
             {
                 Debug.Log("down");
 
-                leftScrollbar.size = leftScrollbar.size - scrollbarSpeed;
+                NFUleftScrollbar.size = NFUleftScrollbar.size - scrollbarSpeed;
             }
             else
             {
                 Debug.Log("down");
 
-                rightScrollbar.size = rightScrollbar.size + scrollbarSpeed;
+                NFUrightScrollbar.size = NFUrightScrollbar.size + scrollbarSpeed;
             }
-            TextMeshProUGUI leftRudderText = leftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
-            TextMeshProUGUI rightRudderText = rightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI leftRudderText = NFUleftRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = NFUrightRudderPanel.GetComponentInChildren<TextMeshProUGUI>();
 
 
-            if (leftRudderText != null && rightRudderPanel != null)
+            if (leftRudderText != null && NFUrightRudderPanel != null)
             {
-                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
-                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+                leftRudderText.text = (NFUleftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (NFUrightScrollbar.size * 35).ToString("000.0");
 
             }
 
@@ -171,9 +306,9 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
     }
 
     // Changes the Set Course text by -1
-    public void PressAutoLeftButton() { _PrivateVariables.SettingAutoCourse = _PrivateVariables.SettingAutoCourse - 1; }
+    public void PressAutoLeftButton() { _PrivateVariables.SettingAutoCourse = _PrivateVariables.SettingAutoCourse - 1; Debug.Log("one press"); }
     // Changes the Set Course text by +1
-    public void PressAutoRightButton() { _PrivateVariables.SettingAutoCourse++; }
+    public void PressAutoRightButton() { _PrivateVariables.SettingAutoCourse ++; }
     // Sets the auto pilot to the value you have inputted
     public void PressEnterButton() { _PrivateVariables.SetAutoCourse = _PrivateVariables.SettingAutoCourse; }
 
@@ -265,7 +400,7 @@ public class AutoPilotSoftTouch : MonoBehaviour, IPointerDownHandler, IPointerUp
     }
     public void OnSettingAutoCourseUpdate()
     {
-        TextMeshProUGUI setCourseText = setCoursePanel.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI setCourseText = AUTOsetCoursePanel.GetComponentInChildren<TextMeshProUGUI>();
 
         if (setCourseText != null)
         {

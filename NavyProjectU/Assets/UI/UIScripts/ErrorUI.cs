@@ -21,7 +21,7 @@ public class ErrorUI : MonoBehaviour
     {
         _privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
 
-        GameObject errorUICanvas = GameObject.Find("ErrorUICanvas");
+        GameObject errorUICanvas = GameObject.Find("ErrorSTouchUI");
         if (errorUICanvas != null)
         {
             Button[] buttons = errorUICanvas.GetComponentsInChildren<Button>();
@@ -45,6 +45,10 @@ public class ErrorUI : MonoBehaviour
                     //Debug.Log($"{button.name} assigned");
                 }
             }
+        }
+        else
+        {
+            Debug.LogError("Error Soft Touch Pannel failed to be initilised");
         }
     }
 
