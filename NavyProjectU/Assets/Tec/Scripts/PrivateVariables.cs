@@ -33,16 +33,28 @@ public class PrivateVariables : MonoBehaviour
     private bool isAuto;
     private bool isBow;
 
+    // Failures / Errors
+    private bool systemFailure;
+    private bool gyroFailure;
+    private bool steeringGearFailure;
+    private bool autoPilotFailure;
+    private bool logFailure;
+    private bool rudderIndicatorFailure;
+
+
+
     // Script variables
     //private AutoPilotUI autoPilotUI;
     private AutoPilotSoftTouch autopilotoftTouch;
     private EchoSounderSoftTouch echoSounderSoftTouch;
+    private ErrorUI errorUI;
 
     private void Awake()
     {
         //autoPilotUI = GetComponent<AutoPilotUI>();
         autopilotoftTouch = GetComponent<AutoPilotSoftTouch>();
         echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
+        errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
     }
 
     //getters and setters
@@ -84,4 +96,11 @@ public class PrivateVariables : MonoBehaviour
     public float Roll { get => roll; set => roll = value; }
     public bool IsAuto { get => isAuto; set => isAuto = value; }
 
+    // Failures / Errors
+    public bool SystemFailure { get => systemFailure; set { systemFailure = value; errorUI.UpdateFailures(); }}
+    public bool GyroFailure { get => gyroFailure; set { gyroFailure = value; errorUI.UpdateFailures(); } }
+    public bool SteeringGearFailure { get => steeringGearFailure; set { steeringGearFailure = value; errorUI.UpdateFailures(); } }
+    public bool AutoPilotFailure { get => autoPilotFailure; set { autoPilotFailure = value; errorUI.UpdateFailures(); } }
+    public bool LogFailure { get => logFailure; set { logFailure = value; errorUI.UpdateFailures(); } }
+    public bool RudderIndicatorFailure { get => rudderIndicatorFailure; set { rudderIndicatorFailure = value; errorUI.UpdateFailures(); } }
 }
