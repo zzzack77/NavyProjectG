@@ -246,7 +246,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFURightButtonDown
           m_Mode: 1
@@ -262,7 +262,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFURightButtonUp
           m_Mode: 1
@@ -278,11 +278,6 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2121490979585633552, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
   m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &72048376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3813692488108393372, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &84987633
 GameObject:
@@ -1552,17 +1547,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6484816944661230505, guid: 86a5bf68cb51f4e44bd3893bd22a2ba7, type: 3}
   m_PrefabInstance: {fileID: 3001774293689589082}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &248562288 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7076192214294845965, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &257810521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,7 +2890,7 @@ PrefabInstance:
     - target: {fileID: 875369964266870224, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 875369964266870224, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2934,7 +2918,7 @@ PrefabInstance:
     - target: {fileID: 950543453623952609, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 950543453623952609, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2966,7 +2950,7 @@ PrefabInstance:
     - target: {fileID: 1507685448538129799, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 1507685448538129799, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3010,7 +2994,7 @@ PrefabInstance:
     - target: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressAutoButton
@@ -3114,7 +3098,7 @@ PrefabInstance:
     - target: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNfuButton
@@ -3126,7 +3110,7 @@ PrefabInstance:
     - target: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressManualButton
@@ -3163,91 +3147,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 786594747}
   m_SourcePrefab: {fileID: 100100000, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
---- !u!114 &542445834 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7076192214294845965, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &542445835 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3999639452259640645, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &542445836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5345222809530158590, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &542445837 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6963801096322706382, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &542445838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 610396094213830809, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &542445839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7677504051375718093, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &542445840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2052132439971121527, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &542445841 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42115522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &542445842 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613524626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &542445843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447169624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &542445844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3813692488108393372, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 542445833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562397437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,7 +3298,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNfuButton
           m_Mode: 1
@@ -3449,7 +3348,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressAutoRightButton
           m_Mode: 1
@@ -3461,17 +3360,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &608653995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &643729420
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,17 +3972,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756457305}
   m_CullTransparentMesh: 1
---- !u!114 &770537404 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &771927256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6190147700613021070, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
@@ -4117,7 +3994,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressAutoLeftButton
           m_Mode: 1
@@ -4156,7 +4033,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFURightButtonDown
           m_Mode: 1
@@ -4172,7 +4049,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFURightButtonUp
           m_Mode: 1
@@ -4201,7 +4078,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFULeftButtonDown
           m_Mode: 1
@@ -4217,7 +4094,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFULeftButtonUp
           m_Mode: 1
@@ -4811,17 +4688,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
   m_PrefabInstance: {fileID: 901971817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1105328846 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3999639452259640645, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1116754896
 GameObject:
   m_ObjectHideFlags: 0
@@ -4832,8 +4698,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1116754899}
   - component: {fileID: 1116754898}
-  - component: {fileID: 1116754897}
-  - component: {fileID: 1116754900}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4841,34 +4705,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1116754897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116754896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a3fe168cb1db748951b71a479159ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoButton: {fileID: 542445843}
-  manualButton: {fileID: 542445842}
-  nfuButton: {fileID: 542445841}
-  autoPanel: {fileID: 542445840}
-  NFUPanel: {fileID: 542445838}
-  headingPanel: {fileID: 542445844}
-  setCoursePanel: {fileID: 542445839}
-  leftRudderPanel: {fileID: 542445837}
-  rightRudderPanel: {fileID: 542445836}
-  leftScrollbar: {fileID: 542445835}
-  rightScrollbar: {fileID: 542445834}
-  isAuto: 0
-  isManual: 0
-  isNfu: 0
-  isLeftNFUPressed: 0
-  isRightNFUPressed: 0
 --- !u!114 &1116754898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,34 +4733,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116754900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116754896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a3fe168cb1db748951b71a479159ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoButton: {fileID: 770537404}
-  manualButton: {fileID: 608653995}
-  nfuButton: {fileID: 1939033588}
-  autoPanel: {fileID: 1416328977}
-  NFUPanel: {fileID: 1819662109}
-  headingPanel: {fileID: 72048376}
-  setCoursePanel: {fileID: 1469628215}
-  leftRudderPanel: {fileID: 0}
-  rightRudderPanel: {fileID: 0}
-  leftScrollbar: {fileID: 1105328846}
-  rightScrollbar: {fileID: 248562288}
-  isAuto: 0
-  isManual: 0
-  isNfu: 0
-  isLeftNFUPressed: 0
-  isRightNFUPressed: 0
 --- !u!1 &1120754355
 GameObject:
   m_ObjectHideFlags: 0
@@ -6610,7 +6418,7 @@ PrefabInstance:
     - target: {fileID: 875369964266870224, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 875369964266870224, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -6638,7 +6446,7 @@ PrefabInstance:
     - target: {fileID: 950543453623952609, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 950543453623952609, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -6670,7 +6478,7 @@ PrefabInstance:
     - target: {fileID: 1507685448538129799, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 1507685448538129799, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -6714,7 +6522,7 @@ PrefabInstance:
     - target: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 2176876269958659770, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressAutoButton
@@ -6826,7 +6634,7 @@ PrefabInstance:
     - target: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNfuButton
@@ -6850,7 +6658,7 @@ PrefabInstance:
     - target: {fileID: 5072040755550504956, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754897}
+      objectReference: {fileID: 0}
     - target: {fileID: 5072040755550504956, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -6874,7 +6682,7 @@ PrefabInstance:
     - target: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1116754900}
+      objectReference: {fileID: 0}
     - target: {fileID: 8366165257860026778, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressManualButton
@@ -6942,7 +6750,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressNFULeftButtonUp
           m_Mode: 1
@@ -6954,11 +6762,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &1416328977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2052132439971121527, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1435680057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 642148851491646720, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
@@ -6981,7 +6784,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressEnterButton
           m_Mode: 1
@@ -7153,7 +6956,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressAutoButton
           m_Mode: 1
@@ -7165,11 +6968,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &1469628215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7677504051375718093, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1546637062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7414,7 +7212,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressManualButton
           m_Mode: 1
@@ -8079,11 +7877,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801798002}
   m_CullTransparentMesh: 1
---- !u!1 &1819662109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 610396094213830809, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1820850958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8306700922104627377, guid: 66d40221d132d04499855da9ce315f20, type: 3}
@@ -8202,7 +7995,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1116754897}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: AutoPilotSoftTouch, Assembly-CSharp
           m_MethodName: PressEnterButton
           m_Mode: 1
@@ -8686,17 +8479,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1939033588 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3532554200520928227, guid: 731e03893b11e9743aaffb8b07702bbd, type: 3}
-  m_PrefabInstance: {fileID: 1408482563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2001866392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4941219564456579801, guid: dc067c577ec1b854684d789b6e727cc0, type: 3}
