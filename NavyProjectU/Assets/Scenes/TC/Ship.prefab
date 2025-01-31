@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 8727907351917389929}
   - component: {fileID: 2275981430625849510}
   - component: {fileID: 7513684317659465810}
+  - component: {fileID: 5280059316279320147}
   m_Layer: 0
   m_Name: RL
   m_TagString: Untagged
@@ -75,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 4851632303995984320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.4, z: -0.4}
+  m_LocalPosition: {x: -0.7, y: -0.2, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851632303995984320}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2ee3ade9e7d974e9c964e17d1dec3b, type: 3}
   m_Name: 
@@ -113,6 +114,20 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+--- !u!114 &5280059316279320147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851632303995984320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ea972387b108342a12500fe2acfaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1320367360844907748}
+  Invert: 1
 --- !u!1 &5323638089164348702
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,11 +259,11 @@ MonoBehaviour:
   rb: {fileID: 7772279565842285386}
   accelInput: 0
   steeringInput: 0
-  shipPower: 100
+  shipPower: 200
   suspensionRestDist: 5
   springStrength: 400
   springDamper: 40
-  dragFactor: 1
+  dragFactor: 0.5
   boatWeight: 1
   boatTopSpeed: 1
 --- !u!54 &7772279565842285386
@@ -305,8 +320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5524815688425772387}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19197342, y: -0.009589563, z: 0.0018759249, w: 0.9813515}
-  m_LocalPosition: {x: 0.105, y: 3.6290002, z: -1.0686667}
+  m_LocalRotation: {x: 0.038723566, y: -0.009763996, z: 0.00037839907, w: 0.99920225}
+  m_LocalPosition: {x: -0.07, y: 1.18, z: 0.138}
   m_LocalScale: {x: 0.0498762, y: 0.03347582, z: 0.007687693}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -319,7 +334,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5524815688425772387}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -426,6 +441,7 @@ GameObject:
   - component: {fileID: 5377585245688382164}
   - component: {fileID: 1159202424027309112}
   - component: {fileID: 4657472407026791768}
+  - component: {fileID: 7145254941394430969}
   m_Layer: 0
   m_Name: RR
   m_TagString: Untagged
@@ -442,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 6082472271818252677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.4, z: -0.4}
+  m_LocalPosition: {x: 0.7, y: -0.2, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,7 +487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6082472271818252677}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2ee3ade9e7d974e9c964e17d1dec3b, type: 3}
   m_Name: 
@@ -480,6 +496,20 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+--- !u!114 &7145254941394430969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082472271818252677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ea972387b108342a12500fe2acfaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1320367360844907748}
+  Invert: 1
 --- !u!1 &7697075550102697036
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +521,7 @@ GameObject:
   - component: {fileID: 9123439871382627480}
   - component: {fileID: 8167733033430962904}
   - component: {fileID: 4946135937783372037}
+  - component: {fileID: 6288579747047599213}
   m_Layer: 0
   m_Name: FL
   m_TagString: Untagged
@@ -507,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 7697075550102697036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.4, z: 0.4}
+  m_LocalPosition: {x: -0.7, y: -0.2, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,7 +567,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7697075550102697036}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2ee3ade9e7d974e9c964e17d1dec3b, type: 3}
   m_Name: 
@@ -545,6 +576,20 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+--- !u!114 &6288579747047599213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697075550102697036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ea972387b108342a12500fe2acfaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1320367360844907748}
+  Invert: 0
 --- !u!1 &8553613662842513924
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +678,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953217886687094021}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2ee3ade9e7d974e9c964e17d1dec3b, type: 3}
   m_Name: 
@@ -649,12 +694,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953217886687094021}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39ea972387b108342a12500fe2acfaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1320367360844907748}
+  Invert: 0
 --- !u!1 &8989683375011178366
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +712,7 @@ GameObject:
   - component: {fileID: 9001580975564902960}
   - component: {fileID: 283097363098593753}
   - component: {fileID: 6374412945552432033}
+  - component: {fileID: 2012026902126059362}
   m_Layer: 0
   m_Name: FR
   m_TagString: Untagged
@@ -682,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 8989683375011178366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.4, z: 0.4}
+  m_LocalPosition: {x: 0.7, y: -0.2, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -711,7 +758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8989683375011178366}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2ee3ade9e7d974e9c964e17d1dec3b, type: 3}
   m_Name: 
@@ -720,6 +767,20 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+--- !u!114 &2012026902126059362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989683375011178366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ea972387b108342a12500fe2acfaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1320367360844907748}
+  Invert: 0
 --- !u!1001 &6839935872281949559
 PrefabInstance:
   m_ObjectHideFlags: 0
