@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 248116700}
   - component: {fileID: 248116699}
   - component: {fileID: 248116698}
-  - component: {fileID: 248116705}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Player
@@ -438,28 +437,6 @@ MonoBehaviour:
   isNfu: 0
   isLeftNFUPressed: 0
   isRightNFUPressed: 0
---- !u!114 &248116705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248116697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f596b09334627489a2f5366e829f01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portPropellerPitchRate: 1
-  starboardPropellerPitchRate: 1
-  portPropellerRPMRate: 1
-  starboardPropellerRPMRate: 1
-  testPortPropPitch: 0
-  testPortEngine: 0
-  testStarPropPitch: 0
-  testPortPropRPM: 0
-  testStarEngine: 0
-  testStarPropRPM: 0
 --- !u!1 &331363232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6963801096322706382, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
@@ -992,6 +969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937187698}
   - component: {fileID: 937187699}
+  - component: {fileID: 937187700}
   m_Layer: 0
   m_Name: UIDEngineRevs
   m_TagString: Untagged
@@ -1030,6 +1008,28 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: d155f8bb1f0b2814db56f1ea5ffb79c2, type: 3}
   m_SortingOrder: -1
+--- !u!114 &937187700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937187697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f596b09334627489a2f5366e829f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portPropellerPitchRate: 1
+  starboardPropellerPitchRate: 1
+  portPropellerRPMRate: 1
+  starboardPropellerRPMRate: 1
+  testPortPropPitch: 0
+  testPortEngine: 0
+  testStarPropPitch: 0
+  testPortPropRPM: 0
+  testStarEngine: 0
+  testStarPropRPM: 0
 --- !u!1001 &1195607121
 PrefabInstance:
   m_ObjectHideFlags: 0
