@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.Cryptography;
 
 
 //using Unity.VisualScripting;
@@ -13,18 +11,18 @@ public class ShipMovement : MonoBehaviour
 {
 
     public Rigidbody rb;
-    
+
     public float accelInput = 0.0f;
     public float steeringInput = 0.0f;
-    public float shipPower = 5.0f;
+    public float shipPower = 200.0f;
 
-    public float suspensionRestDist;
-    public float springStrength;
-    public float springDamper;
+    public float suspensionRestDist = 5;
+    public float springStrength = 400;
+    public float springDamper = 40;
 
-    public float dragFactor;
-    public float boatWeight;
-    public float boatTopSpeed;
+    public float dragFactor = 0.5f;
+    public float boatWeight = 1;
+    public float boatTopSpeed = 1;
 
     // Start is called before the first frame update
     void Start()
