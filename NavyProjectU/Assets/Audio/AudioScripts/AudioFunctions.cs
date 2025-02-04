@@ -28,8 +28,10 @@ public class AudioFunctions : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) { AlarmAudioOn(); }
-        if (Input.GetKeyDown(KeyCode.G)) { AlarmAudioOff(); }
+        //if (Input.GetKeyDown(KeyCode.F)) { AlarmAudioOn(); }
+        //if (Input.GetKeyDown(KeyCode.G)) { AlarmAudioOff(); }
+        BoatThrottle();
+        BoatHorn();
     }
 
     public void Wave()
@@ -72,13 +74,7 @@ public class AudioFunctions : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 BoatSource.PlayOneShot(Horn);
-                Debug.Log("BoatHorn");
             }
-        }
-        else
-        {
-            BoatSource = null;
-            Debug.Log("No Boat Audio Source");
         }
     }
 
