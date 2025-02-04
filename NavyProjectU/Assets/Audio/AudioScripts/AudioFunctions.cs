@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class AudioFunctions : MonoBehaviour
@@ -20,57 +20,49 @@ public class AudioFunctions : MonoBehaviour
 
     void Start()
     {
+        // Start audio for waves and boat idel
         Wave();
         BoatIdle();
-
-        IsOn = true;
     }
 
     
     void Update()
     {
-        BoatHorn();
-        BoatThrottle();
-        Alarm();
+        if (Input.GetKeyDown(KeyCode.F)) { AlarmAudioOn(); }
+        if (Input.GetKeyDown(KeyCode.G)) { AlarmAudioOff(); }
     }
 
     public void Wave()
     {
         if (WaveSource != null)
         {
-            WaveSource = GetComponent<AudioSource>();
             WaveSource.clip = Waves;
             WaveSource.Play();
         }
-        else
+    }
+    void BoatIdle()
+    {
+        if (BoatSource != null)
         {
-            WaveSource = null;
-            Debug.Log("No Wave Audio Source");
+            BoatSource.clip = BoatEngine;
+            BoatSource.Play();
         }
     }
-
-    public void Alarm()
+    public void AlarmAudioOn()
     {
         if (AlarmSource != null)
         {
-            if (Input.GetKey(KeyCode.F))
-            {
-
-                AlarmSource.clip = FaultAlarm;
-                AlarmSource.Play();
-                Debug.Log("Alarm");
-            }
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                AlarmSource.Stop();
-            }
+            AlarmSource.clip = FaultAlarm;
+            AlarmSource.Play();
         }
-        else
+    }
+    public void AlarmAudioOff()
+    {
+        if (AlarmSource != null)
         {
-            AlarmSource = null;
-            Debug.Log("No Alarm Audio Source");
+            AlarmSource.clip = FaultAlarm;
+            AlarmSource.Stop();
         }
-
     }
 
     public void BoatHorn()
@@ -82,21 +74,6 @@ public class AudioFunctions : MonoBehaviour
                 BoatSource.PlayOneShot(Horn);
                 Debug.Log("BoatHorn");
             }
-        }
-        else
-        {
-            BoatSource = null;
-            Debug.Log("No Boat Audio Source");
-        }
-    }
-
-    void BoatIdle()
-    {
-        if (BoatSource != null)
-        {
-            BoatSource = GetComponent<AudioSource>();
-            BoatSource.clip = BoatEngine;
-            BoatSource.Play();
         }
         else
         {

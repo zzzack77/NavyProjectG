@@ -44,21 +44,21 @@ public class PrivateVariables : MonoBehaviour
 
 
     // Script variables
-    //private AutoPilotUI autoPilotUI;
     private AutoPilot2 autopilotoftTouch;
     private EchoSounderSoftTouch echoSounderSoftTouch;
     private ErrorUI errorUI;
+    private AudioFunctions audioFunctions;
 
     private void Awake()
     {
-        //autoPilotUI = GetComponent<AutoPilotUI>();
         autopilotoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
         echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
+        audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
     }
 
-    //getters and setters
-    public float Heading 
+    // getters and setters
+    public float Heading
     {
         get => heading;
         set
@@ -97,10 +97,106 @@ public class PrivateVariables : MonoBehaviour
     public bool IsAuto { get => isAuto; set => isAuto = value; }
 
     // Failures / Errors
-    public bool SystemFailure { get => systemFailure; set { systemFailure = value; errorUI.UpdateFailures(); }}
-    public bool GyroFailure { get => gyroFailure; set { gyroFailure = value; errorUI.UpdateFailures(); } }
-    public bool SteeringGearFailure { get => steeringGearFailure; set { steeringGearFailure = value; errorUI.UpdateFailures(); } }
-    public bool AutoPilotFailure { get => autoPilotFailure; set { autoPilotFailure = value; errorUI.UpdateFailures(); } }
-    public bool LogFailure { get => logFailure; set { logFailure = value; errorUI.UpdateFailures(); } }
-    public bool RudderIndicatorFailure { get => rudderIndicatorFailure; set { rudderIndicatorFailure = value; errorUI.UpdateFailures(); } }
+    public bool SystemFailure
+    {
+        get => systemFailure;
+        set
+        {
+            systemFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
+    public bool GyroFailure
+    {
+        get => gyroFailure;
+        set
+        {
+            gyroFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
+    public bool SteeringGearFailure
+    {
+        get => steeringGearFailure;
+        set
+        {
+            steeringGearFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
+    public bool AutoPilotFailure
+    {
+        get => autoPilotFailure;
+        set
+        {
+            autoPilotFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
+    public bool LogFailure
+    {
+        get => logFailure;
+        set
+        {
+            logFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
+    public bool RudderIndicatorFailure
+    {
+        get => rudderIndicatorFailure;
+        set
+        {
+            rudderIndicatorFailure = value;
+            // If One error is true turn the alarm on
+            if (value == true) { audioFunctions.AlarmAudioOn(); }
+
+            // If all errors are false then turn the alarm off
+            if (SystemFailure == false && GyroFailure == false && SteeringGearFailure == false && AutoPilotFailure == false
+                && logFailure == false && RudderIndicatorFailure == false) { audioFunctions.AlarmAudioOff(); }
+
+            // Update error UI screens
+            errorUI.UpdateFailures();
+        }
+    }
 }
