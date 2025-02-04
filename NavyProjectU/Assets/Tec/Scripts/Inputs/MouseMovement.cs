@@ -7,7 +7,7 @@ public class MouseMovement : MonoBehaviour
 {
     public float moveSpeed; // Speed of movement
 
-    private float xRotation = 0f;
+    private float xRotation = 12f;
     private float yRotation = 0f;
 
     private float mouseX;
