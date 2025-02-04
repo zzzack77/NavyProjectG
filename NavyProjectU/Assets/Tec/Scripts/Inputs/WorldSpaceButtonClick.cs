@@ -36,6 +36,7 @@ public class WorldSpaceButtonClick : MonoBehaviour
                     // If the button was clicked, invoke the button click event
                    // hit.collider.GetComponent<Button>().OnPointerDown(hit.collider.GetComponent<>().eventData);
                     Debug.Log("Button Clicked!");
+
                 }
             }
         }

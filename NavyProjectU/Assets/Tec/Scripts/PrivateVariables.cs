@@ -45,14 +45,14 @@ public class PrivateVariables : MonoBehaviour
 
     // Script variables
     //private AutoPilotUI autoPilotUI;
-    private AutoPilotSoftTouch autopilotoftTouch;
+    private AutoPilot2 autopilotoftTouch;
     private EchoSounderSoftTouch echoSounderSoftTouch;
     private ErrorUI errorUI;
 
     private void Awake()
     {
         //autoPilotUI = GetComponent<AutoPilotUI>();
-        autopilotoftTouch = GetComponent<AutoPilotSoftTouch>();
+        autopilotoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
         echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
     }
