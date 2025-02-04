@@ -122,11 +122,135 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &93842491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6226696279777754898, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &93842495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2176876269958659770, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93842491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &93842498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93842491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressAutoButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &120949810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 27cbcb2acf3a18b41a9862af37052eff, type: 3}
   m_PrefabInstance: {fileID: 759379522}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &141430784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7359200512352415570, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &141430788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8366165257860026778, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141430784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &141430791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141430784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressManualButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &245794349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485625811767801824, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &245794355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245794349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressAutoRightButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &248116697
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248116703}
-  - component: {fileID: 248116702}
+  - component: {fileID: 248116704}
   - component: {fileID: 248116701}
   - component: {fileID: 248116700}
   - component: {fileID: 248116699}
@@ -202,18 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setAutoCourse: 0
---- !u!114 &248116702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248116697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a3fe168cb1db748951b71a479159ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &248116703
 Transform:
   m_ObjectHideFlags: 0
@@ -229,6 +341,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248116704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248116697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49af9312c16a27947beb8b3451bfda59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headingPanel: {fileID: 905774129}
+  autoButton: {fileID: 93842495}
+  manualButton: {fileID: 141430788}
+  nfuButton: {fileID: 1718535984}
+  autoPanel: {fileID: 933217686}
+  NFUPanel: {fileID: 1281625802}
+  AUTOsetCoursePanel: {fileID: 2037824069}
+  NFUSetCourseLeftPanel: {fileID: 331363232}
+  NFUSetCourseRightPanel: {fileID: 403573387}
+  leftScrollbar: {fileID: 1853045159}
+  rightScrollbar: {fileID: 402572133}
+  isAuto: 0
+  isManual: 0
+  isNfu: 0
+  isLeftNFUPressed: 0
+  isRightNFUPressed: 0
+--- !u!1 &331363232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6963801096322706382, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &402572133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7076192214294845965, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &403573387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5345222809530158590, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &493483326
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +837,16 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &905774129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3813692488108393372, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &933217686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2052132439971121527, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1195607121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,6 +1034,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6df683b43f186e4c9f3ad75950da3d5, type: 3}
+--- !u!1 &1281625802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 610396094213830809, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287614835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoPSoftTouch
       objectReference: {fileID: 0}
+    - target: {fileID: 2176876269958659770, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3009145524254594370, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1137,14 +1317,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3532554200520928227, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 248116702}
+      objectReference: {fileID: 248116704}
     - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 248116702}
+      objectReference: {fileID: 248116704}
     - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNFURightButtonDown
@@ -1152,6 +1336,14 @@ PrefabInstance:
     - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNFURightButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoPilot2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813678065664312815, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoPilot2, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5219372248894288356, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Camera
@@ -1164,11 +1356,11 @@ PrefabInstance:
     - target: {fileID: 7160225916550366792, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 248116702}
+      objectReference: {fileID: 248116704}
     - target: {fileID: 7160225916550366792, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 248116702}
+      objectReference: {fileID: 248116704}
     - target: {fileID: 7160225916550366792, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNFULeftButtonDown
@@ -1177,10 +1369,40 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressNFULeftButtonUp
       objectReference: {fileID: 0}
+    - target: {fileID: 7160225916550366792, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoPilot2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160225916550366792, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoPilot2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366165257860026778, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6226696279777754898, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 93842498}
+    - targetCorrespondingSourceObject: {fileID: 7359200512352415570, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 141430791}
+    - targetCorrespondingSourceObject: {fileID: 2121490979585633552, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1718535987}
+    - targetCorrespondingSourceObject: {fileID: 6190147700613021070, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737551425}
+    - targetCorrespondingSourceObject: {fileID: 1485625811767801824, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 245794355}
+    - targetCorrespondingSourceObject: {fileID: 642148851491646720, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1989071079}
   m_SourcePrefab: {fileID: 100100000, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
 --- !u!224 &1363412491 stripped
 RectTransform:
@@ -1425,6 +1647,85 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7123284893872321350, guid: df4238eed7c307d46b2c4c83155d5032, type: 3}
   m_PrefabInstance: {fileID: 1527114983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1718535980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2121490979585633552, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1718535984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3532554200520928227, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718535980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1718535987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718535980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressNfuButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &1737551419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6190147700613021070, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1737551425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737551419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressAutoLeftButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1833340954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1760,17 @@ Transform:
   - {fileID: 1195607122}
   m_Father: {fileID: 1287614837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853045159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3999639452259640645, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1960577865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1840,45 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
   m_PrefabInstance: {fileID: 1352086800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1989071072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 642148851491646720, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989071079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989071072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 248116704}
+          m_TargetAssemblyTypeName: AutoPilot2, Assembly-CSharp
+          m_MethodName: PressEnterButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &2037824069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7677504051375718093, guid: b84e4125c66dcc04aba2ffb8a81f8cf9, type: 3}
+  m_PrefabInstance: {fileID: 1363412490}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
