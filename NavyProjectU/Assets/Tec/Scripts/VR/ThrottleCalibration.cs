@@ -20,7 +20,7 @@ public class ThrottleCalibration : MonoBehaviour
         Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
         if (Input.anyKeyDown)
         {
-            throttle.transform.position = finalThrottlePos /*- offset*/;
+            throttle.transform.localPosition = finalThrottlePos - offset;
             throttle.transform.localRotation = Quaternion.Euler(0, rightHand.transform.eulerAngles.y, 0);
         }
     }
