@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:NavyProjectU/Assets/Prefabs.meta
 guid: b4bb325e69cf0e84aa2bee3459c15cc4
+========
+guid: d4286cc3750f7474ca75abc953f12fcc
+>>>>>>>> BW-03/02/25-FixingVRCalibration:NavyProjectU/Assets/Samples/XR Hands/1.5.0.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
