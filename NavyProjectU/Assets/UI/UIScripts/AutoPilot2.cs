@@ -11,7 +11,8 @@ using System.Runtime.CompilerServices;
 
 public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private PrivateVariables _PrivateVariables;
+    private PrivateVariables privateVariables;
+    private ShipMovement shipMovement;
 
     // Heading 000.0
     public GameObject headingPanel;
@@ -50,7 +51,8 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void Start()
     {
-        _PrivateVariables = GetComponent<PrivateVariables>();
+        privateVariables = GetComponent<PrivateVariables>();
+        shipMovement = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipMovement>();
 
         // Defult manual steering mode
         PressManualButton();
@@ -74,7 +76,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             NFUPanel.SetActive(false);
         }
         // Set the auto pilot "set course" to the current heading value
-        _PrivateVariables.SettingAutoCourse = Mathf.FloorToInt(_PrivateVariables.Heading);
+        privateVariables.SettingAutoCourse = Mathf.FloorToInt(privateVariables.Heading);
     }
 
     // Manual button press
@@ -113,11 +115,11 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
     // Changes the Set Course text by -1
-    public void PressAutoLeftButton() { _PrivateVariables.SettingAutoCourse = _PrivateVariables.SettingAutoCourse - 1; }
+    public void PressAutoLeftButton() { privateVariables.SettingAutoCourse = privateVariables.SettingAutoCourse - 1; }
     // Changes the Set Course text by +1
-    public void PressAutoRightButton() { _PrivateVariables.SettingAutoCourse++; }
+    public void PressAutoRightButton() { privateVariables.SettingAutoCourse++; }
     // Sets the auto pilot to the value you have inputted
-    public void PressEnterButton() { _PrivateVariables.SetAutoCourse = _PrivateVariables.SettingAutoCourse; }
+    public void PressEnterButton() { privateVariables.SetAutoCourse = privateVariables.SettingAutoCourse; }
 
 
     // Function changes the colour of a button
@@ -207,7 +209,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (headingText != null)
         {
-            headingText.text = _PrivateVariables.Heading.ToString("000.0");
+            headingText.text = privateVariables.Heading.ToString("000.0");
         }
     }
     // Updates set course text
@@ -217,7 +219,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (setCourseText != null)
         {
-            setCourseText.text = _PrivateVariables.SettingAutoCourse.ToString("000.0");
+            setCourseText.text = privateVariables.SettingAutoCourse.ToString("000.0");
         }
     }
 
@@ -237,7 +239,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             if (isAuto)
             {
-                currentTargetText.text = _PrivateVariables.SetAutoCourse.ToString("000.0");
+                currentTargetText.text = privateVariables.SetAutoCourse.ToString("000.0");
                 currentTargetText.color = colorBlue;
             }
             else
@@ -278,6 +280,10 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
                 rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
             }
+        }
+        if (isNfu)
+        {
+            //privateVariables.                         ****START HERE****
         }
     }
 

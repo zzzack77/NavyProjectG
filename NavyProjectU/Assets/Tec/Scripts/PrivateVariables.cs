@@ -41,7 +41,9 @@ public class PrivateVariables : MonoBehaviour
     private bool logFailure;
     private bool rudderIndicatorFailure;
 
-
+    // NFU
+    private float nfuright;
+    private float nfuleft;
 
     // Script variables
     private AutoPilot2 autopilotSoftTouch;
@@ -199,4 +201,6 @@ public class PrivateVariables : MonoBehaviour
             errorUI.UpdateFailures();
         }
     }
+
+
 }
