@@ -6,20 +6,28 @@ using UnityEngine.XR;
 
 public class VRCalibration : MonoBehaviour
 {
-    private GameObject xrOrigin;
+    [SerializeField] private GameObject xrOrigin;
     public GameObject leftHand, rightHand; 
     public GameObject leftWheelGripPoint, rightWheelGripPoint;
     public GameObject userOriginpos;
-   
+    public GameObject xrCamera;
+
+    public float cameraOffsetY = 1.1176f;
+
     // Start is called before the first frame update
     void Start()
     {
         
-        xrOrigin = GameObject.Find("XR Origin");
+        //xrOrigin = GameObject.Find("XR Origin");
 
-        if (xrOrigin == null)
+        //if (xrOrigin == null)
+        //{
+        //    Debug.LogError("XR Origin Game Object Not Found!");
+        //}
+
+        if (xrCamera == null)
         {
-            Debug.Log("XR Origin Game Object Not Found!");
+            Debug.LogError("XR Camera Game Object not Found!");
         }
         StartCoroutine(CalibrationCountdown());
     }
@@ -51,8 +59,17 @@ public class VRCalibration : MonoBehaviour
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
         Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
 
-        xrOrigin.transform.position = userOriginpos.transform.position;
+        
         xrOrigin.transform.rotation = yAxisRotationOffset * xrOrigin.transform.rotation;
+
+        // Adjust the position of the XR Origin to match the user origin position
+        xrOrigin.transform.position = userOriginpos.transform.position;
+
+        //// Adjust the height of the XR Camera to match the user origin position
+        //Vector3 cameraPosition = xrCamera.transform.position;
+        //cameraPosition.y = userOriginpos.transform.position.y + cameraOffsetY;
+        //xrCamera.transform.position = cameraPosition;
+
     }
 
 
