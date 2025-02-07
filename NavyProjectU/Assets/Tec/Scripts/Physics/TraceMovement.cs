@@ -77,7 +77,7 @@ public class TraceMovement : MonoBehaviour
 
                 float desiredVelChange = -steeringVel * parentScript.dragFactor;
 
-                UnityEngine.Debug.Log(desiredVelChange);
+                //UnityEngine.Debug.Log(desiredVelChange);
 
                 float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
@@ -86,7 +86,7 @@ public class TraceMovement : MonoBehaviour
         }
         else if (traceType == "Power")
         {
-            UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
+            //UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
             //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             Vector3 accelDir = transform.forward;

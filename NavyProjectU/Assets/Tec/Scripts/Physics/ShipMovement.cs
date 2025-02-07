@@ -11,6 +11,7 @@ using UnityEngine.UIElements;
 
 public class ShipMovement : MonoBehaviour
 {
+    public PrivateVariables privateVariables;
 
     public Rigidbody rb;
     
@@ -29,7 +30,11 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
+    }
+    private void FixedUpdate()
+    {
+        privateVariables.Heading = transform.rotation.eulerAngles.y;
     }
 
     // Update is called once per frame
@@ -41,8 +46,8 @@ public class ShipMovement : MonoBehaviour
         float boatSpeedkph = rb.velocity.magnitude * 3.6f;
         float boatSpeedkn = rb.velocity.magnitude * 1.944f;
 
-        UnityEngine.Debug.Log("Velocity: " + boatSpeedkph + "km/h");
-        UnityEngine.Debug.Log("Velocity: " + boatSpeedkn + "knots");
+        //UnityEngine.Debug.Log("Velocity: " + boatSpeedkph + "km/h");
+        //UnityEngine.Debug.Log("Velocity: " + boatSpeedkn + "knots");
 
 
         // Throttle code slowly ups the throttle the longer you press the forward and backward keys.

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using System.Runtime.CompilerServices;
+//using System.Drawing;
 //fusing static UnityEngine.Rendering.DebugUI;
 
 public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -25,6 +27,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     
     // AutoPilot panel 000.0
     public GameObject AUTOsetCoursePanel;
+    public GameObject AUTOcurrentTargetPanel;
 
     // NFU panels 000.0
     public GameObject NFUSetCourseLeftPanel;
@@ -33,7 +36,6 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // NFU Red and Green scrollbar
     public Scrollbar leftScrollbar;
     public Scrollbar rightScrollbar;
-
 
     // Which steering type
     public bool isAuto;
@@ -44,7 +46,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool isLeftNFUPressed;
     public bool isRightNFUPressed;
 
-    private float scrollbarSpeed = 0.01f;
+    private float scrollbarSpeed = 0.005f;
 
     public void Start()
     {
@@ -53,74 +55,8 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         // Defult manual steering mode
         PressManualButton();
     }
-    private void Update()
-    {
-        // Tester function to check heading changes correctly
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            if (_PrivateVariables != null)
-            {
-                _PrivateVariables.Heading = _PrivateVariables.Heading + 10;
-            }
-        }
-    }
-    private void FixedUpdate()
-    {
-        if (isLeftNFUPressed)
-        {
-            Debug.Log("b");
 
-            if (rightScrollbar.size > 0)
-            {
-                Debug.Log("down");
-                rightScrollbar.size = rightScrollbar.size - scrollbarSpeed;
-            }
-            else
-            {
-                Debug.Log("down");
-
-                leftScrollbar.size = leftScrollbar.size + scrollbarSpeed;
-            }
-            TextMeshProUGUI leftRudderText = NFUSetCourseLeftPanel.GetComponentInChildren<TextMeshProUGUI>();
-            TextMeshProUGUI rightRudderText = NFUSetCourseRightPanel.GetComponentInChildren<TextMeshProUGUI>();
-
-
-            if (leftRudderText != null && NFUSetCourseRightPanel != null)
-            {
-                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
-                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
-
-            }
-        }
-        if (isRightNFUPressed)
-        {
-            Debug.Log("b");
-
-            if (leftScrollbar.size > 0)
-            {
-                Debug.Log("down");
-
-                leftScrollbar.size = leftScrollbar.size - scrollbarSpeed;
-            }
-            else
-            {
-                Debug.Log("down");
-
-                rightScrollbar.size = rightScrollbar.size + scrollbarSpeed;
-            }
-            TextMeshProUGUI leftRudderText = NFUSetCourseLeftPanel.GetComponentInChildren<TextMeshProUGUI>();
-            TextMeshProUGUI rightRudderText = NFUSetCourseRightPanel.GetComponentInChildren<TextMeshProUGUI>();
-
-
-            if (leftRudderText != null && NFUSetCourseRightPanel != null)
-            {
-                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
-                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
-
-            }
-
-        }
-    }
+    private void FixedUpdate() { NFUButtonHandeling(); }
 
     // Auto pilot button press
     public void PressAutoButton()
@@ -137,9 +73,8 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             autoPanel.SetActive(true);
             NFUPanel.SetActive(false);
         }
-
         // Set the auto pilot "set course" to the current heading value
-        _PrivateVariables.SettingAutoCourse = _PrivateVariables.Heading;
+        _PrivateVariables.SettingAutoCourse = Mathf.FloorToInt(_PrivateVariables.Heading);
     }
 
     // Manual button press
@@ -165,7 +100,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         UpdateButtonStyle(2);
 
-        isNfu = false;
+        isAuto = false;
         isManual = false;
         isNfu = true;
 
@@ -185,7 +120,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void PressEnterButton() { _PrivateVariables.SetAutoCourse = _PrivateVariables.SettingAutoCourse; }
 
 
-    // Update colour syle for selected buttons
+    // Function changes the colour of a button
     private void ChangeButtonColor(Button button, Color color)
     {
         if (button != null)
@@ -197,6 +132,8 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
     }
+
+    // Function changes the colour of the Text under a button
     private void ChangeTextColor(Button button, Color color)
     {
         TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
@@ -205,8 +142,11 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             buttonText.color = color;
         }
     }
+
+    // Handels highlighted colours on the main 3 pannels (auto, manual, nfu)
     private void UpdateButtonStyle(int number)
     {
+        OnCurrentTargetUpdate();
         // Variables
         Color colorDB = Color.black;
         Color colorGrey = Color.gray;
@@ -260,7 +200,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
-    // Updating labels on text
+    // Updates heading text
     public void OnHeadingUpdate()
     {
         TextMeshProUGUI headingText = headingPanel.GetComponentInChildren<TextMeshProUGUI>();
@@ -270,6 +210,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             headingText.text = _PrivateVariables.Heading.ToString("000.0");
         }
     }
+    // Updates set course text
     public void OnSettingAutoCourseUpdate()
     {
         TextMeshProUGUI setCourseText = AUTOsetCoursePanel.GetComponentInChildren<TextMeshProUGUI>();
@@ -277,6 +218,66 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (setCourseText != null)
         {
             setCourseText.text = _PrivateVariables.SettingAutoCourse.ToString("000.0");
+        }
+    }
+
+    // Changes current target text, if you change menu screens the target text will turn red to indicate that it is no longer using this value and you should reset it.
+    // This is to avoid held values being read and turning the boat without warning when chaning to the autopilot menu
+    public void OnCurrentTargetUpdate()
+    {
+        Color colorBlue = Color.blue;
+
+        string hexColorB = "#9BEFFF";
+
+        ColorUtility.TryParseHtmlString(hexColorB, out colorBlue);
+
+        TextMeshProUGUI currentTargetText = AUTOcurrentTargetPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (currentTargetText != null)
+        {
+            if (isAuto)
+            {
+                currentTargetText.text = _PrivateVariables.SetAutoCourse.ToString("000.0");
+                currentTargetText.color = colorBlue;
+            }
+            else
+            {
+                currentTargetText.color = Color.red;
+            }
+        }
+    }
+    public void NFUButtonHandeling()
+    {
+        // Left NFU button press
+        if (isLeftNFUPressed)
+        {
+            if (rightScrollbar.size > 0) { rightScrollbar.size = rightScrollbar.size - scrollbarSpeed; }
+            else { leftScrollbar.size = leftScrollbar.size + scrollbarSpeed; }
+
+            TextMeshProUGUI leftRudderText = NFUSetCourseLeftPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = NFUSetCourseRightPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+            if (leftRudderText != null && NFUSetCourseRightPanel != null)
+            {
+                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+            }
+        }
+        // Right NFU button press
+        if (isRightNFUPressed)
+        {
+            if (leftScrollbar.size > 0) { leftScrollbar.size = leftScrollbar.size - scrollbarSpeed; }
+            else { rightScrollbar.size = rightScrollbar.size + scrollbarSpeed; }
+
+            TextMeshProUGUI leftRudderText = NFUSetCourseLeftPanel.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI rightRudderText = NFUSetCourseRightPanel.GetComponentInChildren<TextMeshProUGUI>();
+
+
+            if (leftRudderText != null && NFUSetCourseRightPanel != null)
+            {
+                leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
+                rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
+            }
         }
     }
 

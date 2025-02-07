@@ -44,14 +44,14 @@ public class PrivateVariables : MonoBehaviour
 
 
     // Script variables
-    private AutoPilot2 autopilotoftTouch;
+    private AutoPilot2 autopilotSoftTouch;
     private EchoSounderSoftTouch echoSounderSoftTouch;
     private ErrorUI errorUI;
     private AudioFunctions audioFunctions;
 
     private void Awake()
     {
-        autopilotoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
+        autopilotSoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
         echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
         audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
@@ -66,7 +66,7 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) heading = value + 360;
             else if (value >= 360) heading = value - 360;
             else heading = value;
-            autopilotoftTouch.OnHeadingUpdate();
+            autopilotSoftTouch.OnHeadingUpdate();
         }
     }
     public float SettingAutoCourse
@@ -77,10 +77,10 @@ public class PrivateVariables : MonoBehaviour
             if (value < 0) settingAutoCourse = value + 360;
             else if (value >= 360) settingAutoCourse = value - 360;
             else settingAutoCourse = value;
-            autopilotoftTouch.OnSettingAutoCourseUpdate();
+            autopilotSoftTouch.OnSettingAutoCourseUpdate();
         }
     }
-    public float SetAutoCourse { get => setAutoCourse; set => setAutoCourse = value; }
+    public float SetAutoCourse { get => setAutoCourse; set { setAutoCourse = value; autopilotSoftTouch.OnCurrentTargetUpdate(); } }
 
     public float DistanceFromGround
     {
