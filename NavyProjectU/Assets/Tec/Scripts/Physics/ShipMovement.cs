@@ -81,6 +81,17 @@ public class ShipMovement : MonoBehaviour
             // Auto pilot
             if (privateVariables.IsAuto)
             {
+                float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
+                UnityEngine.Debug.Log(difference);
+                
+                if (difference <= 180)
+                {
+                    steeringInput = -1f;
+                }
+                else
+                {
+                    steeringInput = 1;
+                }
                 //UnityEngine.Debug.Log("auto");
             }
 
