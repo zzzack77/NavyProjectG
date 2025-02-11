@@ -11,6 +11,7 @@ public class VRCalibration : MonoBehaviour
     public GameObject leftWheelGripPoint, rightWheelGripPoint;
     public GameObject userOriginpos;
     public GameObject xrCamera;
+    private Vector3 scaleOffset = new Vector3(0.05f, 0.1f, 0.0066666f);
 
     public float cameraOffsetY = 1.1176f;
 
@@ -57,13 +58,13 @@ public class VRCalibration : MonoBehaviour
         Vector3 virtualForward = (virtualRightGripPos - virtualLeftGripPos).normalized;
         Quaternion fullRotationOffset = Quaternion.FromToRotation(realForward, virtualForward);
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
-        Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
-
+        Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y - scaleOffset.y, 0); // Only use Y-axis
+        Quaternion scaleRotationOffset = Quaternion.Euler(scaleOffset.x, scaleOffset.y, scaleOffset.z);
         
         xrOrigin.transform.rotation = yAxisRotationOffset * xrOrigin.transform.rotation;
 
         // Adjust the position of the XR Origin to match the user origin position
-        xrOrigin.transform.position = userOriginpos.transform.position;
+        xrOrigin.transform.position = userOriginpos.transform.position + scaleOffset;
 
         //// Adjust the height of the XR Camera to match the user origin position
         //Vector3 cameraPosition = xrCamera.transform.position;
