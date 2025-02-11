@@ -64,10 +64,9 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void PressAutoButton()
     {
         UpdateButtonStyle(0);
-
-        isAuto = true;
-        isManual = false;
-        isNfu = false;
+        privateVariables.IsAuto = true;
+        privateVariables.IsManual = false;
+        privateVariables.IsNFU = false;
 
         // Update visual pannel at bottom of UI
         if (autoPanel != null && NFUPanel != null)
@@ -85,9 +84,9 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         UpdateButtonStyle(1);
 
 
-        isAuto = false;
-        isManual = true;
-        isNfu = false;
+        privateVariables.IsAuto = false;
+        privateVariables.IsManual = true;
+        privateVariables.IsNFU = false;
 
         // Update visual pannel at bottom of UI
         if (autoPanel != null && NFUPanel != null)
@@ -102,9 +101,9 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         UpdateButtonStyle(2);
 
-        isAuto = false;
-        isManual = false;
-        isNfu = true;
+        privateVariables.IsAuto = false;
+        privateVariables.IsManual = false;
+        privateVariables.IsNFU = true;
 
         // Update visual pannel at bottom of UI
         if (autoPanel != null && NFUPanel != null)
@@ -237,7 +236,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (currentTargetText != null)
         {
-            if (isAuto)
+            if (privateVariables.IsAuto)
             {
                 currentTargetText.text = privateVariables.SetAutoCourse.ToString("000.0");
                 currentTargetText.color = colorBlue;
@@ -264,6 +263,7 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 leftRudderText.text = (leftScrollbar.size * 35).ToString("000.0");
                 rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
             }
+            
         }
         // Right NFU button press
         if (isRightNFUPressed)
@@ -281,9 +281,17 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 rightRudderText.text = (rightScrollbar.size * 35).ToString("000.0");
             }
         }
-        if (isNfu)
+        if (privateVariables.IsNFU)
         {
-            //privateVariables.                         ****START HERE****
+            if (leftScrollbar.size > 0)
+            {
+                privateVariables.NfuSteeringValue = leftScrollbar.size * -35;
+            }
+            if (rightScrollbar.size > 0)
+            {
+                privateVariables.NfuSteeringValue = rightScrollbar.size * 35;
+            }
+            Debug.Log(privateVariables.NfuSteeringValue);
         }
     }
 

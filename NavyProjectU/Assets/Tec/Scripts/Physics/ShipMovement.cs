@@ -76,24 +76,43 @@ public class ShipMovement : MonoBehaviour
         // Steering code turns the rudder when the A and D keys are pressed.
         // Once the steering wheel is connected to the project, this will need to be mapped to its axis.
 
-        if (Input.GetKey(KeyCode.A))
+        if (privateVariables != null)
         {
-            steeringInput = steeringInput + 0.1f;
-
-            if(steeringInput > 35.0f)
+            // Auto pilot
+            if (privateVariables.IsAuto)
             {
-                steeringInput = 35.0f;
+                //UnityEngine.Debug.Log("auto");
             }
 
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            steeringInput = steeringInput - 0.1f;
-
-            if(steeringInput < -35.0f)
+            // Manual code, insert steering wheel code here
+            if (privateVariables.IsManual)
             {
-                steeringInput = -35.0f;
+                if (Input.GetKey(KeyCode.A))
+                {
+                    steeringInput = steeringInput + 0.1f;
+
+                    if (steeringInput > 35.0f)
+                    {
+                        steeringInput = 35.0f;
+                    }
+
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    steeringInput = steeringInput - 0.1f;
+
+                    if (steeringInput < -35.0f)
+                    {
+                        steeringInput = -35.0f;
+                    }
+                }
+            }
+            // NFU code
+            if (privateVariables.IsNFU)
+            {
+                steeringInput = -privateVariables.NfuSteeringValue;
             }
         }
+        
     }
 }

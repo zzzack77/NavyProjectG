@@ -144,11 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &168280033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5159461676069025293, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-  m_PrefabInstance: {fileID: 1260123612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &248116697
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +253,6 @@ MonoBehaviour:
   autoPanel: {fileID: 933217686}
   NFUPanel: {fileID: 1281625802}
   AUTOsetCoursePanel: {fileID: 2037824069}
-  AUTOcurrentTargetPanel: {fileID: 168280033}
   NFUSetCourseLeftPanel: {fileID: 331363232}
   NFUSetCourseRightPanel: {fileID: 403573387}
   leftScrollbar: {fileID: 1853045159}
@@ -1554,7 +1548,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30

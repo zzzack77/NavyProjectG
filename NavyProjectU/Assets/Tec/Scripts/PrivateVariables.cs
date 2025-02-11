@@ -30,8 +30,18 @@ public class PrivateVariables : MonoBehaviour
     private float setAutoCourse;
     private float settingAutoCourse;
     private float distanceFromGround;
+
+    // Type of steering
     private bool isAuto;
+    private bool isNFU;
+    private bool isManual;
+
+    private float nfuSteeringValue;
+
+    // Echo sounder
     private bool isBow;
+
+  
 
     // Failures / Errors
     private bool systemFailure;
@@ -96,7 +106,12 @@ public class PrivateVariables : MonoBehaviour
     public bool IsBow { get => isBow; set => isBow = value; }
     public float Pitch { get => pitch; set => pitch = value; }
     public float Roll { get => roll; set => roll = value; }
+
     public bool IsAuto { get => isAuto; set => isAuto = value; }
+    public bool IsManual { get => isManual; set => isManual = value; }
+    public bool IsNFU { get => isNFU; set => isNFU = value; }
+
+    public float NfuSteeringValue { get => nfuSteeringValue; set => nfuSteeringValue = value; }
 
     // Failures / Errors
     public bool SystemFailure
