@@ -40,6 +40,8 @@ public class VRCalibration : MonoBehaviour
         {
             StartCoroutine(CalibrationCountdown());
         }
+
+        
     }
 
     public void VRResetRotation()
@@ -52,24 +54,29 @@ public class VRCalibration : MonoBehaviour
         Vector3 virtualLeftGripPos = leftWheelGripPoint.transform.position;
         Vector3 virtualRightGripPos = rightWheelGripPoint.transform.position;
 
+        Vector3 virtualGripMidPoint = (virtualLeftGripPos + virtualRightGripPos) / 2;
+        Vector3 realGripMidPoint = (realLeftHandPos + realRightHandPos) / 2;
+
 
         // Calculate rotation offset
         Vector3 realForward = (realRightHandPos - realLeftHandPos).normalized;
         Vector3 virtualForward = (virtualRightGripPos - virtualLeftGripPos).normalized;
         Quaternion fullRotationOffset = Quaternion.FromToRotation(realForward, virtualForward);
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
-        Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y - scaleOffset.y, 0); // Only use Y-axis
+        Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
         Quaternion scaleRotationOffset = Quaternion.Euler(scaleOffset.x, scaleOffset.y, scaleOffset.z);
+
+        // Calculates the distance between the users hands and the headset
+        Vector3 headsetOffset = realGripMidPoint - xrCamera.transform.position;
         
-        xrOrigin.transform.rotation = yAxisRotationOffset * xrOrigin.transform.rotation;
+        xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
         // Adjust the position of the XR Origin to match the user origin position
-        xrOrigin.transform.position = userOriginpos.transform.position + scaleOffset;
-
-        //// Adjust the height of the XR Camera to match the user origin position
-        //Vector3 cameraPosition = xrCamera.transform.position;
-        //cameraPosition.y = userOriginpos.transform.position.y + cameraOffsetY;
-        //xrCamera.transform.position = cameraPosition;
+        
+        // Set the position of the xr origins camera offset to the wheel + the offset of the hands and headset
+        xrCamera.transform.position = virtualGripMidPoint + new Vector3(headsetOffset.x, headsetOffset.y, 0f); 
+        // Kind of works, needs some more adjustments but definetely some progress
+        
 
     }
 
