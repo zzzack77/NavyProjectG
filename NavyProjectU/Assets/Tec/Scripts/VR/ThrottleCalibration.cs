@@ -7,7 +7,7 @@ public class ThrottleCalibration : MonoBehaviour
     public GameObject throttle;
     public GameObject rightHand;
     private float throttleY = 2.209249f;
-    private Vector3 offset = new Vector3(-0.00172f, 0, 0.00298f);
+    private Vector3 offset = new Vector3(0.1f, 0, 0.12f);
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class ThrottleCalibration : MonoBehaviour
         Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
         if (Input.anyKeyDown)
         {
-            throttle.transform.localPosition = finalThrottlePos - offset;
+            throttle.transform.localPosition = finalThrottlePos + offset;
             throttle.transform.localRotation = Quaternion.Euler(0, rightHand.transform.eulerAngles.y, 0);
         }
     }
