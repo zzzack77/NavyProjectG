@@ -870,13 +870,15 @@ MonoBehaviour:
   rb: {fileID: 7772279565842285386}
   accelInput: 0
   steeringInput: 0
-  shipPower: 200
+  shipPower: 3500000
   suspensionRestDist: 5
-  springStrength: 400
+  springStrength: 15000000
   springDamper: 40
-  dragFactor: 0.5
-  boatWeight: 1
-  boatTopSpeed: 1
+  dragFactor: 1
+  dragCoefficient: 25000
+  boatWeight: 1000
+  rpmEngineMax: 3000
+  rpmPropMax: 250
 --- !u!54 &7772279565842285386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -885,7 +887,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5323638089164348702}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 7350000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
