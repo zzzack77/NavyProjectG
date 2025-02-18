@@ -11,6 +11,9 @@ using UnityEngine.UIElements;
 
 public class ShipMovement : MonoBehaviour
 {
+    public Camera camera1;
+    public Camera camera2;
+
     public PrivateVariables privateVariables;
 
     public Rigidbody rb;
@@ -37,6 +40,9 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
+        
+        camera1.gameObject.SetActive(true);
+        camera2.gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
@@ -59,8 +65,16 @@ public class ShipMovement : MonoBehaviour
             else if (privateVariables.IsNFU) { NFUMode(); }
             else { ManualMode(); }
         }
+
         // If private variabels is null defult to manual mode (A, D key presses)
         else { ManualMode(); }
+
+        if (Input.GetKeyDown(KeyCode.F1)) // Switch to first display
+        {
+            camera1.gameObject.SetActive(!camera1.gameObject.activeSelf);
+            camera2.gameObject.SetActive(!camera2.gameObject.activeSelf);
+        }
+        
     }
 
     // Resets boat without restarting the scene
@@ -98,8 +112,11 @@ public class ShipMovement : MonoBehaviour
         float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
         UnityEngine.Debug.Log(difference);
 
-        if (difference <= 180) { steeringInput = -1f; }
-        else { steeringInput = 1; }
+        
+
+        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0, 35); }
+        else { steeringInput = Mathf.Clamp((360 - difference), 0, 35); }
+               
     }
     public void ManualMode()
     {
@@ -107,4 +124,17 @@ public class ShipMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; }
     }
     public void NFUMode() { steeringInput = -privateVariables.NfuSteeringValue; }
+
+    void ChangeDisplay(int displayIndex)
+    {
+        if (displayIndex >= 0 && displayIndex < Display.displays.Length)
+        {
+            Screen.SetResolution(Display.displays[1].systemWidth, Display.displays[1].systemHeight, FullScreenMode.Windowed);
+
+        }
+        else
+        {
+            Debug.LogError("Invalid display index!");
+        }
+    }
 }
