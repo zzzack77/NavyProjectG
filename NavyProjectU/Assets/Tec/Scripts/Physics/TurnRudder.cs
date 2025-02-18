@@ -19,15 +19,15 @@ public class TurnRudder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Invert == true)
         {
-            TurnAngle = -45.0f;
+            TurnAngle = -35.0f;
         }
         else
         {
-            TurnAngle = 45.0f;
+            TurnAngle = 35.0f;
         }
 
         if(parent.steeringInput != 0.0f)
@@ -39,29 +39,5 @@ public class TurnRudder : MonoBehaviour
 
             transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - parent.steeringInput, parent.transform.eulerAngles.z);
         }
-
-
-        //if (parent.steeringInput > 0.0f)
-        //{
-        //    //transform.rotation = parent.transform.rotation * Quaternion.Euler(0f, 0f, -45f);
-        //    transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - TurnAngle, parent.transform.eulerAngles.z);
-        //    //UnityEngine.Debug.Log("TurnedRight");
-        //    //UnityEngine.Debug.Log(transform.rotation);
-        //}
-        //else if(parent.steeringInput < 0.0f)
-        //{
-        //    //transform.rotation = parent.transform.rotation * Quaternion.Euler(0f, 0f, 45f)
-        //    transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y + TurnAngle, parent.transform.eulerAngles.z);
-        //    //UnityEngine.Debug.Log("TurnedLeft");
-        //    //UnityEngine.Debug.Log(transform.rotation);
-        //}
-
-        //if (parent.steeringInput == 0.0f)
-        //{
-        //    //transform.rotation = parent.transform.rotation * Quaternion.Euler(0f, 0f, 0f);
-        //    transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z);
-        //    //UnityEngine.Debug.Log("BackToStraight");
-        //}
-        //Debug.Log(transform.rotation.ToString());
     }
 }

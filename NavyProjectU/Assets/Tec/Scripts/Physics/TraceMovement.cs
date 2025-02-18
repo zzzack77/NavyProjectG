@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -24,7 +25,7 @@ public class TraceMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         RaycastHit hit;
@@ -35,7 +36,6 @@ public class TraceMovement : MonoBehaviour
         if (traceType == "Bouyancy")
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.red);
-            //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             if (traceHit)
             {
@@ -48,8 +48,6 @@ public class TraceMovement : MonoBehaviour
                 float vel = Vector3.Dot(springDir, traceWorldVel);
 
                 float force = (offset * parentScript.springStrength) - (vel * parentScript.springDamper);
-
-                //UnityEngine.Debug.Log(force);
 
                 boatRigidBody.AddForceAtPosition(springDir * force, transform.position);
             }
@@ -68,26 +66,20 @@ public class TraceMovement : MonoBehaviour
 
                 Vector3 traceWorldVel = boatRigidBody.GetPointVelocity(transform.position);
 
-                //UnityEngine.Debug.Log(traceWorldVel.magnitude);
-
                 float steeringVel = Vector3.Dot(steeringDir, traceWorldVel);
-
-                //UnityEngine.Debug.Log(steeringVel);
-
 
                 float desiredVelChange = -steeringVel * parentScript.dragFactor;
 
-                UnityEngine.Debug.Log(desiredVelChange);
-
                 float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
-                boatRigidBody.AddForceAtPosition(steeringDir * parentScript.boatWeight * desiredAccel, transform.position);
+                boatRigidBody.AddForceAtPosition(steeringDir * desiredAccel, transform.position);
+
+                boatRigidBody.AddForceAtPosition(transform.up * parentScript.heelMultiplier, transform.position);
             }
         }
         else if (traceType == "Power")
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
-            //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             Vector3 accelDir = transform.forward;
 
@@ -95,20 +87,24 @@ public class TraceMovement : MonoBehaviour
             {
                 float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
-                float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed) / parentScript.boatTopSpeed);
+                float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
                 float availableTorque = parentScript.shipPower * parentScript.accelInput;
 
                 boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
-                //UnityEngine.Debug.Log(boatRigidBody.velocity.magnitude);
+                UnityEngine.Debug.Log("Force: " + availableTorque);
 
             }
 
-            //if (traceHit)
-            //{
-                
-            //}
+            var localVel = transform.InverseTransformDirection(boatRigidBody.velocity);
+
+            float dragForce = 0.5f * parentScript.dragCoefficient * (localVel.z * boatRigidBody.velocity.magnitude);
+
+            boatRigidBody.AddForceAtPosition(-accelDir * dragForce, transform.position);
+
+            UnityEngine.Debug.Log("Drag: " + dragForce);
+
         }
     }
 }
