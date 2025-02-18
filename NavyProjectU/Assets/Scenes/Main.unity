@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoatSource: {fileID: 307486360}
-  BoatIdle: {fileID: 8300000, guid: 00a2e19dd5e87f641be38b9a3037311f, type: 3}
+  BoatIdle: {fileID: 8300000, guid: 75cd49587911687439e6fa27420cf35b, type: 3}
   Horn: {fileID: 8300000, guid: 66c0279bdf7d1d344819b1df6e162026, type: 3}
   BoatRev: 0
   IsOn: 0
@@ -3396,11 +3396,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2830586fc49ebd34ba9920260bb0ace4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xrOrigin: {fileID: 0}
   leftHand: {fileID: 1653240583}
   rightHand: {fileID: 154576079}
   leftWheelGripPoint: {fileID: 1657112148}
   rightWheelGripPoint: {fileID: 481527275}
   userOriginpos: {fileID: 448174419}
+  xrCamera: {fileID: 0}
+  cameraOffsetY: 1.1176
 --- !u!4 &1853346627
 Transform:
   m_ObjectHideFlags: 0
