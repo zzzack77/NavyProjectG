@@ -72,10 +72,9 @@ public class VRCalibration : MonoBehaviour
         float distance = Vector3.Distance(realGripMidPoint, xrCamera.transform.position);
         xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
-        // Adjust the position of the XR Origin to match the user origin position
         
         // Set the position of the xr origins camera offset to the wheel + the offset of the hands and headset
-        xrCamera.transform.position = new Vector3(virtualGripMidPoint.x - 0.05f, xrCamera.transform.position.y, virtualGripMidPoint.z - distance * 1.1f);  
+        xrCamera.transform.position = new Vector3(virtualGripMidPoint.x - 0.25f, xrCamera.transform.position.y, virtualGripMidPoint.z - distance * 0.4f);  
         
         // Kind of works, needs some more adjustments but definetely some progress
         
