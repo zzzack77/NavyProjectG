@@ -36,6 +36,7 @@ public class ShipMovement : MonoBehaviour
     public float rateOfTurn;
 
     public bool isThrottleConnected;
+    public bool isFrozen;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +75,10 @@ public class ShipMovement : MonoBehaviour
             camera1.gameObject.SetActive(!camera1.gameObject.activeSelf);
             camera2.gameObject.SetActive(!camera2.gameObject.activeSelf);
         }
-        
+        if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
+        if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
+        if (isFrozen) { ResetPos(); }
+
     }
 
     // Resets boat without restarting the scene
@@ -114,8 +118,8 @@ public class ShipMovement : MonoBehaviour
 
         
 
-        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0, 35); }
-        else { steeringInput = Mathf.Clamp((360 - difference), 0, 35); }
+        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0, 5); }
+        else { steeringInput = Mathf.Clamp((360 - difference), 0, 5); }
                
     }
     public void ManualMode()
