@@ -4064,9 +4064,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1852679110}
-    - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 875542121}
     - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: -1
@@ -6265,7 +6262,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 161364317}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 314477814343306022, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_Handedness
@@ -6305,7 +6302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.027
+      value: 23.027
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6375,6 +6372,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3699278088000458536, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982345431621610798, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6852443425682552712, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6383,7 +6388,11 @@ PrefabInstance:
       propertyPath: m_TrackingStateInput.m_Action.m_Name
       value: Tracking State Input
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 409324357541411024, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+    - {fileID: 3699278088000458536, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+    - {fileID: 6828813952197559922, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+    - {fileID: 5982345431621610798, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7519891668738558721, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
@@ -6615,11 +6624,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!4 &1852679110 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
-  m_PrefabInstance: {fileID: 1852679096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1853045159 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4800281376998744246, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
@@ -7066,3 +7070,4 @@ SceneRoots:
   - {fileID: 1659129531}
   - {fileID: 312405138}
   - {fileID: 1516197467}
+  - {fileID: 1852679096}
