@@ -17,18 +17,27 @@ public class ShipMovement : MonoBehaviour
     public PrivateVariables privateVariables;
 
     public Rigidbody rb;
-    
+
+    // Boat physiscs stats
     public float accelInput = 0.0f;
     public float steeringInput = 0.0f;
-    public float shipPower = 5.0f;
+    public float shipPower = 3500000.0f;
 
-    public float suspensionRestDist;
-    public float springStrength;
-    public float springDamper;
+    public float suspensionRestDist = 5.0f;
+    public float springStrength = 15000000.0f;
+    public float springDamper = 40.0f;
 
-    public float dragFactor;
-    public float boatWeight;
-    public float boatTopSpeed;
+    public float dragFactor = 0.5f;
+    public float dragCoefficient = 425000.0f;
+    public float boatWeight = 1.0f;
+
+    private float rpmEngineMax = 3000.0f;
+    private float rpmEngineStarboard = 0.0f;
+    private float rpmEnginePort = 0.0f;
+
+    public float rpmPropMax = 250.0f;
+    public float rpmPropStarboard = 0.0f;
+    public float rpmPropPort = 0.0f;
 
     [Header("Boat stats")]
     public float boatSpeedkph;
@@ -93,8 +102,12 @@ public class ShipMovement : MonoBehaviour
     public void ResetPos() { transform.position = new Vector3(0, 5, 0); }
     public void UpdateInspectorvariables()
     {
-        boatSpeedkph = rb.velocity.magnitude * 3.6f;
-        boatSpeedkn = rb.velocity.magnitude * 1.944f;
+        Vector3 forwardDirection = transform.forward;
+
+        var LocalV = transform.InverseTransformDirection(rb.velocity);
+
+        boatSpeedkph = LocalV.z * 3.6f;
+        boatSpeedkn = LocalV.z * 1.944f;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
     }
     public void VerticalMovement()
@@ -105,10 +118,52 @@ public class ShipMovement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.W) && accelInput < 1.0f) { accelInput = accelInput + 0.001f; }
-            else if (Input.GetKey(KeyCode.S) && accelInput > -1) { accelInput = accelInput - 0.001f; }
+            if (Input.GetKey(KeyCode.W) && accelInput < 1.0f) { accelInput = accelInput + 0.01f; }
+            else if (Input.GetKey(KeyCode.S) && accelInput > -1) { accelInput = accelInput - 0.01f; }
         }
-        
+    }
+    public void RPMCode()
+    {
+        float rpmInput = accelInput * rpmPropMax;
+
+        // Starborad Propeller
+
+        if (rpmInput > rpmPropStarboard)
+        {
+            rpmPropStarboard = rpmPropStarboard + 1.0f;
+            if (rpmPropStarboard > rpmInput)
+            {
+                rpmPropStarboard = rpmInput;
+            }
+        }
+        else if (rpmInput < rpmPropStarboard)
+        {
+            rpmPropStarboard = rpmPropStarboard - 1.0f;
+            if (rpmPropStarboard < rpmInput)
+            {
+                rpmPropStarboard = rpmInput;
+            }
+        }
+
+        // Port Propeller
+
+        if (rpmInput > rpmPropPort)
+        {
+            rpmPropPort = rpmPropPort + 1.0f;
+            if (rpmPropPort > rpmInput)
+            {
+                rpmPropPort = rpmInput;
+            }
+
+        }
+        else if (rpmInput < rpmPropPort)
+        {
+            rpmPropPort = rpmPropPort - 1.0f;
+            if (rpmPropPort < rpmInput)
+            {
+                rpmPropPort = rpmInput;
+            }
+        }
     }
     // Auto Pilot code
     public void AutoPilotMode()
