@@ -121,10 +121,10 @@ public class ShipMovement : MonoBehaviour
         else
         {
             if (Input.GetKey(KeyCode.W) && accelPortInput < 1.0f) { accelPortInput = accelPortInput + 0.01f; }
-            else if (Input.GetKey(KeyCode.S) && accelPortInput > -1) { accelPortInput = accelPortInput - 0.01f; }
+            else if (Input.GetKey(KeyCode.S) && accelPortInput > -1.0f) { accelPortInput = accelPortInput - 0.01f; }
 
             if (Input.GetKey(KeyCode.R) && accelStarboardInput < 1.0f) { accelStarboardInput = accelStarboardInput + 0.01f; }
-            else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1) { accelStarboardInput = accelStarboardInput - 0.01f; }
+            else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; }
         }
     }
     public void RPMCode()

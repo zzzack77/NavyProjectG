@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Heeling : MonoBehaviour
 {
 
     public ShipMovement parent;
-    public TraceMovement movement;
     public bool Invert;
     float TurnAngle = 0.0f;
 
@@ -22,21 +22,23 @@ public class Heeling : MonoBehaviour
     {
         if (Invert == true)
         {
-            TurnAngle = 45.0f;
+            TurnAngle = 30.0f;
         }
         else
         {
-            TurnAngle = -45.0f;
+            TurnAngle = -30.0f;
         }
 
-        if (parent.steeringInput != 0.0f)
+        if (parent.rateOfTurn != 0.0f)
         {
             if (Invert == true)
             {
-                parent.steeringInput = -parent.steeringInput;
+                parent.rateOfTurn = -parent.rateOfTurn;
             }
 
-            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z - parent.steeringInput);
+            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z - (parent.rateOfTurn * (TurnAngle/5.0f)));
         }
+
+        UnityEngine.Debug.Log("Ship Rotation: " + transform.eulerAngles);
     }
 }

@@ -13,8 +13,6 @@ public class TraceMovement : MonoBehaviour
     public Rigidbody boatRigidBody;
     public ShipMovement parentScript;
 
-    public string traceType;
-
     public bool bBouyancy;
     public bool bTurning;
     public bool bPower;
@@ -127,7 +125,7 @@ public class TraceMovement : MonoBehaviour
 
             UnityEngine.Debug.Log("Drag Force: " + (-accelDir * rearDrag).magnitude);
 
-            boatRigidBody.AddForceAtPosition(-accelDir * rearDrag, transform.position);
+            boatRigidBody.AddForceAtPosition(-accelDir * rearDrag, parentScript.rb.transform.position);
 
         }
     }
