@@ -68,6 +68,7 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.X)) { ResetPosRotVelocity(); }
 
         VerticalMovement();
+
         // Depending on autopilot nfu or manual call correct function for movement
         if (privateVariables != null)
         {
