@@ -917,17 +917,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a25555395f4924a91df56f6328a7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera1: {fileID: 0}
+  camera2: {fileID: 0}
   privateVariables: {fileID: 0}
   rb: {fileID: 7772279565842285386}
   accelInput: 0
   steeringInput: 0
-  shipPower: 200
+  shipPower: 3500000
   suspensionRestDist: 5
   springStrength: 400
   springDamper: 40
   dragFactor: 0.5
+  dragCoefficient: 425000
   boatWeight: 1
-  boatTopSpeed: 1
+  rpmPropMax: 250
+  rpmPropStarboard: 0
+  rpmPropPort: 0
+  boatSpeedkph: 0
+  boatSpeedkn: 0
+  rateOfTurn: 0
+  isThrottleConnected: 0
+  isFrozen: 0
 --- !u!54 &7772279565842285386
 Rigidbody:
   m_ObjectHideFlags: 0

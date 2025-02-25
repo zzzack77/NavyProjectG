@@ -4810,10 +4810,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1237406787}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: shipPower
-      value: 3500000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: boatWeight
       value: 10000
       objectReference: {fileID: 0}
