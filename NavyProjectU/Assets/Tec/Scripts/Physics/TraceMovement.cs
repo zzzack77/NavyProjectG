@@ -15,6 +15,12 @@ public class TraceMovement : MonoBehaviour
 
     public string traceType;
 
+    public bool bBouyancy;
+    public bool bTurning;
+    public bool bPower;
+
+    public bool Starboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +36,7 @@ public class TraceMovement : MonoBehaviour
 
         UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.red);
 
-        if (traceType == "Bouyancy")
+        if (bBouyancy)
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.red);
             //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
@@ -52,7 +58,8 @@ public class TraceMovement : MonoBehaviour
 
 
         }
-        else if (traceType == "Turning")
+        
+        if (bTurning)
         {
 
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.yellow);
@@ -73,25 +80,45 @@ public class TraceMovement : MonoBehaviour
                 boatRigidBody.AddForceAtPosition(steeringDir * parentScript.boatWeight * desiredAccel, transform.position);
             }
         }
-        else if (traceType == "Power")
+        
+        if (bPower)
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
             //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             Vector3 accelDir = transform.forward;
 
-            if (parentScript.accelInput != 0.0f)
+            if (Starboard)
             {
-                float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
+                if (parentScript.accelStarboardInput != 0.0f)
+                {
+                    float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
-                float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
+                    float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
-                float availableTorque = parentScript.shipPower * parentScript.accelInput;
+                    float availableTorque = parentScript.shipPower * parentScript.accelStarboardInput;
 
-                boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
+                    boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
-                UnityEngine.Debug.Log("Acceleration Force: " + (accelDir * availableTorque).magnitude);
+                    UnityEngine.Debug.Log("Acceleration Force: " + (accelDir * availableTorque).magnitude);
 
+                }
+            }
+            else
+            {
+                if (parentScript.accelPortInput != 0.0f)
+                {
+                    float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
+
+                    float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
+
+                    float availableTorque = parentScript.shipPower * parentScript.accelPortInput;
+
+                    boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
+
+                    UnityEngine.Debug.Log("Acceleration Force: " + (accelDir * availableTorque).magnitude);
+
+                }
             }
 
             var localVel = transform.InverseTransformDirection(parentScript.rb.velocity);

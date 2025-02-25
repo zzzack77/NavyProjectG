@@ -176,6 +176,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Power
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!1 &1876148327958397164
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,13 +273,13 @@ Transform:
   m_GameObject: {fileID: 3245957891796017661}
   serializedVersion: 2
   m_LocalRotation: {x: 0.10992043, y: -0, z: -0, w: 0.9939405}
-  m_LocalPosition: {x: -0.104499996, y: 1.0752, z: 0.13682}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 0.0066666664}
+  m_LocalPosition: {x: -0.104499996, y: 1.0752001, z: 0.13682}
+  m_LocalScale: {x: 0.05, y: 0.10000001, z: 0.006666667}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2347062012599267902}
   - {fileID: 7271811017849860755}
-  m_Father: {fileID: 208821950388627114}
+  m_Father: {fileID: 4888500409067139426}
   m_LocalEulerAnglesHint: {x: 12.621, y: 0, z: 0}
 --- !u!20 &2570061701201826625
 Camera:
@@ -724,6 +728,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Bouyancy
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &7513684317659465810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +748,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &5280059316279320147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,10 +831,7 @@ Transform:
   m_LocalScale: {x: 20, y: 10, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9114168137485382083}
-  - {fileID: 6442095882533622428}
-  - {fileID: 425250092108663297}
-  - {fileID: 3622272790143712721}
+  - {fileID: 4888500409067139426}
   - {fileID: 9001580975564902960}
   - {fileID: 9123439871382627480}
   - {fileID: 8727907351917389929}
@@ -830,7 +839,6 @@ Transform:
   - {fileID: 8791999474682689501}
   - {fileID: 6982197409708614324}
   - {fileID: 4397000756008690175}
-  - {fileID: 7950709756275362017}
   - {fileID: 4640058524116201192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -903,7 +911,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 10, z: 150}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1320367360844907748
 MonoBehaviour:
@@ -917,19 +925,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a25555395f4924a91df56f6328a7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera1: {fileID: 0}
+  camera1: {fileID: 2570061701201826625}
   camera2: {fileID: 0}
   privateVariables: {fileID: 0}
   rb: {fileID: 7772279565842285386}
-  accelInput: 0
+  accelPortInput: 0
+  accelStarboardInput: 0
   steeringInput: 0
   shipPower: 3500000
   suspensionRestDist: 5
-  springStrength: 400
-  springDamper: 40
-  dragFactor: 0.5
-  dragCoefficient: 425000
-  boatWeight: 1
+  springStrength: 20000000
+  springDamper: 500000
+  dragFactor: 1
+  dragCoefficient: 25000
+  boatWeight: 10000
   rpmPropMax: 250
   rpmPropStarboard: 0
   rpmPropPort: 0
@@ -1015,6 +1024,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Bouyancy
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &4657472407026791768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1044,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &7145254941394430969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,6 +1372,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Bouyancy
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &4946135937783372037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1392,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &6288579747047599213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1410,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1320367360844907748}
   Invert: 0
+--- !u!1 &8165258386256108278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4888500409067139426}
+  m_Layer: 0
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4888500409067139426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165258386256108278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9114168137485382083}
+  - {fileID: 6442095882533622428}
+  - {fileID: 425250092108663297}
+  - {fileID: 3622272790143712721}
+  - {fileID: 7950709756275362017}
+  m_Father: {fileID: 208821950388627114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8245681407904406969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1471,7 @@ Transform:
   m_GameObject: {fileID: 8245681407904406969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9119, z: 0}
+  m_LocalPosition: {x: 0, y: -0.91190004, z: 0}
   m_LocalScale: {x: 0.05, y: 0.1, z: 0.0066666664}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1419,7 +1480,7 @@ Transform:
   - {fileID: 6691563410701340849}
   - {fileID: 3941429128805388775}
   - {fileID: 993918980684591894}
-  m_Father: {fileID: 208821950388627114}
+  m_Father: {fileID: 4888500409067139426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8553613662842513924
 GameObject:
@@ -1469,6 +1530,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Power
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!1 &8953217886687094021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1583,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &6249624585406736643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1651,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Bouyancy
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &6374412945552432033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,6 +1671,10 @@ MonoBehaviour:
   boatRigidBody: {fileID: 7772279565842285386}
   parentScript: {fileID: 1320367360844907748}
   traceType: Turning
+  bBouyancy: 0
+  bTurning: 0
+  bPower: 0
+  Starboard: 0
 --- !u!114 &2012026902126059362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,13 +1714,13 @@ Transform:
   m_GameObject: {fileID: 9059931954131345929}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.91, z: 0}
+  m_LocalPosition: {x: 0, y: -0.90999985, z: 0}
   m_LocalScale: {x: 0.05, y: 0.1, z: 0.0066666664}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 597474428266248123}
   - {fileID: 7644077087206676682}
-  m_Father: {fileID: 208821950388627114}
+  m_Father: {fileID: 4888500409067139426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &174641796283608554
 PrefabInstance:
@@ -1651,7 +1728,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 208821950388627114}
+    m_TransformParent: {fileID: 4888500409067139426}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 27cbcb2acf3a18b41a9862af37052eff, type: 3}
       propertyPath: m_LocalScale.x
@@ -1671,7 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27cbcb2acf3a18b41a9862af37052eff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8134
+      value: 0.8133998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27cbcb2acf3a18b41a9862af37052eff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2155,7 +2232,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 208821950388627114}
+    m_TransformParent: {fileID: 4888500409067139426}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalScale.x
@@ -2163,11 +2240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.006666667
+      value: 0.0066666673
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.10000001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2175,7 +2252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.912
+      value: -0.9120002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f71a96e7bd0d0a41afc8a774f0b9acb, type: 3}
       propertyPath: m_LocalPosition.z
