@@ -21,6 +21,7 @@ public class EchoSounderRaycast : MonoBehaviour
 
     void WrapperStartEchoSounder()
     {
+        Debug.Log("hello");
         isBow = _PrivateVariables.IsBow;
         _PrivateVariables.DistanceFromGround = StartEchoSounder(isBow);
     }
@@ -39,7 +40,7 @@ public class EchoSounderRaycast : MonoBehaviour
                     if (hit.collider.CompareTag("SeaFloor"))
                     {
                         height = hit.distance - 0.5f;
-                        //Debug.Log(height);
+                        Debug.Log(height);
                     }
                 }
             }
@@ -53,7 +54,7 @@ public class EchoSounderRaycast : MonoBehaviour
                     if (hit.collider.CompareTag("SeaFloor"))
                     {
                         height = hit.distance - 0.5f;
-                        //Debug.Log(height);
+                        Debug.Log(height);
                     }
                 }
             }

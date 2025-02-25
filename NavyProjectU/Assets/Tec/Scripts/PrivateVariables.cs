@@ -33,6 +33,7 @@ public class PrivateVariables : MonoBehaviour
     [SerializeField]
     private float setAutoCourse;
     private float settingAutoCourse;
+    [SerializeField]
     private float distanceFromGround;
 
     // Type of steering
