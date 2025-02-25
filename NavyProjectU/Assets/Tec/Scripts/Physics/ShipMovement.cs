@@ -12,7 +12,8 @@ public class ShipMovement : MonoBehaviour
 
     public Rigidbody rb;
 
-    public float accelInput = 0.0f;
+    public float accelPortInput = 0.0f;
+    public float accelStarboardInput = 0.0f;
     public float steeringInput = 0.0f;
     public float shipPower = 3500000.0f;
 
@@ -59,65 +60,86 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             
-            accelInput = accelInput + 0.01f;
+            accelPortInput = accelPortInput + 0.01f;
             
-            if(accelInput > 1.0f)
+            if(accelPortInput > 1.0f)
             {
-                accelInput = 1.0f;
+                accelPortInput = 1.0f;
             }
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            accelInput = accelInput - 0.01f;
+            accelPortInput = accelPortInput - 0.01f;
 
-            if (accelInput < -1.0f)
+            if (accelPortInput < -1.0f)
             {
-                accelInput = -1.0f;
+                accelPortInput = -1.0f;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+
+            accelStarboardInput = accelStarboardInput + 0.01f;
+
+            if (accelStarboardInput > 1.0f)
+            {
+                accelStarboardInput = 1.0f;
+            }
+        }
+        else if (Input.GetKey(KeyCode.F))
+        {
+            accelStarboardInput = accelStarboardInput - 0.01f;
+
+            if (accelStarboardInput < -1.0f)
+            {
+                accelStarboardInput = -1.0f;
             }
         }
 
 
         // RPM code
 
-        float rpmInput = accelInput * rpmPropMax;
+        float rpmPortInput = accelPortInput * rpmPropMax;
+        float rpmStarboardInput = accelStarboardInput * rpmPropMax;
 
         // Starborad Propeller
 
-        if (rpmInput > rpmPropStarboard)
+        if (rpmStarboardInput > rpmPropStarboard)
         {
             rpmPropStarboard = rpmPropStarboard + 1.0f;
-            if(rpmPropStarboard > rpmInput)
+            if(rpmPropStarboard > rpmStarboardInput)
             {
-                rpmPropStarboard = rpmInput;
+                rpmPropStarboard = rpmStarboardInput;
             }
 
         }
-        else if(rpmInput < rpmPropStarboard)
+        else if(rpmStarboardInput < rpmPropStarboard)
         {
             rpmPropStarboard = rpmPropStarboard - 1.0f;
-            if (rpmPropStarboard < rpmInput)
+            if (rpmPropStarboard < rpmStarboardInput)
             {
-                rpmPropStarboard = rpmInput;
+                rpmPropStarboard = rpmStarboardInput;
             }
         }
 
         // Port Propeller
 
-        if (rpmInput > rpmPropPort)
+        if (rpmPortInput > rpmPropPort)
         {
             rpmPropPort = rpmPropPort + 1.0f;
-            if (rpmPropPort > rpmInput)
+            if (rpmPropPort > rpmPortInput)
             {
-                rpmPropPort = rpmInput;
+                rpmPropPort = rpmPortInput;
             }
 
         }
-        else if (rpmInput < rpmPropPort)
+        else if (rpmPortInput < rpmPropPort)
         {
             rpmPropPort = rpmPropPort - 1.0f;
-            if (rpmPropPort < rpmInput)
+            if (rpmPropPort < rpmPortInput)
             {
-                rpmPropPort = rpmInput;
+                rpmPropPort = rpmPortInput;
             }
         }
 
