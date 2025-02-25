@@ -8,10 +8,11 @@ public class HeadingUI : MonoBehaviour
     public RawImage HeadingImage;
     public Transform Player;
 
-    public float ye = 0.0027027f;
+    private float ye = 0.00277777777777f;
+    private float offset = 179.49865f;
     void Update()
     {
-        HeadingImage.uvRect = new Rect((Player.localEulerAngles.y * ye) - (179.0f * ye) , 0, 1, 1);
+        HeadingImage.uvRect = new Rect((Player.localEulerAngles.y * ye) - offset , 0, 1, 1);
 
         Vector3 forward = Player.transform.forward;
 
