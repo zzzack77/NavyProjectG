@@ -428,7 +428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ca30994a344166245b183de8c5461140, type: 3}
+  m_Texture: {fileID: 2800000, guid: cf9e6c921cb6fa74e858309d16d6cb8c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -793,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeadingImage: {fileID: 950932989}
   Player: {fileID: 1267509771}
+  ye: 0.0027027
 --- !u!114 &1295876165
 MonoBehaviour:
   m_ObjectHideFlags: 0
