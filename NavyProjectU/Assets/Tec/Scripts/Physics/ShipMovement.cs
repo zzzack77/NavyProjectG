@@ -109,7 +109,9 @@ public class ShipMovement : MonoBehaviour
 
         boatSpeedkph = LocalV.z * 3.6f;
         boatSpeedkn = LocalV.z * 1.944f;
+        privateVariables.SpeedKn = boatSpeedkn;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
+        privateVariables.RateOfTurn = rateOfTurn;
     }
     public void VerticalMovement()
     {
@@ -170,12 +172,12 @@ public class ShipMovement : MonoBehaviour
     public void AutoPilotMode()
     {
         float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
-        UnityEngine.Debug.Log(difference);
+        //UnityEngine.Debug.Log(difference);
 
         
 
-        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0, 5); }
-        else { steeringInput = Mathf.Clamp((360 - difference), 0, 5); }
+        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0.5f, 5); }
+        else { steeringInput = Mathf.Clamp((360 - difference), 0.5f, 5); }
                
     }
     public void ManualMode()

@@ -75,7 +75,7 @@ public class TraceMovement : MonoBehaviour
         }
         else if (traceType == "Power")
         {
-            UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
+            //UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
             //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             Vector3 accelDir = transform.forward;
@@ -90,7 +90,7 @@ public class TraceMovement : MonoBehaviour
 
                 boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
-                UnityEngine.Debug.Log("Acceleration Force: " + (accelDir * availableTorque).magnitude);
+                //UnityEngine.Debug.Log("Acceleration Force: " + (accelDir * availableTorque).magnitude);
 
             }
 
@@ -98,7 +98,7 @@ public class TraceMovement : MonoBehaviour
 
             float rearDrag = 0.5f * parentScript.dragCoefficient * (localVel.z * parentScript.rb.velocity.magnitude);
 
-            UnityEngine.Debug.Log("Drag Force: " + (-accelDir * rearDrag).magnitude);
+            //UnityEngine.Debug.Log("Drag Force: " + (-accelDir * rearDrag).magnitude);
 
             boatRigidBody.AddForceAtPosition(-accelDir * rearDrag, transform.position);
 

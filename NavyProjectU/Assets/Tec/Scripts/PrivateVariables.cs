@@ -21,9 +21,13 @@ public class PrivateVariables : MonoBehaviour
      */
 
     // Rotation variables
+    [SerializeField]
     private float heading;
     private float pitch;
     private float roll;
+
+    private float rateOfTurn;
+    private float speedKn;
 
     // UI variables
     [SerializeField]
@@ -60,6 +64,7 @@ public class PrivateVariables : MonoBehaviour
     private EchoSounderSoftTouch echoSounderSoftTouch;
     private ErrorUI errorUI;
     private AudioFunctions audioFunctions;
+    private HeadingUI headingUI;
 
     private void Awake()
     {
@@ -67,6 +72,7 @@ public class PrivateVariables : MonoBehaviour
         echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
         audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
+        headingUI = GameObject.Find("GameManager").GetComponent<HeadingUI>();
     }
 
     // getters and setters
@@ -75,10 +81,30 @@ public class PrivateVariables : MonoBehaviour
         get => heading;
         set
         {
-            if (value < 0) heading = value + 360;
+            if (value < 0) /*heading = value + 360*/;
+            else if (value == 360) heading = 0;
             else if (value >= 360) heading = value - 360;
             else heading = value;
             autopilotSoftTouch.OnHeadingUpdate();
+            headingUI.OnHeadingUpdate();
+        }
+    }
+    public float RateOfTurn
+    {
+        get => rateOfTurn;
+        set
+        {
+            rateOfTurn = value;
+            headingUI.OnRateOfTurnUpdate();
+        }
+    }
+    public float SpeedKn
+    {
+        get => speedKn;
+        set
+        {
+            speedKn = value;
+            headingUI.OnSpeedKnUpdate();
         }
     }
     public float SettingAutoCourse
