@@ -39,7 +39,6 @@ public class TraceMovement : MonoBehaviour
         if (bBouyancy)
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.red);
-            //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             if (traceHit)
             {
@@ -58,10 +57,10 @@ public class TraceMovement : MonoBehaviour
 
 
         }
-        else if (bTurning)
+        
+        if (bTurning)
         {
-            UnityEngine.Debug.Log("Turning");
-            UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.yellow);
+
             UnityEngine.Debug.DrawRay(transform.position, transform.forward * 4.0f, Color.blue);
 
             if (traceHit)
@@ -79,10 +78,10 @@ public class TraceMovement : MonoBehaviour
                 boatRigidBody.AddForceAtPosition(steeringDir * parentScript.boatWeight * desiredAccel, transform.position);
             }
         }
-        else if (bPower)
+        
+        if (bPower)
         {
             UnityEngine.Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.green);
-            //UnityEngine.Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.blue);
 
             Vector3 accelDir = transform.forward;
 
