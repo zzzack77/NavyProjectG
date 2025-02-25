@@ -71,7 +71,7 @@ public class VRCalibration : MonoBehaviour
 
         
         // Set the position of the xr origins camera offset to the wheel + the offset of the hands and headset
-        xrCamera.transform.position = new Vector3((virtualGripMidPoint.x - 0.38f), xrCamera.transform.position.y, (virtualGripMidPoint.z - distance));  
+        xrCamera.transform.position = new Vector3((virtualGripMidPoint.x + 0.04f), xrCamera.transform.position.y, (virtualGripMidPoint.z - distance));  
         
         // Kind of works, needs some more adjustments but definetely some progress
         
