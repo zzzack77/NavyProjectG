@@ -5,11 +5,11 @@ using UnityEngine;
 public class SteeringWheelxAxes : MonoBehaviour
 {
     LogitechGSDK.LogiControllerPropertiesData properties;
-    public float xAxes, ThrottleInput;
+    public float xAxes, ThrottleInput, WheelLock;
 
     private void Start()
     {
-        print(LogitechGSDK.LogiSteeringInitialize(false));
+        LogitechGSDK.LogiSteeringInitialize(true);
     }
 
     void Update()
@@ -28,6 +28,15 @@ public class SteeringWheelxAxes : MonoBehaviour
             else if (rec.lY < 0f)
             {
                 ThrottleInput = rec.lY / -32768f; // for -1 to 1
+            }
+
+            if (rec.lRx < 3185.7777f)
+            {
+                WheelLock = 1f;
+            }
+            else if (rec.lRx < -3185.7777f)
+            {
+                WheelLock = -1f;
             }
         }
         else
