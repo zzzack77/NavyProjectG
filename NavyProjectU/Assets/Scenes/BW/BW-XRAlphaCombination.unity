@@ -3902,19 +3902,19 @@ PrefabInstance:
       objectReference: {fileID: 248116704}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0004865865
+      value: 0.00017692284
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0004865865
+      value: 0.00017692284
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0004865865
+      value: 0.00017692284
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.952
+      value: 21.0219
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3926,11 +3926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.1484
+      value: -1.8766
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19.71
+      value: 19.575089
       objectReference: {fileID: 0}
     - target: {fileID: 6691563410701340849, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5216,7 +5216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2830586fc49ebd34ba9920260bb0ace4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrOrigin: {fileID: 484614413}
+  xrOrigin: {fileID: 1852679097}
   leftHand: {fileID: 1388699419}
   rightHand: {fileID: 1383586134}
   leftWheelGripPoint: {fileID: 2131410415}
@@ -6327,7 +6327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.027
+      value: 18.724
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.z
