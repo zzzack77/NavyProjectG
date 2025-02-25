@@ -25,3 +25,10 @@ PluginImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 6630
+  packageName: Logitech Gaming SDK
+  packageVersion: 1.7
+  assetPath: Assets/Logitech SDK/LogitechGArxControlEnginesWrapper.dll
+  uploadId: 250891
