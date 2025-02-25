@@ -65,16 +65,13 @@ public class VRCalibration : MonoBehaviour
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
         Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
         Quaternion scaleRotationOffset = Quaternion.Euler(scaleOffset.x, scaleOffset.y, scaleOffset.z);
-
-        // Calculates the distance between the users hands and the headset
-        Vector3 headsetOffset = realGripMidPoint - xrCamera.transform.position;
         
         float distance = Vector3.Distance(realGripMidPoint, xrCamera.transform.position);
         xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
         
         // Set the position of the xr origins camera offset to the wheel + the offset of the hands and headset
-        xrCamera.transform.position = new Vector3(virtualGripMidPoint.x - 0.25f, xrCamera.transform.position.y, virtualGripMidPoint.z - distance * 0.4f);  
+        xrCamera.transform.position = new Vector3(virtualGripMidPoint.x /*+ 0.08f*/, xrCamera.transform.position.y, virtualGripMidPoint.z - distance);  
         
         // Kind of works, needs some more adjustments but definetely some progress
         
