@@ -17,18 +17,28 @@ public class ShipMovement : MonoBehaviour
     public PrivateVariables privateVariables;
 
     public Rigidbody rb;
-    
-    public float accelInput = 0.0f;
+
+    // Boat physiscs stats
+    public float accelPortInput = 0.0f;
+    public float accelStarboardInput = 0.0f;
     public float steeringInput = 0.0f;
-    public float shipPower = 5.0f;
+    public float shipPower = 3500000.0f;
 
-    public float suspensionRestDist;
-    public float springStrength;
-    public float springDamper;
+    public float suspensionRestDist = 5.0f;
+    public float springStrength = 20000000.0f;
+    public float springDamper = 500000.0f;
 
-    public float dragFactor;
-    public float boatWeight;
-    public float boatTopSpeed;
+    public float dragFactor = 1.0f;
+    public float dragCoefficient = 25000.0f;
+    public float boatWeight = 10000.0f;
+
+    private float rpmEngineMax = 3000.0f;
+    private float rpmEngineStarboard = 0.0f;
+    private float rpmEnginePort = 0.0f;
+
+    public float rpmPropMax = 250.0f;
+    public float rpmPropStarboard = 0.0f;
+    public float rpmPropPort = 0.0f;
 
     [Header("Boat stats")]
     public float boatSpeedkph;
@@ -59,6 +69,7 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.X)) { ResetPosRotVelocity(); }
 
         VerticalMovement();
+
         // Depending on autopilot nfu or manual call correct function for movement
         if (privateVariables != null)
         {
@@ -93,8 +104,12 @@ public class ShipMovement : MonoBehaviour
     public void ResetPos() { transform.position = new Vector3(0, 5, 0); }
     public void UpdateInspectorvariables()
     {
-        boatSpeedkph = rb.velocity.magnitude * 3.6f;
-        boatSpeedkn = rb.velocity.magnitude * 1.944f;
+        Vector3 forwardDirection = transform.forward;
+
+        var LocalV = transform.InverseTransformDirection(rb.velocity);
+
+        boatSpeedkph = LocalV.z * 3.6f;
+        boatSpeedkn = LocalV.z * 1.944f;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
     }
     public void VerticalMovement()
@@ -105,10 +120,56 @@ public class ShipMovement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.W) && accelInput < 1.0f) { accelInput = accelInput + 0.001f; }
-            else if (Input.GetKey(KeyCode.S) && accelInput > -1) { accelInput = accelInput - 0.001f; }
+            if (Input.GetKey(KeyCode.W) && accelPortInput < 1.0f) { accelPortInput = accelPortInput + 0.01f; }
+            else if (Input.GetKey(KeyCode.S) && accelPortInput > -1.0f) { accelPortInput = accelPortInput - 0.01f; }
+
+            if (Input.GetKey(KeyCode.R) && accelStarboardInput < 1.0f) { accelStarboardInput = accelStarboardInput + 0.01f; }
+            else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; }
         }
-        
+    }
+    public void RPMCode()
+    {
+        float rpmPortInput = accelPortInput * rpmPropMax;
+        float rpmStarboardInput = accelStarboardInput * rpmPropMax;
+
+        // Starborad Propeller
+
+        if (rpmStarboardInput > rpmPropStarboard)
+        {
+            rpmPropStarboard = rpmPropStarboard + 1.0f;
+            if (rpmPropStarboard > rpmStarboardInput)
+            {
+                rpmPropStarboard = rpmStarboardInput;
+            }
+        }
+        else if (rpmStarboardInput < rpmPropStarboard)
+        {
+            rpmPropStarboard = rpmPropStarboard - 1.0f;
+            if (rpmPropStarboard < rpmStarboardInput)
+            {
+                rpmPropStarboard = rpmStarboardInput;
+            }
+        }
+
+        // Port Propeller
+
+        if (rpmPortInput > rpmPropPort)
+        {
+            rpmPropPort = rpmPropPort + 1.0f;
+            if (rpmPropPort > rpmPortInput)
+            {
+                rpmPropPort = rpmPortInput;
+            }
+
+        }
+        else if (rpmPortInput < rpmPropPort)
+        {
+            rpmPropPort = rpmPropPort - 1.0f;
+            if (rpmPropPort < rpmPortInput)
+            {
+                rpmPropPort = rpmPortInput;
+            }
+        }
     }
     // Auto Pilot code
     public void AutoPilotMode()
