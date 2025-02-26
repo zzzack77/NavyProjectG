@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class ShipMovement : MonoBehaviour
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
     public float accelStarboardInput = 0.0f;
-    public float steeringInput = 0.0f;
+    public float steeringInput;
     public float shipPower = 3500000.0f;
 
     public float suspensionRestDist = 5.0f;
@@ -46,6 +47,7 @@ public class ShipMovement : MonoBehaviour
     public float rateOfTurn;
 
     public bool isThrottleConnected;
+    public bool isSteeringWheelConnected;
     public bool isFrozen;
     // Start is called before the first frame update
     void Start()
@@ -185,6 +187,15 @@ public class ShipMovement : MonoBehaviour
     }
     public void ManualMode()
     {
+        if (isSteeringWheelConnected)
+        {
+            steeringInput = Input.GetAxis("Horizontal") * -35.0f;
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.A) && steeringInput < 35.0f) { steeringInput = steeringInput + 0.1f; }
+            else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; }
+        }
         if (Input.GetKey(KeyCode.A) && steeringInput < 35.0f) { steeringInput = steeringInput + 0.1f; }
         else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; }
     }
