@@ -39,6 +39,6 @@ public class Heeling : MonoBehaviour
             transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z - (parent.rateOfTurn * (TurnAngle/5.0f)));
         }
 
-        UnityEngine.Debug.Log("Ship Rotation: " + transform.eulerAngles);
+        //UnityEngine.Debug.Log("Ship Rotation: " + transform.eulerAngles);
     }
 }

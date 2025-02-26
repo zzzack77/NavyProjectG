@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class HeadingUI : MonoBehaviour
 {
     public RawImage HeadingImage;
-    public Transform Player;
+    public Transform Ship;
 
     private float ye = 1 / 360f;
     private float offset = 179.49865f;
     void Update()
     {
-        HeadingImage.uvRect = new Rect((Player.localEulerAngles.y * ye) - offset, 0, 1, 1);
+        HeadingImage.uvRect = new Rect((Ship.localEulerAngles.y * ye) - offset, 0, 1, 1);
 
-        Vector3 forward = Player.transform.forward;
+        Vector3 forward = Ship.transform.forward;
 
         forward.y = 0;
 
