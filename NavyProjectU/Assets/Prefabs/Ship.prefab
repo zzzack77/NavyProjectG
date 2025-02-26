@@ -922,7 +922,8 @@ MonoBehaviour:
   boatSpeedkph: 0
   boatSpeedkn: 0
   rateOfTurn: 0
-  isThrottleConnected: 0
+  isThrottleConnected: 1
+  isSteeringWheelConnected: 1
   isFrozen: 0
 --- !u!54 &7772279565842285386
 Rigidbody:

@@ -121,6 +121,7 @@ public class ShipMovement : MonoBehaviour
         if (isThrottleConnected)
         {
             accelPortInput = Input.GetAxis("Vertical");
+            accelStarboardInput = Input.GetAxis("Vertical");
         }
         else
         {
