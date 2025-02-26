@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SeaFloor
   - Button
+  - Ship
   layers:
   - Default
   - TransparentFX

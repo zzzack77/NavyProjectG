@@ -1,0 +1,51 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/UIButtonStyle.uss?fileID=7433441132597879392&amp;guid=54e70d700ad93cc4bb0bffac95cc324b&amp;type=3#UIButtonStyle" />
+    <ui:VisualElement name="Container" picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; background-color: rgb(137, 137, 137);">
+        <ui:VisualElement name="LeftMargineVE" picking-mode="Ignore" style="flex-grow: 1; max-width: 10%;" />
+        <ui:VisualElement name="IndicatorVE" picking-mode="Ignore" style="flex-grow: 1; flex-direction: column; max-width: 80%;">
+            <ui:VisualElement name="HeaderVE" picking-mode="Ignore" style="flex-grow: 1; max-width: none; max-height: 15%;">
+                <ui:Label tabindex="-1" text="PROPULSION INDICATORS&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="propulsionIndicatorsL" picking-mode="Ignore" class="header" style="-unity-font-style: bold; margin-top: 16px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="TopIndicatorVE" picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; justify-content: center; max-height: 40%;">
+                <ui:VisualElement name="PortPropellerPitchVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1; justify-content: center; background-image: none;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Pitch_Port_Fixed.png?fileID=2800000&amp;guid=fd02bfb61b9d4a442876b4aeb108869d&amp;type=3#Dial_Pitch_Port_Fixed&quot;);">
+                        <ui:VisualElement name="portPropellerPitchPredictedD" picking-mode="Ignore" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="portPropellerPitchTrueD" picking-mode="Ignore" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="PortEngineVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Engine_Port_Fixed.png?fileID=2800000&amp;guid=b54efbf25275bfd4a96670daf3e51347&amp;type=3#Dial_Engine_Port_Fixed&quot;);">
+                        <ui:VisualElement name="portEngineRPMD" picking-mode="Ignore" class="yellowDial" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="StarboardPropellerPitchVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Pitch_Star_Fixed.png?fileID=2800000&amp;guid=c98b5b03bee819841b8a43dcee0e7580&amp;type=3#Dial_Pitch_Star_Fixed&quot;);">
+                        <ui:VisualElement name="starboardPropellerPitchPredictedD" picking-mode="Ignore" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="starboardPropellerPitchTrueD" picking-mode="Ignore" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="BottomIdicatorVE" picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; justify-content: center; max-height: 40%;">
+                <ui:VisualElement name="PortPropellerRPMVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Propeller_Port_Fixed.png?fileID=2800000&amp;guid=9da52520b3d08824594ca6c6e7af9ade&amp;type=3#Dial_Propeller_Port_Fixed&quot;);">
+                        <ui:VisualElement name="portPropellerRPMPredictedD" picking-mode="Ignore" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="portPropellerRPMTrueD" picking-mode="Ignore" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="StarboardEngineVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Engine_Star_Fixed.png?fileID=2800000&amp;guid=8d816c0054462204b9db68f8746313c9&amp;type=3#Dial_Engine_Star_Fixed&quot;);">
+                        <ui:VisualElement name="starboardEngineRPMD" picking-mode="Ignore" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="StarboardPropellerRPMVE" picking-mode="Ignore" class="IndicatorBox" style="flex-grow: 1;">
+                    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; max-width: 190%; width: 100%; height: 100%; min-width: 105%; min-height: 100%; background-image: url(&quot;project://database/Assets/UI/UIArt/DialsUnit2/Dial_Propeller_Star_Fixed.png?fileID=2800000&amp;guid=e5e9e1cfa6d4c5d4e998abab6a516e96&amp;type=3#Dial_Propeller_Star_Fixed&quot;);">
+                        <ui:VisualElement name="starboardPropellerRPMPredictedD" picking-mode="Ignore" class="whiteDial" style="flex-grow: 1;" />
+                        <ui:VisualElement name="starboardPropellerRPMTrueD" picking-mode="Ignore" class="yellowDial" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="FooterVE" picking-mode="Ignore" style="flex-grow: 1; max-height: 5%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightMargineVE" picking-mode="Ignore" style="flex-grow: 1; max-width: 10%;" />
+    </ui:VisualElement>
+</ui:UXML>

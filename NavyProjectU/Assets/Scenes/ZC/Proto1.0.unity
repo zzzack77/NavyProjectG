@@ -144,6 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &168280033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5159461676069025293, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &248116697
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +258,7 @@ MonoBehaviour:
   autoPanel: {fileID: 933217686}
   NFUPanel: {fileID: 1281625802}
   AUTOsetCoursePanel: {fileID: 2037824069}
+  AUTOcurrentTargetPanel: {fileID: 168280033}
   NFUSetCourseLeftPanel: {fileID: 331363232}
   NFUSetCourseRightPanel: {fileID: 403573387}
   leftScrollbar: {fileID: 1853045159}
@@ -974,10 +980,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 248116704}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2001327339}
     - target: {fileID: 1603755453223519163, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1511,11 +1513,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
   m_PrefabInstance: {fileID: 1260123612}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &2001327339 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7772279565842285386, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-  m_PrefabInstance: {fileID: 1260123612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037824069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2275564517811501886, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
@@ -1532,6 +1529,7 @@ GameObject:
   - component: {fileID: 2055895195}
   - component: {fileID: 2055895194}
   - component: {fileID: 2055895193}
+  - component: {fileID: 2055895192}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1539,6 +1537,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &2055895192
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055895191}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2055895193
 MeshRenderer:
   m_ObjectHideFlags: 0
