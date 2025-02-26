@@ -25,23 +25,25 @@ public class PrivateVariables : MonoBehaviour
     private float pitch;
     private float roll;
 
-    // UI variables
-    [SerializeField]
+    // Auto pilot UI variables
     private float setAutoCourse;
     private float settingAutoCourse;
     private float distanceFromGround;
+
+    // NFU UI variables
+    private float nfuSteeringValue;
 
     // Type of steering
     private bool isAuto;
     private bool isNFU;
     private bool isManual;
 
-    private float nfuSteeringValue;
-
     // Echo sounder
     private bool isBow;
 
-  
+    // Rudder angle
+    private float rateOfTurn;
+    private float speedKn;
 
     // Failures / Errors
     private bool systemFailure;
@@ -51,25 +53,25 @@ public class PrivateVariables : MonoBehaviour
     private bool logFailure;
     private bool rudderIndicatorFailure;
 
-    // NFU
-    private float nfuright;
-    private float nfuleft;
-
     // Script variables
     private AutoPilot2 autopilotSoftTouch;
     private EchoSounderSoftTouch echoSounderSoftTouch;
     private ErrorUI errorUI;
     private AudioFunctions audioFunctions;
+    private RudderAngleUI rudderAngleUI;
+    private HeadingUI headingUI;
 
     private void Awake()
     {
         autopilotSoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
-        echoSounderSoftTouch = GetComponent<EchoSounderSoftTouch>();
+        echoSounderSoftTouch = GameObject.Find("GameManager").GetComponent<EchoSounderSoftTouch>();
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
         audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
+        rudderAngleUI = GameObject.Find("GameManager").GetComponent<RudderAngleUI>();
+        headingUI = GameObject.Find("GameManager").GetComponent<HeadingUI>();
     }
 
-    // getters and setters
+    // Rotation variables
     public float Heading
     {
         get => heading;
@@ -79,8 +81,27 @@ public class PrivateVariables : MonoBehaviour
             else if (value >= 360) heading = value - 360;
             else heading = value;
             autopilotSoftTouch.OnHeadingUpdate();
+            headingUI.OnHeadingUpdate();
         }
     }
+    public float Pitch
+    {
+        get => pitch;
+        set
+        {
+            pitch = value;
+        }
+    }
+    public float Roll
+    {
+        get => roll;
+        set
+        {
+            roll = value;
+        }
+    }
+    // Autopilot UI
+    public float SetAutoCourse { get => setAutoCourse; set { setAutoCourse = value; autopilotSoftTouch.OnCurrentTargetUpdate(); } }
     public float SettingAutoCourse
     {
         get => settingAutoCourse;
@@ -92,8 +113,7 @@ public class PrivateVariables : MonoBehaviour
             autopilotSoftTouch.OnSettingAutoCourseUpdate();
         }
     }
-    public float SetAutoCourse { get => setAutoCourse; set { setAutoCourse = value; autopilotSoftTouch.OnCurrentTargetUpdate(); } }
-
+    // Echo sounder UI
     public float DistanceFromGround
     {
         get => distanceFromGround;
@@ -103,15 +123,32 @@ public class PrivateVariables : MonoBehaviour
             echoSounderSoftTouch.UpdateDepthLabel(value);
         }
     }
-    public bool IsBow { get => isBow; set => isBow = value; }
-    public float Pitch { get => pitch; set => pitch = value; }
-    public float Roll { get => roll; set => roll = value; }
-
+    // NFU UI
+    public float NfuSteeringValue { get => nfuSteeringValue; set => nfuSteeringValue = value; }
+    // Type of steering 
     public bool IsAuto { get => isAuto; set => isAuto = value; }
     public bool IsManual { get => isManual; set => isManual = value; }
     public bool IsNFU { get => isNFU; set => isNFU = value; }
-
-    public float NfuSteeringValue { get => nfuSteeringValue; set => nfuSteeringValue = value; }
+    public bool IsBow { get => isBow; set => isBow = value; }
+    // Heading UI
+    public float RateOfTurn
+    {
+        get => rateOfTurn;
+        set
+        {
+            rateOfTurn = value;
+            headingUI.OnRateOfTurnUpdate();
+        }
+    }
+    public float SpeedKn
+    {
+        get => speedKn;
+        set
+        {
+            speedKn = value;
+            headingUI.OnSpeedKnUpdate();
+        }
+    }
 
     // Failures / Errors
     public bool SystemFailure
