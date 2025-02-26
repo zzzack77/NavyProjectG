@@ -1360,6 +1360,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &419471596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5323638089164348702, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &439261427
 GameObject:
   m_ObjectHideFlags: 0
@@ -5697,6 +5702,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1237406787}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: isThrottleConnected
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isSteeringWheelConnected
       value: 1
       objectReference: {fileID: 0}
@@ -5910,6 +5919,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 1826352268}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5323638089164348702, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1881458603}
     - targetCorrespondingSourceObject: {fileID: 8024733457361322462, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: -1
       addedObject: {fileID: 682829618}
@@ -8653,6 +8665,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
   m_PrefabInstance: {fileID: 1260123612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1881458603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419471596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8bd2e56341bf84a8b5de2e515f2ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1890520884
 GameObject:
   m_ObjectHideFlags: 0

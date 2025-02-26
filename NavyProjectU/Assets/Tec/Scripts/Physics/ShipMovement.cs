@@ -118,7 +118,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
-            //Put throttle code here
+            accelPortInput = Input.GetAxis("Vertical");
         }
         else
         {
