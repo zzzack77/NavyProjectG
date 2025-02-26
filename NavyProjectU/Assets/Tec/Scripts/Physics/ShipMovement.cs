@@ -15,7 +15,7 @@ public class ShipMovement : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
-    public PrivateVariables privateVariables;
+    private PrivateVariables privateVariables;
 
     public Rigidbody rb;
 
@@ -53,14 +53,13 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
-        
         camera1.gameObject.SetActive(true);
         camera2.gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
-        UpdateInspectorvariables();
+        UpdateVariables();
     }
 
     // Update is called once per frame
@@ -78,6 +77,8 @@ public class ShipMovement : MonoBehaviour
             if (privateVariables.IsAuto) { AutoPilotMode(); }
             else if (privateVariables.IsNFU) { NFUMode(); }
             else { ManualMode(); }
+            
+
         }
 
         // If private variabels is null defult to manual mode (A, D key presses)
@@ -104,7 +105,7 @@ public class ShipMovement : MonoBehaviour
 
     // Resets position, can be used to test long distant movement without boat falling of the world
     public void ResetPos() { transform.position = new Vector3(0, 5, 0); }
-    public void UpdateInspectorvariables()
+    public void UpdateVariables()
     {
         Vector3 forwardDirection = transform.forward;
 
@@ -115,6 +116,11 @@ public class ShipMovement : MonoBehaviour
         privateVariables.SpeedKn = boatSpeedkn;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
         privateVariables.RateOfTurn = rateOfTurn;
+
+        privateVariables.PortRudderAngle = steeringInput;
+        privateVariables.StarRudderAngle = steeringInput;
+        privateVariables.PortClinometer = transform.rotation.eulerAngles.x;
+        privateVariables.StarClinometer = transform.rotation.eulerAngles.z;
     }
     public void VerticalMovement()
     {

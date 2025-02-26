@@ -41,9 +41,15 @@ public class PrivateVariables : MonoBehaviour
     // Echo sounder
     private bool isBow;
 
-    // Rudder angle
+    // Heading UI
     private float rateOfTurn;
     private float speedKn;
+
+    // Rudder Angle
+    private float portRudderAngle;
+    private float starRudderAngle;
+    private float portClinomer;
+    private float starClinomer;
 
     // Failures / Errors
     private bool systemFailure;
@@ -60,6 +66,7 @@ public class PrivateVariables : MonoBehaviour
     private AudioFunctions audioFunctions;
     private RudderAngleUI rudderAngleUI;
     private HeadingUI headingUI;
+
 
     private void Awake()
     {
@@ -149,6 +156,57 @@ public class PrivateVariables : MonoBehaviour
             headingUI.OnSpeedKnUpdate();
         }
     }
+
+    // Rudder angle
+    public float PortRudderAngle
+    {
+        get => portRudderAngle;
+        set
+        {
+            if (portRudderAngle != value)
+            {
+                portRudderAngle = value;
+                rudderAngleUI.SetPortRudderAngle(value);
+            }
+        }
+    }
+    public float StarRudderAngle
+    {
+        get => starRudderAngle;
+        set
+        {
+            if (starRudderAngle != value)
+            {
+                starRudderAngle = value;
+                rudderAngleUI.SetStarRudderAngle(value);
+            }
+        }
+    }
+    public float PortClinometer
+    {
+        get => portClinomer;
+        set
+        {
+            if (portClinomer != value)
+            {
+                portClinomer = value;
+                rudderAngleUI.SetPortClinometer(value);
+            }
+        }
+    }
+    public float StarClinometer
+    {
+        get => starClinomer;
+        set
+        {
+            if (starClinomer != value)
+            {
+                starClinomer = value;
+                rudderAngleUI.SetStarClinometer(value);
+            }
+        }
+    }
+
 
     // Failures / Errors
     public bool SystemFailure
