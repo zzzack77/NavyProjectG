@@ -9,7 +9,7 @@ public class HeadingUI : MonoBehaviour
     private PrivateVariables privateVariables;
 
     public RawImage HeadingImage;
-    public Transform Player;
+    public Transform Ship;
 
     public GameObject HeadingValue;
     public GameObject SpeedValue;
@@ -25,9 +25,9 @@ public class HeadingUI : MonoBehaviour
     }
     void Update()
     {
-        HeadingImage.uvRect = new Rect((Player.localEulerAngles.y * ye) - offset, 0, 1, 1);
+        HeadingImage.uvRect = new Rect((Ship.localEulerAngles.y * ye) - offset, 0, 1, 1);
 
-        Vector3 forward = Player.transform.forward;
+        Vector3 forward = Ship.transform.forward;
 
         forward.y = 0;
 

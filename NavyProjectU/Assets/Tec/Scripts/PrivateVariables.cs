@@ -41,6 +41,10 @@ public class PrivateVariables : MonoBehaviour
     // Echo sounder
     private bool isBow;
 
+    // Rudder angle
+    private float rateOfTurn;
+    private float speedKn;
+
     // Failures / Errors
     private bool systemFailure;
     private bool gyroFailure;
@@ -55,6 +59,7 @@ public class PrivateVariables : MonoBehaviour
     private ErrorUI errorUI;
     private AudioFunctions audioFunctions;
     private RudderAngleUI rudderAngleUI;
+    private HeadingUI headingUI;
 
     private void Awake()
     {
@@ -63,9 +68,9 @@ public class PrivateVariables : MonoBehaviour
         errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
         audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
         rudderAngleUI = GameObject.Find("GameManager").GetComponent<RudderAngleUI>();
+        headingUI = GameObject.Find("GameManager").GetComponent<HeadingUI>();
     }
 
-    // getters and setters
     // Rotation variables
     public float Heading
     {
@@ -76,6 +81,7 @@ public class PrivateVariables : MonoBehaviour
             else if (value >= 360) heading = value - 360;
             else heading = value;
             autopilotSoftTouch.OnHeadingUpdate();
+            headingUI.OnHeadingUpdate();
         }
     }
     public float Pitch
@@ -94,7 +100,7 @@ public class PrivateVariables : MonoBehaviour
             roll = value;
         }
     }
-    // Autopilot UI variables
+    // Autopilot UI
     public float SetAutoCourse { get => setAutoCourse; set { setAutoCourse = value; autopilotSoftTouch.OnCurrentTargetUpdate(); } }
     public float SettingAutoCourse
     {
@@ -107,7 +113,7 @@ public class PrivateVariables : MonoBehaviour
             autopilotSoftTouch.OnSettingAutoCourseUpdate();
         }
     }
-    // Echo sounder
+    // Echo sounder UI
     public float DistanceFromGround
     {
         get => distanceFromGround;
@@ -117,13 +123,32 @@ public class PrivateVariables : MonoBehaviour
             echoSounderSoftTouch.UpdateDepthLabel(value);
         }
     }
-    // NFU
+    // NFU UI
     public float NfuSteeringValue { get => nfuSteeringValue; set => nfuSteeringValue = value; }
-    // Type of steering
+    // Type of steering 
     public bool IsAuto { get => isAuto; set => isAuto = value; }
     public bool IsManual { get => isManual; set => isManual = value; }
     public bool IsNFU { get => isNFU; set => isNFU = value; }
     public bool IsBow { get => isBow; set => isBow = value; }
+    // Heading UI
+    public float RateOfTurn
+    {
+        get => rateOfTurn;
+        set
+        {
+            rateOfTurn = value;
+            headingUI.OnRateOfTurnUpdate();
+        }
+    }
+    public float SpeedKn
+    {
+        get => speedKn;
+        set
+        {
+            speedKn = value;
+            headingUI.OnSpeedKnUpdate();
+        }
+    }
 
     // Failures / Errors
     public bool SystemFailure
