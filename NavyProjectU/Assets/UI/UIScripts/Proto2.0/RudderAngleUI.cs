@@ -11,23 +11,24 @@ public class RudderAngleUI : MonoBehaviour
     public GameObject portClinometer;
     public GameObject starClinometer;
 
-    private float rudderAngleUnitScaler = 136 / 35f;
+    private float rudderAngleUnitScaler = 20/5;
     private float clinometerUnitScaler = 10;
     // Start is called before the first frame update
     void Start()
     {
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
+        
     }
     
     public void SetPortRudderAngle(float rotation)
     {
         rotation *= rudderAngleUnitScaler;
-        portRudderDial.transform.rotation = Quaternion.Euler(0, 0, rotation);
+        portRudderDial.transform.rotation = Quaternion.Euler(portRudderDial.transform.rotation.eulerAngles.x, 0, rotation);
     }
     public void SetStarRudderAngle(float rotation)
     {
         rotation *= rudderAngleUnitScaler;
-        starRudderDial.transform.rotation = Quaternion.Euler(0, 0, rotation);
+        starRudderDial.transform.rotation = Quaternion.Euler(starRudderDial.transform.rotation.eulerAngles.x, 0, rotation);
     }
 
     public void SetPortClinometer(float rotation)
