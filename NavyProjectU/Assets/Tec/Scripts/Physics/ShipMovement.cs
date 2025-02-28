@@ -19,6 +19,8 @@ public class ShipMovement : MonoBehaviour
 
     public Rigidbody rb;
 
+    private Transform visualsTransform;
+
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
     public float accelStarboardInput = 0.0f;
@@ -53,6 +55,7 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
+        visualsTransform = transform.Find("Visuals");
         camera1.gameObject.SetActive(true);
         camera2.gameObject.SetActive(false);
     }
@@ -119,8 +122,8 @@ public class ShipMovement : MonoBehaviour
 
         privateVariables.PortRudderAngle = steeringInput;
         privateVariables.StarRudderAngle = steeringInput;
-        privateVariables.PortClinometer = transform.rotation.eulerAngles.x;
-        privateVariables.StarClinometer = transform.rotation.eulerAngles.z;
+        privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
+        privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
     }
     public void VerticalMovement()
     {
