@@ -89,6 +89,6 @@ public class AudioManager : MonoBehaviour
             BoatSource.pitch = 1.4f;    
         }
 
-        Debug.Log(BoatRev);
+        //Debug.Log(BoatRev);
     }
 }

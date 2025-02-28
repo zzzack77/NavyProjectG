@@ -1,0 +1,56 @@
+{
+    "name": "YokeInput",
+    "maps": [
+        {
+            "name": "ThrottleActionMap",
+            "id": "5e8099e7-d972-4967-a99c-5d52c3926407",
+            "actions": [
+                {
+                    "name": "ThrottleAction",
+                    "type": "Value",
+                    "id": "a96efc6b-67e2-43f1-ac74-7055f34b7204",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ec036ccc-c7e0-41c0-be78-599901b47757",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/rx",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrottleAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e87b19b1-e149-4b99-8258-60b14bdb35c8",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/ry",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrottleAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa297397-fc00-45eb-906c-327ad8c27042",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrottleAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
