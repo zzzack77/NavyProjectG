@@ -152,20 +152,6 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "8cdb6b8d3b21459ab5f1c7cefaa0724d"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "62505a779359459997f2ac571677b9b3"
-                },
-                "m_SlotId": 7
-            },
-            "m_InputSlot": {
-                "m_Node": {
                     "m_Id": "b99ae430f549438dae30ec4c3aa54f04"
                 },
                 "m_SlotId": 0
@@ -209,6 +195,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "b62a3e26f62943749b42763ca17d1e41"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "a15958b97b164c6abb971066ee23f983"
+                },
+                "m_SlotId": 7
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "8cdb6b8d3b21459ab5f1c7cefaa0724d"
                 },
                 "m_SlotId": 0
             }
@@ -433,7 +433,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Strength",
     "m_StageCapability": 3,
-    "m_Value": 0.5,
+    "m_Value": 1.0,
     "m_DefaultValue": 8.0,
     "m_Labels": []
 }
@@ -2771,8 +2771,8 @@
     "m_ShaderOutputName": "Tiling",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 20.0,
-        "y": 20.0
+        "x": 15.0,
+        "y": 15.0
     },
     "m_DefaultValue": {
         "x": 0.0,
