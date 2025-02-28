@@ -63,6 +63,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
         UpdateVariables();
+        RPMCode();
     }
 
     // Update is called once per frame
@@ -145,6 +146,13 @@ public class ShipMovement : MonoBehaviour
     {
         float rpmPortInput = accelPortInput * rpmPropMax;
         float rpmStarboardInput = accelStarboardInput * rpmPropMax;
+
+        privateVariables.PortActualRPM = rpmPropPort;
+        privateVariables.PortPredictedRPM = rpmPortInput;
+
+        privateVariables.StarActualRPM = rpmPropStarboard;
+        privateVariables.StarPredictedRPM = rpmStarboardInput;
+
 
         // Starborad Propeller
 

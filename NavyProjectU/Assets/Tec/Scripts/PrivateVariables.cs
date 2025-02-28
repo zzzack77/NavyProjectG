@@ -48,8 +48,16 @@ public class PrivateVariables : MonoBehaviour
     // Rudder Angle
     private float portRudderAngle;
     private float starRudderAngle;
+
+    // Clinometer
     private float portClinomer;
     private float starClinomer;
+
+    // Engine Revs UI
+    private float portPredictedRPM;
+    private float portActualRPM;
+    private float starPredictedRPM;
+    private float starActualRPM;
 
     // Failures / Errors
     private bool systemFailure;
@@ -182,6 +190,7 @@ public class PrivateVariables : MonoBehaviour
             }
         }
     }
+    // Clinometer
     public float PortClinometer
     {
         get => portClinomer;
@@ -206,6 +215,57 @@ public class PrivateVariables : MonoBehaviour
             }
         }
     }
+
+    // Engine revs
+    public float PortActualRPM
+    {
+        get => portActualRPM;
+        set
+        {
+            if (portActualRPM != value)
+            {
+                portActualRPM = value;
+                rudderAngleUI.setPortEngineRevsActual(value);
+            }
+        }
+    }
+    public float PortPredictedRPM
+    {
+        get => portPredictedRPM;
+        set
+        {
+            if (portPredictedRPM != value)
+            {
+                portPredictedRPM = value;
+                rudderAngleUI.setPortEngineRevsPredicted(value);
+            }
+        }
+    }
+    public float StarActualRPM
+    {
+        get => starActualRPM;
+        set
+        {
+            if (starActualRPM != value)
+            {
+                starActualRPM = value;
+                rudderAngleUI.setStarEngineRevsActual(value);
+            }
+        }
+    }
+    public float StarPredictedRPM
+    {
+        get => starPredictedRPM;
+        set
+        {
+            if (starPredictedRPM != value)
+            {
+                starPredictedRPM = value;
+                rudderAngleUI.setStarEngineRevsPredicted(value);
+            }
+        }
+    }
+
 
 
     // Failures / Errors
