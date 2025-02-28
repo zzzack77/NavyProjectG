@@ -5390,7 +5390,7 @@ MonoBehaviour:
   simulatedTime: 0
   waveSpeedX: 5
   waveSpeedY: 5
-  waveHeight: 0.04
+  waveHeight: 0.01
   cellDensity: 1
 --- !u!64 &997338050
 MeshCollider:
@@ -9147,7 +9147,7 @@ MonoBehaviour:
   simulatedTime: 0
   waveSpeedX: 5
   waveSpeedY: 5
-  waveHeight: 0.04
+  waveHeight: 0.01
   cellDensity: 1
 --- !u!1 &1527114985 stripped
 GameObject:
