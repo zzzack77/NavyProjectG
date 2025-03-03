@@ -79,14 +79,4 @@ public class InputSubscription : MonoBehaviour
     {
         StarboardThrottle = ctx.ReadValue<float>();
     }
-
-    //void SetPortToggle(InputAction.CallbackContext ctx)
-    //{
-    //    PortToggle = ctx.started;
-    //}
-
-    //void SetStarboardToggle(InputAction.CallbackContext ctx)
-    //{
-    //    StarboardToggle = ctx.started;
-    //}
 }
