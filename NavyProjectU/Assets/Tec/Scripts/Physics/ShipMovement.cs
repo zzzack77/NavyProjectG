@@ -15,15 +15,17 @@ public class ShipMovement : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
-    private PrivateVariables privateVariables;
+    public PrivateVariables privateVariables;
+
+    InputSubscription InputManager;
 
     public Rigidbody rb;
 
-    private Transform visualsTransform;
-
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
+    float portDirection = 1.0f;
     public float accelStarboardInput = 0.0f;
+    float starboardDirection = 1.0f;
     public float steeringInput;
     public float shipPower = 3500000.0f;
 
@@ -51,24 +53,26 @@ public class ShipMovement : MonoBehaviour
     public bool isThrottleConnected;
     public bool isSteeringWheelConnected;
     public bool isFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
+        InputManager = GetComponent<InputSubscription>();
+
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
-        visualsTransform = transform.Find("Visuals");
+
         camera1.gameObject.SetActive(true);
         camera2.gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
-        UpdateVariables();
-        RPMCode();
+        UpdateInspectorvariables();
     }
 
     // Update is called once per frame
     void Update()
-    {       
+    {
         // Resets position / position, rotation and velocity back to 0 for debugging purposes
         if (Input.GetKey(KeyCode.Z)) { ResetPos(); }
         if (Input.GetKey(KeyCode.X)) { ResetPosRotVelocity(); }
@@ -81,8 +85,6 @@ public class ShipMovement : MonoBehaviour
             if (privateVariables.IsAuto) { AutoPilotMode(); }
             else if (privateVariables.IsNFU) { NFUMode(); }
             else { ManualMode(); }
-            
-
         }
 
         // If private variabels is null defult to manual mode (A, D key presses)
@@ -109,7 +111,7 @@ public class ShipMovement : MonoBehaviour
 
     // Resets position, can be used to test long distant movement without boat falling of the world
     public void ResetPos() { transform.position = new Vector3(0, 5, 0); }
-    public void UpdateVariables()
+    public void UpdateInspectorvariables()
     {
         Vector3 forwardDirection = transform.forward;
 
@@ -120,18 +122,19 @@ public class ShipMovement : MonoBehaviour
         privateVariables.SpeedKn = boatSpeedkn;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
         privateVariables.RateOfTurn = rateOfTurn;
-
-        privateVariables.PortRudderAngle = steeringInput;
-        privateVariables.StarRudderAngle = steeringInput;
-        privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
-        privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
     }
     public void VerticalMovement()
     {
         if (isThrottleConnected)
         {
-            accelPortInput = Input.GetAxis("Vertical");
-            accelStarboardInput = Input.GetAxis("Vertical");
+
+            if (InputManager.PortToggle) { portDirection *= -1; }
+            if (InputManager.StarboardToggle) { starboardDirection *= -1; }
+
+            accelPortInput = (((InputManager.PortThrottle * -1) + 1) / 2) * portDirection;
+
+            accelStarboardInput = (((InputManager.StarboardThrottle) + 1) / 2) * starboardDirection;
+
         }
         else
         {
@@ -146,13 +149,6 @@ public class ShipMovement : MonoBehaviour
     {
         float rpmPortInput = accelPortInput * rpmPropMax;
         float rpmStarboardInput = accelStarboardInput * rpmPropMax;
-
-        privateVariables.PortActualRPM = rpmPropPort;
-        privateVariables.PortPredictedRPM = rpmPortInput;
-
-        privateVariables.StarActualRPM = rpmPropStarboard;
-        privateVariables.StarPredictedRPM = rpmStarboardInput;
-
 
         // Starborad Propeller
 
@@ -199,17 +195,18 @@ public class ShipMovement : MonoBehaviour
         float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
         Debug.Log(difference);
 
-        
+
 
         if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 2.5f, 7); }
         else { steeringInput = Mathf.Clamp((360 - difference), 2.5f, 7); }
-               
+
     }
     public void ManualMode()
     {
         if (isSteeringWheelConnected)
         {
-            steeringInput = Input.GetAxis("Horizontal") * -35.0f;
+            //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
+            steeringInput = (InputManager.Turn.x) * -35.0f;
         }
         else
         {
