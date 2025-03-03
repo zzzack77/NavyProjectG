@@ -1,0 +1,154 @@
+{
+    "name": "InputMap",
+    "maps": [
+        {
+            "name": "SteeringWheel",
+            "id": "fea69287-cdcd-4f10-b269-d44defa62da8",
+            "actions": [
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "b6a8d4cd-fd21-496f-87ee-24de4b8a1592",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PortThrottle",
+                    "type": "Value",
+                    "id": "c9d65ddc-122e-42ba-b19b-50001bccbcc6",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "StarboardThrottle",
+                    "type": "Value",
+                    "id": "fa2db6de-adaa-4687-9da9-352d9d7ace54",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PortToggle",
+                    "type": "Button",
+                    "id": "14b028bb-29db-401a-a558-fd47e0af1cd7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StarboardToggle",
+                    "type": "Button",
+                    "id": "5e5dfdb3-802c-42e4-9df2-e1b7d604d02e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Day",
+                    "type": "Button",
+                    "id": "0cdd7fa1-fd99-4287-86b6-6f67e973a8e0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Night",
+                    "type": "Button",
+                    "id": "f5017033-bbb0-4f8d-828b-bdfaa2250649",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bcb6196a-04b4-49b2-9832-e653bf1b591e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PortThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfaab1da-b363-465a-842e-3bf308780850",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StarboardThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e792a2ee-496b-4f06-8e77-23567bf2e3f9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StarboardToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9cf6541-5e41-4f77-8483-a6bc780a7e70",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fcdacf13-8674-4d99-b9a8-4960a689ae7e",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Day",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30d287e0-9e35-48fe-b7ce-8eb967d3a3a5",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PortToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ebe5da6-71a8-4a54-906a-28278d07d471",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Night",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

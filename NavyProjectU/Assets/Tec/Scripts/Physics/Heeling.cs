@@ -22,11 +22,11 @@ public class Heeling : MonoBehaviour
     {
         if (Invert == true)
         {
-            TurnAngle = 30.0f;
+            TurnAngle = 20.0f;
         }
         else
         {
-            TurnAngle = -30.0f;
+            TurnAngle = -20.0f;
         }
 
         if (parent.rateOfTurn != 0.0f)
@@ -36,7 +36,7 @@ public class Heeling : MonoBehaviour
                 parent.rateOfTurn = -parent.rateOfTurn;
             }
 
-            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z - (parent.rateOfTurn * (TurnAngle/5.0f)));
+            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y, parent.transform.eulerAngles.z - (parent.rateOfTurn * (TurnAngle / 5.0f)));
         }
 
         //UnityEngine.Debug.Log("Ship Rotation: " + transform.eulerAngles);
