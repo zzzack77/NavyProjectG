@@ -41,9 +41,23 @@ public class PrivateVariables : MonoBehaviour
     // Echo sounder
     private bool isBow;
 
-    // Rudder angle
+    // Heading UI
     private float rateOfTurn;
     private float speedKn;
+
+    // Rudder Angle
+    private float portRudderAngle;
+    private float starRudderAngle;
+
+    // Clinometer
+    private float portClinomer;
+    private float starClinomer;
+
+    // Engine Revs UI
+    private float portPredictedRPM;
+    private float portActualRPM;
+    private float starPredictedRPM;
+    private float starActualRPM;
 
     // Failures / Errors
     private bool systemFailure;
@@ -60,6 +74,7 @@ public class PrivateVariables : MonoBehaviour
     private AudioFunctions audioFunctions;
     private RudderAngleUI rudderAngleUI;
     private HeadingUI headingUI;
+
 
     private void Awake()
     {
@@ -149,6 +164,109 @@ public class PrivateVariables : MonoBehaviour
             headingUI.OnSpeedKnUpdate();
         }
     }
+
+    // Rudder angle
+    public float PortRudderAngle
+    {
+        get => portRudderAngle;
+        set
+        {
+            if (portRudderAngle != value)
+            {
+                portRudderAngle = value;
+                rudderAngleUI.SetPortRudderAngle(value);
+            }
+        }
+    }
+    public float StarRudderAngle
+    {
+        get => starRudderAngle;
+        set
+        {
+            if (starRudderAngle != value)
+            {
+                starRudderAngle = value;
+                rudderAngleUI.SetStarRudderAngle(value);
+            }
+        }
+    }
+    // Clinometer
+    public float PortClinometer
+    {
+        get => portClinomer;
+        set
+        {
+            if (portClinomer != value)
+            {
+                portClinomer = value;
+                rudderAngleUI.SetPortClinometer(value);
+            }
+        }
+    }
+    public float StarClinometer
+    {
+        get => starClinomer;
+        set
+        {
+            if (starClinomer != value)
+            {
+                starClinomer = value;
+                rudderAngleUI.SetStarClinometer(value);
+            }
+        }
+    }
+
+    // Engine revs
+    public float PortActualRPM
+    {
+        get => portActualRPM;
+        set
+        {
+            if (portActualRPM != value)
+            {
+                portActualRPM = value;
+                rudderAngleUI.setPortEngineRevsActual(value);
+            }
+        }
+    }
+    public float PortPredictedRPM
+    {
+        get => portPredictedRPM;
+        set
+        {
+            if (portPredictedRPM != value)
+            {
+                portPredictedRPM = value;
+                rudderAngleUI.setPortEngineRevsPredicted(value);
+            }
+        }
+    }
+    public float StarActualRPM
+    {
+        get => starActualRPM;
+        set
+        {
+            if (starActualRPM != value)
+            {
+                starActualRPM = value;
+                rudderAngleUI.setStarEngineRevsActual(value);
+            }
+        }
+    }
+    public float StarPredictedRPM
+    {
+        get => starPredictedRPM;
+        set
+        {
+            if (starPredictedRPM != value)
+            {
+                starPredictedRPM = value;
+                rudderAngleUI.setStarEngineRevsPredicted(value);
+            }
+        }
+    }
+
+
 
     // Failures / Errors
     public bool SystemFailure
