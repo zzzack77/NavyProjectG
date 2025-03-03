@@ -131,9 +131,9 @@ public class ShipMovement : MonoBehaviour
             if (InputManager.PortToggle) {portDirection *= -1;}
             if (InputManager.StarboardToggle) {starboardDirection *= -1;}
 
-            accelPortInput = (((InputManager.PortThrottle) + 1) / 2) * portDirection;
+            accelPortInput = (((InputManager.PortThrottle * -1) + 1) / 2) * portDirection;
 
-            accelStarboardInput = (((InputManager.StarboardThrottle * -1)+1)/2) * starboardDirection;
+            accelStarboardInput = (((InputManager.StarboardThrottle)+1)/2) * starboardDirection;
 
         }
         else
@@ -206,7 +206,7 @@ public class ShipMovement : MonoBehaviour
         if (isSteeringWheelConnected)
         {
             //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
-            steeringInput = (InputManager.Turn.x/0.71f) * -35.0f;
+            steeringInput = (InputManager.Turn.x) * -35.0f;
         }
         else
         {

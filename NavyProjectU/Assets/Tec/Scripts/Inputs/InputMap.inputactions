@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Throttle",
-                    "type": "Value",
-                    "id": "d70825c1-b97a-48d0-b2c0-2636ee02018b",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -93,7 +84,7 @@
                 {
                     "name": "",
                     "id": "1a688d10-6a69-4686-b311-b272d3b7660c",
-                    "path": "<HID::Fanatec FANATEC Wheel>/stick/y",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -104,7 +95,7 @@
                 {
                     "name": "",
                     "id": "a3a201ca-07c2-4780-879d-2281f9156fe4",
-                    "path": "<HID::Fanatec FANATEC Wheel>/z",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/ry",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -115,7 +106,7 @@
                 {
                     "name": "",
                     "id": "13f583bc-3126-4404-b1c7-55a6c2c1ffdb",
-                    "path": "<HID::Fanatec FANATEC Wheel>/button61",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/button21",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -126,7 +117,7 @@
                 {
                     "name": "",
                     "id": "71a2edb0-baa0-4481-ba00-d4ad7464f653",
-                    "path": "<HID::Fanatec FANATEC Wheel>/button62",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/button23",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -153,28 +144,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Night",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "133b69bd-7cc7-4f54-a264-efd5935892fc",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Throttle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3f97dbfb-aff6-422d-a73e-17e7c4a158fd",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

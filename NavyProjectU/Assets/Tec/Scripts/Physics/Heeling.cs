@@ -22,11 +22,11 @@ public class Heeling : MonoBehaviour
     {
         if (Invert == true)
         {
-            TurnAngle = 30.0f;
+            TurnAngle = 20.0f;
         }
         else
         {
-            TurnAngle = -30.0f;
+            TurnAngle = -20.0f;
         }
 
         if (parent.rateOfTurn != 0.0f)
