@@ -6,7 +6,6 @@ public class ThrottleCalibration : MonoBehaviour
 {
     public GameObject newThrottle;
     public GameObject rightHand;
-    public GameObject shipGO;
     public float throttleY = 2.209249f;
     public float zOffset;
     private bool throttleIsSpawned = false;
@@ -23,11 +22,7 @@ public class ThrottleCalibration : MonoBehaviour
         Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
         if (Input.GetKeyDown(KeyCode.T))
         {
-            
-
             Vector3 handPos = rightHand.transform.position;
-
-           // GameObject newThrottle = Instantiate(throttle, shipGO.transform);
 
             newThrottle.transform.localPosition = finalThrottlePos;
             newThrottle.transform.localRotation = Quaternion.Euler(0, rightHand.transform.eulerAngles.y, 0);
@@ -35,11 +30,6 @@ public class ThrottleCalibration : MonoBehaviour
             Vector3 offset = newThrottle.transform.position - rightHand.transform.position;
 
             newThrottle.transform.localPosition += new Vector3(offset.x, 0, offset.z + zOffset);
-
-            //if (throttleIsSpawned)
-            //{
-            //    Destroy(newThrottle);
-            //}
         }
     }
 }
