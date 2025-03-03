@@ -7181,6 +7181,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &581008944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4929811190969806226, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+  m_PrefabInstance: {fileID: 751109094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &639270321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9870,10 +9875,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d87dca4c20212a478c3252f4e8ff45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throttle: {fileID: 304900346}
-  rightHand: {fileID: 2127484499}
-  heroModelsParent: {fileID: 0}
-  offset: {x: 0.03, y: 15.4, z: 0.06}
+  newThrottle: {fileID: 304900346}
+  rightHand: {fileID: 581008944}
+  shipGO: {fileID: 1066323083}
+  throttleY: 2.209249
+  zOffset: 0
 --- !u!114 &920457584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9881,18 +9887,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920457582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2830586fc49ebd34ba9920260bb0ace4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrOrigin: {fileID: 751109096}
+  xrOriginGO: {fileID: 751109095}
   leftHand: {fileID: 2127484500}
   rightHand: {fileID: 2127484499}
   leftWheelGripPoint: {fileID: 1994852048}
   rightWheelGripPoint: {fileID: 237585373}
   userOriginpos: {fileID: 0}
   xrCamera: {fileID: 751109096}
+  xrOrigin: {fileID: 1441632360}
   cameraOffsetY: 1.1176
 --- !u!4 &920457585
 Transform:
@@ -11171,6 +11178,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056162921}
   m_CullTransparentMesh: 1
+--- !u!1 &1066323083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 123846750806628267, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1075225635
 GameObject:
   m_ObjectHideFlags: 0
@@ -13521,6 +13533,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
   m_PrefabInstance: {fileID: 751109094}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1441632360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2641367583289902091, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+  m_PrefabInstance: {fileID: 751109094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751109095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454238790
 GameObject:
   m_ObjectHideFlags: 0
