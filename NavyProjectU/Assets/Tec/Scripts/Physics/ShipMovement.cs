@@ -17,11 +17,15 @@ public class ShipMovement : MonoBehaviour
 
     public PrivateVariables privateVariables;
 
+    InputSubscription InputManager;
+
     public Rigidbody rb;
 
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
+    float portDirection = 1.0f;
     public float accelStarboardInput = 0.0f;
+    float starboardDirection = 1.0f;
     public float steeringInput;
     public float shipPower = 3500000.0f;
 
@@ -49,9 +53,12 @@ public class ShipMovement : MonoBehaviour
     public bool isThrottleConnected;
     public bool isSteeringWheelConnected;
     public bool isFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
+        InputManager = GetComponent<InputSubscription>();
+
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
         
         camera1.gameObject.SetActive(true);
@@ -120,8 +127,14 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
-            accelPortInput = Input.GetAxis("Vertical");
-            accelStarboardInput = Input.GetAxis("Vertical");
+
+            if (InputManager.PortToggle) {portDirection *= -1;}
+            if (InputManager.StarboardToggle) {starboardDirection *= -1;}
+
+            accelPortInput = (((InputManager.PortThrottle) + 1) / 2) * portDirection;
+
+            accelStarboardInput = (((InputManager.StarboardThrottle * -1)+1)/2) * starboardDirection;
+
         }
         else
         {
@@ -192,7 +205,8 @@ public class ShipMovement : MonoBehaviour
     {
         if (isSteeringWheelConnected)
         {
-            steeringInput = Input.GetAxis("Horizontal") * -35.0f;
+            //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
+            steeringInput = (InputManager.Turn.x/0.71f) * -35.0f;
         }
         else
         {

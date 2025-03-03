@@ -1,0 +1,154 @@
+{
+    "name": "InputMap",
+    "maps": [
+        {
+            "name": "SteeringWheel",
+            "id": "68daa4cb-ee73-440e-a7d9-5e73d6a9023b",
+            "actions": [
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "d1c03a70-84b8-472b-9a63-dc0a4ea9b8c2",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PortThrottle",
+                    "type": "Value",
+                    "id": "5e75f0ad-615f-498b-862f-90ff76ef5395",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "StarboardThrottle",
+                    "type": "Value",
+                    "id": "750dbbbf-1f08-446f-8553-4156c7ba924b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PortToggle",
+                    "type": "Button",
+                    "id": "175d5834-498e-4d8e-b56f-9ffaab3d1d75",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StarboardToggle",
+                    "type": "Button",
+                    "id": "0e803439-fd65-45df-a742-8d0b04cf501b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Day",
+                    "type": "Button",
+                    "id": "b36b90ba-e374-4239-b88f-ff141e8a8c0b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Night",
+                    "type": "Button",
+                    "id": "69bfc36e-d693-49b5-a8eb-cf5d8d4c6469",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "74aefeca-892a-41ef-b1ca-527ffe47c4b2",
+                    "path": "<HID::Fanatec FANATEC Wheel>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a688d10-6a69-4686-b311-b272d3b7660c",
+                    "path": "<HID::Fanatec FANATEC Wheel>/stick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PortThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3a201ca-07c2-4780-879d-2281f9156fe4",
+                    "path": "<HID::Fanatec FANATEC Wheel>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StarboardThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13f583bc-3126-4404-b1c7-55a6c2c1ffdb",
+                    "path": "<HID::Fanatec FANATEC Wheel>/button61",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PortToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71a2edb0-baa0-4481-ba00-d4ad7464f653",
+                    "path": "<HID::Fanatec FANATEC Wheel>/button62",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StarboardToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a60444f-ba8b-40fc-a6ae-babd7c2e0718",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Day",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bb603cb-777e-4ecb-9a5a-d3d7458dd587",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Night",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
