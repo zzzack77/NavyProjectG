@@ -68,7 +68,7 @@ public class VRCalibration : MonoBehaviour
         Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
         Quaternion scaleRotationOffset = Quaternion.Euler(scaleOffset.x, scaleOffset.y, scaleOffset.z);
         
-        float distance = Vector3.Distance(realGripMidPoint, xrOrigin.CameraInOriginSpacePos) * 2;
+        float distance = Vector3.Distance(realGripMidPoint, xrOrigin.CameraInOriginSpacePos);
         xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
 
@@ -85,8 +85,8 @@ public class VRCalibration : MonoBehaviour
         Vector3 positionOffset = virtualGripMidPoint - cameraWorldPos;
 
         // Apply the offset to XR Origin's position
-        xrOrigin.transform.position += positionOffset - new Vector3(0.1f, 0, 0.5f); // Slight manual offset
-        xrOriginGO.transform.position += positionOffset - new Vector3(0.1f, 0, 0.5f); 
+        xrOrigin.transform.position += positionOffset; // Slight manual offset
+        xrOriginGO.transform.position += positionOffset; 
         // Kind of works, needs some more adjustments but definetely some progress
 
 
