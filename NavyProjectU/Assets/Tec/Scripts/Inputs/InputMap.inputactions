@@ -67,13 +67,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Throttle",
+                    "type": "Value",
+                    "id": "d70825c1-b97a-48d0-b2c0-2636ee02018b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "74aefeca-892a-41ef-b1ca-527ffe47c4b2",
-                    "path": "<HID::Fanatec FANATEC Wheel>/stick",
+                    "path": "<HID::Logitech Logitech Flight Yoke>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -144,6 +153,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Night",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "133b69bd-7cc7-4f54-a264-efd5935892fc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f97dbfb-aff6-422d-a73e-17e7c4a158fd",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

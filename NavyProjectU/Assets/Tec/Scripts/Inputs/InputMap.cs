@@ -90,13 +90,22 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throttle"",
+                    ""type"": ""Value"",
+                    ""id"": ""d70825c1-b97a-48d0-b2c0-2636ee02018b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""74aefeca-892a-41ef-b1ca-527ffe47c4b2"",
-                    ""path"": ""<HID::Fanatec FANATEC Wheel>/stick"",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -169,6 +178,28 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                     ""action"": ""Night"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""133b69bd-7cc7-4f54-a264-efd5935892fc"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f97dbfb-aff6-422d-a73e-17e7c4a158fd"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -184,6 +215,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
         m_SteeringWheel_StarboardToggle = m_SteeringWheel.FindAction("StarboardToggle", throwIfNotFound: true);
         m_SteeringWheel_Day = m_SteeringWheel.FindAction("Day", throwIfNotFound: true);
         m_SteeringWheel_Night = m_SteeringWheel.FindAction("Night", throwIfNotFound: true);
+        m_SteeringWheel_Throttle = m_SteeringWheel.FindAction("Throttle", throwIfNotFound: true);
     }
 
     ~@InputMap()
@@ -257,6 +289,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_SteeringWheel_StarboardToggle;
     private readonly InputAction m_SteeringWheel_Day;
     private readonly InputAction m_SteeringWheel_Night;
+    private readonly InputAction m_SteeringWheel_Throttle;
     public struct SteeringWheelActions
     {
         private @InputMap m_Wrapper;
@@ -268,6 +301,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
         public InputAction @StarboardToggle => m_Wrapper.m_SteeringWheel_StarboardToggle;
         public InputAction @Day => m_Wrapper.m_SteeringWheel_Day;
         public InputAction @Night => m_Wrapper.m_SteeringWheel_Night;
+        public InputAction @Throttle => m_Wrapper.m_SteeringWheel_Throttle;
         public InputActionMap Get() { return m_Wrapper.m_SteeringWheel; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -298,6 +332,9 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
             @Night.started += instance.OnNight;
             @Night.performed += instance.OnNight;
             @Night.canceled += instance.OnNight;
+            @Throttle.started += instance.OnThrottle;
+            @Throttle.performed += instance.OnThrottle;
+            @Throttle.canceled += instance.OnThrottle;
         }
 
         private void UnregisterCallbacks(ISteeringWheelActions instance)
@@ -323,6 +360,9 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
             @Night.started -= instance.OnNight;
             @Night.performed -= instance.OnNight;
             @Night.canceled -= instance.OnNight;
+            @Throttle.started -= instance.OnThrottle;
+            @Throttle.performed -= instance.OnThrottle;
+            @Throttle.canceled -= instance.OnThrottle;
         }
 
         public void RemoveCallbacks(ISteeringWheelActions instance)
@@ -349,5 +389,6 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
         void OnStarboardToggle(InputAction.CallbackContext context);
         void OnDay(InputAction.CallbackContext context);
         void OnNight(InputAction.CallbackContext context);
+        void OnThrottle(InputAction.CallbackContext context);
     }
 }
