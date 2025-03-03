@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class VRTestMovement : MonoBehaviour
 {
-    public GameObject XROriginEmpty;
-    private float speed = 3f;
+    private float speed = 0.2f;
     int y = 0;
     Vector3 offset;
+
+    float horizontal;
+    float vertical;
 
     // Start is called before the first frame update
     void Start()
@@ -19,35 +21,58 @@ public class VRTestMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offset = transform.position - XROriginEmpty.transform.position;
-        transform.position = XROriginEmpty.transform.position + offset;
-
-
         //float horizontal = Input.GetAxisRaw("Horizontal");
         //float vertical = Input.GetAxisRaw("Vertical");
-        //Vector3 direction = new Vector3(horizontal, (float)y, vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, (float)y, vertical).normalized;
 
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            horizontal = -1;
+        }
 
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    y = 1;
-        //    Debug.Log("Space");
-        //}
-        //else if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    y = 0;
-        //}
-        //if (Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    y = -1;
-        //    Debug.Log("Shift");
-        //}
-        //else if (Input.GetKeyUp(KeyCode.LeftShift))
-        //{
-        //    y = 0;
-        //}
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            horizontal = 1;
+        }
+        else
+        {
+            horizontal = 0;
+        }
 
-        //transform.Translate(direction * speed * Time.deltaTime);
-        
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            vertical = 1;
+        }
+
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            vertical = -1;
+        }
+
+        else
+        {
+            vertical = 0;   
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            y = 1;
+            Debug.Log("Space");
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            y = 0;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            y = -1;
+            Debug.Log("Shift");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            y = 0;
+        }
+
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 }
