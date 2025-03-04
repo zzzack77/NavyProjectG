@@ -31,7 +31,7 @@ public class RudderAngleUI : MonoBehaviour
     private void Update()
     {
         //Debug.Log(engineRevsUnitScaler);
-        //setPortEngineRevs(value);
+        //setStarEngineRevsPredicted(value);
     }
     public void SetPortRudderAngle(float rotation)
     {

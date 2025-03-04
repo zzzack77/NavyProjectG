@@ -16,6 +16,7 @@ public class ShipMovement : MonoBehaviour
     public Camera camera2;
 
     public PrivateVariables privateVariables;
+    public Transform visualsTransform;
 
     InputSubscription InputManager;
 
@@ -68,6 +69,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
         UpdateInspectorvariables();
+        RPMCode();
     }
 
     // Update is called once per frame
@@ -122,6 +124,11 @@ public class ShipMovement : MonoBehaviour
         privateVariables.SpeedKn = boatSpeedkn;
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
         privateVariables.RateOfTurn = rateOfTurn;
+
+        privateVariables.PortRudderAngle = steeringInput;
+        privateVariables.StarRudderAngle = steeringInput;
+        privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
+        privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
     }
     public void VerticalMovement()
     {
@@ -149,6 +156,12 @@ public class ShipMovement : MonoBehaviour
     {
         float rpmPortInput = accelPortInput * rpmPropMax;
         float rpmStarboardInput = accelStarboardInput * rpmPropMax;
+
+        privateVariables.PortActualRPM = rpmPropPort;
+        privateVariables.PortPredictedRPM = rpmPortInput;
+
+        privateVariables.StarActualRPM = rpmPropStarboard;
+        privateVariables.StarPredictedRPM = rpmStarboardInput;
 
         // Starborad Propeller
 
