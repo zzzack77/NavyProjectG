@@ -85,8 +85,14 @@ public class VRCalibration : MonoBehaviour
         Vector3 positionOffset = virtualGripMidPoint - cameraWorldPos;
 
         // Apply the offset to XR Origin's position
-        xrOrigin.transform.position += positionOffset; // Slight manual offset
-        xrOriginGO.transform.position += positionOffset; 
+
+        // These are calibrating the position
+        // Leave off for now but they are still important
+
+        //xrOrigin.transform.position += positionOffset; // Slight manual offset
+        //xrOriginGO.transform.position += positionOffset; 
+
+
         // Kind of works, needs some more adjustments but definetely some progress
 
 
