@@ -96,7 +96,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bcb6196a-04b4-49b2-9832-e653bf1b591e"",
-                    ""path"": """",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -107,7 +107,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dfaab1da-b363-465a-842e-3bf308780850"",
-                    ""path"": """",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/ry"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -118,7 +118,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e792a2ee-496b-4f06-8e77-23567bf2e3f9"",
-                    ""path"": """",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/button23"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -129,7 +129,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d9cf6541-5e41-4f77-8483-a6bc780a7e70"",
-                    ""path"": """",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -151,7 +151,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30d287e0-9e35-48fe-b7ce-8eb967d3a3a5"",
-                    ""path"": """",
+                    ""path"": ""<HID::Logitech Logitech Flight Yoke>/button21"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
