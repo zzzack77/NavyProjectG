@@ -146,11 +146,16 @@ public class ShipMovement : MonoBehaviour
             if (InputManager.PortToggle) { portDirection *= -1; }
             if (InputManager.StarboardToggle) { starboardDirection *= -1; }
 
-            Mathf.Asin()
 
-            accelPortInput = (((InputManager.PortThrottle * -1) + 1) / 2) * portDirection;
+            //accelPortInput = ((Mathf.Acos(((InputManager.PortThrottle * -1) + 1) / 2))/(Mathf.PI/2)) * portDirection;
+            accelPortInput = Mathf.Acos(Mathf.Abs(InputManager.PortThrottle)) * portDirection;
+            //accelPortInput = Mathf.Abs(InputManager.PortThrottle) * portDirection;
+            UnityEngine.Debug.Log("Port Throttle: " + (accelPortInput * 180/Mathf.PI));
 
-            accelStarboardInput = (((InputManager.StarboardThrottle) + 1) / 2) * starboardDirection;
+            //accelStarboardInput = (Mathf.Acos(((InputManager.StarboardThrottle) + 1) / 2)) * starboardDirection;
+            accelStarboardInput = Mathf.Acos(Mathf.Abs(InputManager.StarboardThrottle)) * starboardDirection;
+            //accelStarboardInput = Mathf.Abs(InputManager.StarboardThrottle) * starboardDirection;
+            UnityEngine.Debug.Log("Starboard Throttle: " + (accelStarboardInput * 180/Mathf.PI));
 
         }
         else
