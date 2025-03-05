@@ -12,8 +12,11 @@ public class VRCalibration : MonoBehaviour
     public GameObject leftWheelGripPoint, rightWheelGripPoint;
     public GameObject xrCamera;
     [SerializeField] private XROrigin xrOrigin;
-
+    [SerializeField] private GameObject userOriginPos;
     public float cameraOffsetY = 1.1176f;
+    public Camera xrOriginCamera;
+    public TrackedPoseDriver trackedPosDriver;
+    public TrackedPoseDriver trackedPosDriverInputSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class VRCalibration : MonoBehaviour
         //{
         //    Debug.LogError("XR Origin Game Object Not Found!");
         //}
-
+        trackedPosDriver = xrCamera.GetComponent<TrackedPoseDriver>();
         if (xrCamera == null)
         {
             Debug.LogError("XR Camera Game Object not Found!");
@@ -79,10 +82,11 @@ public class VRCalibration : MonoBehaviour
         // These are calibrating the position
         // Leave off for now but they are still important
 
-        //xrOrigin.transform.position += positionOffset; // Slight manual offset
-        //xrOriginGO.transform.position += positionOffset; 
+        trackedPosDriver.enabled = false;
+        xrOrigin.transform.position = new Vector3(userOriginPos.transform.position.x, xrOrigin.transform.position.y, userOriginPos.transform.position.z); // Slight manual offset
+        xrCamera.transform.position = new Vector3(userOriginPos.transform.position.x, xrCamera.transform.position.y, userOriginPos.transform.position.z);
+        trackedPosDriver.enabled = true;
     }
-
 
     private IEnumerator CalibrationCountdown()
     {
