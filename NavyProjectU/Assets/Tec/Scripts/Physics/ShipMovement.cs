@@ -55,6 +55,12 @@ public class ShipMovement : MonoBehaviour
     public bool isSteeringWheelConnected;
     public bool isFrozen;
 
+
+    [Header("Models")]
+    public GameObject throttleL;
+    public GameObject throttleR;
+    public GameObject steeringWheel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +76,8 @@ public class ShipMovement : MonoBehaviour
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
         UpdateInspectorvariables();
         RPMCode();
+        SetThrottleModelRotation();
+        SetSteeringWheelModelRotation();
     }
 
     // Update is called once per frame
@@ -137,6 +145,8 @@ public class ShipMovement : MonoBehaviour
 
             if (InputManager.PortToggle) { portDirection *= -1; }
             if (InputManager.StarboardToggle) { starboardDirection *= -1; }
+
+            Mathf.Asin()
 
             accelPortInput = (((InputManager.PortThrottle * -1) + 1) / 2) * portDirection;
 
@@ -242,5 +252,16 @@ public class ShipMovement : MonoBehaviour
         {
             Debug.LogError("Invalid display index!");
         }
+    }
+
+    public void SetThrottleModelRotation()
+    {
+        throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x + accelPortInput * 90.0f, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
+        throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x + accelStarboardInput * 90.0f, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+    }
+
+    public void SetSteeringWheelModelRotation()
+    {
+
     }
 }
