@@ -37,13 +37,13 @@ public class RudderAngleUI : MonoBehaviour
     {
         rotation *= rudderAngleUnitScaler;
         //portRudderDial.transform.rotation = Quaternion.Euler(portRudderDial.transform.rotation.eulerAngles.x, 0, rotation);
-        portRudderDial.transform.localRotation = Quaternion.Euler(0, 0, rotation);
+        portRudderDial.transform.localRotation = Quaternion.Euler(0, 0, -rotation);
     }
     public void SetStarRudderAngle(float rotation)
     {
         rotation *= rudderAngleUnitScaler;
         //starRudderDial.transform.rotation = Quaternion.Euler(starRudderDial.transform.rotation.eulerAngles.x, 0, rotation);
-        starRudderDial.transform.localRotation = Quaternion.Euler(0, 0, rotation);
+        starRudderDial.transform.localRotation = Quaternion.Euler(0, 0, -rotation);
 
     }
 
