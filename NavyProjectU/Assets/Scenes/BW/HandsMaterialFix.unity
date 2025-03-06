@@ -7101,7 +7101,7 @@ Transform:
   m_GameObject: {fileID: 345206208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.122, y: 19.423, z: -20.584}
+  m_LocalPosition: {x: 2.122, y: 19.784, z: -20.584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21323,7 +21323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.697
+      value: 18.3288
       objectReference: {fileID: 0}
     - target: {fileID: 866360843300055633, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21388,6 +21388,14 @@ PrefabInstance:
     - target: {fileID: 2851733850173410706, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246128098093945784, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246128098093945784, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.082
       objectReference: {fileID: 0}
     - target: {fileID: 3624227007845009636, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_Name
@@ -21685,17 +21693,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &751109107 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8999151515682998167, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
-  m_PrefabInstance: {fileID: 751109094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751109098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &763821875
 GameObject:
   m_ObjectHideFlags: 0
@@ -24615,10 +24612,7 @@ MonoBehaviour:
   xrCamera: {fileID: 751109096}
   xrOrigin: {fileID: 1441632360}
   userOriginPos: {fileID: 345206208}
-  cameraOffsetY: 1.1176
   xrOriginCamera: {fileID: 751109099}
-  trackedPosDriver: {fileID: 751109107}
-  trackedPosDriverInputSystem: {fileID: 751109107}
 --- !u!4 &920457585
 Transform:
   m_ObjectHideFlags: 0

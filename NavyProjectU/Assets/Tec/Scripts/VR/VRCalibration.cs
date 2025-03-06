@@ -13,11 +13,7 @@ public class VRCalibration : MonoBehaviour
     public GameObject xrCamera;
     [SerializeField] private XROrigin xrOrigin;
     [SerializeField] private GameObject userOriginPos;
-    public float cameraOffsetY = 1.1176f;
     public Camera xrOriginCamera;
-    public TrackedPoseDriver trackedPosDriver;
-    public TrackedPoseDriver trackedPosDriverInputSystem;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +23,7 @@ public class VRCalibration : MonoBehaviour
         //{
         //    Debug.LogError("XR Origin Game Object Not Found!");
         //}
-        trackedPosDriver = xrCamera.GetComponent<TrackedPoseDriver>();
+
         if (xrCamera == null)
         {
             Debug.LogError("XR Camera Game Object not Found!");
@@ -43,7 +39,7 @@ public class VRCalibration : MonoBehaviour
         }
     }
 
-    public void VRResetRotation()
+    public void VRCalibrateUser()
     {
         // Get current hand positions
         Vector3 realLeftHandPos = leftHand.transform.position;
@@ -63,34 +59,15 @@ public class VRCalibration : MonoBehaviour
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
         Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
         
-        float distance = Vector3.Distance(realGripMidPoint, xrOrigin.CameraInOriginSpacePos);
         xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
-        // Set the position of the xr origins camera offset to the wheel + the offset of the hands and headset
-
-        Vector3 cameraOffset = xrOrigin.CameraInOriginSpacePos;
-        Vector3 localOffset = new Vector3(0.04f, 0, -distance);
-
-        // Get current camera position in world space
-        Vector3 cameraWorldPos = xrCamera.transform.position;
-
-        // Calculate how much we need to move the XR Origin to align camera and grip midpoint
-        Vector3 positionOffset = virtualGripMidPoint - cameraWorldPos;
-
-        // Apply the offset to XR Origin's position
-
-        // These are calibrating the position
-        // Leave off for now but they are still important
-
-        trackedPosDriver.enabled = false;
-        xrOrigin.transform.position = new Vector3(userOriginPos.transform.position.x, xrOrigin.transform.position.y, userOriginPos.transform.position.z); // Slight manual offset
-        xrCamera.transform.position = new Vector3(userOriginPos.transform.position.x, xrCamera.transform.position.y, userOriginPos.transform.position.z);
-        trackedPosDriver.enabled = true;
+        Vector3 positionOffset = userOriginPos.transform.position - xrOriginCamera.transform.position;
+        xrOrigin.transform.position += positionOffset;
     }
 
     private IEnumerator CalibrationCountdown()
     {
         yield return new WaitForSeconds(3f);
-        VRResetRotation();
+        VRCalibrateUser();
     }
 }
