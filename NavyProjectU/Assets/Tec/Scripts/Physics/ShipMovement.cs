@@ -57,6 +57,8 @@ public class ShipMovement : MonoBehaviour
     public bool isSteeringWheelConnected;
     public bool isFrozen;
 
+    public float portActualRudder;
+    public float starActualRudder;
 
     [Header("Models")]
     public GameObject throttleL;
@@ -70,7 +72,7 @@ public class ShipMovement : MonoBehaviour
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
         //assessorUI = GameObject.Find("GameManager").GetComponent<AssessorUI>();
-
+        assessorUI.SetActive(false);
         camera1.gameObject.SetActive(true);
         camera2.gameObject.SetActive(false);
     }
@@ -78,6 +80,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
         UpdateInspectorvariables();
+        RudderAnglePredicted();
         RPMCode();
         SetThrottleModelRotation();
         SetSteeringWheelModelRotation();
@@ -142,8 +145,8 @@ public class ShipMovement : MonoBehaviour
         rateOfTurn = rb.angularVelocity.y * Mathf.Rad2Deg;
         privateVariables.RateOfTurn = rateOfTurn;
 
-        privateVariables.PortRudderAngle = steeringInput;
-        privateVariables.StarRudderAngle = steeringInput;
+        privateVariables.PortRudderAngle = portActualRudder;
+        privateVariables.StarRudderAngle = starActualRudder;
         privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
         privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
     }
@@ -174,6 +177,32 @@ public class ShipMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.R) && accelStarboardInput < 1.0f) { accelStarboardInput = accelStarboardInput + 0.01f; }
             else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; }
+        }
+    }
+    // Updates starActualRudder and portActualRudder by 0.3 per fixed update to match steeringInput (wheel input) 
+    // these variables are used to update UI
+    public void RudderAnglePredicted()
+    {
+        // Starboard dial 
+        if (steeringInput < starActualRudder)
+        {
+            starActualRudder = starActualRudder - 0.3f;
+            if (starActualRudder < steeringInput) { starActualRudder = steeringInput; }
+        }
+        else if (steeringInput > starActualRudder)
+        {
+            starActualRudder = starActualRudder + 0.3f;
+            if (starActualRudder > steeringInput) { starActualRudder = steeringInput; }
+        }
+        // Port dial
+        if (steeringInput > portActualRudder)
+        {
+            portActualRudder = portActualRudder + 0.3f;
+            if (portActualRudder > steeringInput) { portActualRudder = steeringInput;}
+        }
+        else if (steeringInput < portActualRudder) {
+            portActualRudder = portActualRudder - 0.3f;
+            if (portActualRudder < steeringInput ) { starActualRudder = steeringInput; }
         }
     }
     public void RPMCode()

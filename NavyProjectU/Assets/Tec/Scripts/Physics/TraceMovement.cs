@@ -89,13 +89,13 @@ public class TraceMovement : MonoBehaviour
 
             if (Starboard)
             {
-                if (parentScript.accelStarboardInput != 0.0f)
+                if (parentScript.rpmPropStarboard != 0.0f)
                 {
                     float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
-                    float availableTorque = parentScript.shipPower * parentScript.accelStarboardInput;
+                    float availableTorque = parentScript.shipPower * parentScript.rpmPropStarboard;
 
                     boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
@@ -105,13 +105,13 @@ public class TraceMovement : MonoBehaviour
             }
             else
             {
-                if (parentScript.accelPortInput != 0.0f)
+                if (parentScript.rpmPropPort != 0.0f)
                 {
                     float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
-                    float availableTorque = parentScript.shipPower * parentScript.accelPortInput;
+                    float availableTorque = parentScript.shipPower * parentScript.rpmPropPort;
 
                     boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 

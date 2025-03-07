@@ -24440,10 +24440,10 @@ MonoBehaviour:
   rightHand: {fileID: 2127484499}
   leftWheelGripPoint: {fileID: 1994852048}
   rightWheelGripPoint: {fileID: 237585373}
-  userOriginpos: {fileID: 0}
   xrCamera: {fileID: 751109096}
   xrOrigin: {fileID: 1441632360}
-  cameraOffsetY: 1.1176
+  userOriginPos: {fileID: 0}
+  xrOriginCamera: {fileID: 0}
 --- !u!4 &920457585
 Transform:
   m_ObjectHideFlags: 0
@@ -32097,6 +32097,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 91a8ddd2897f7ff438285c7abbe7b37f, type: 2}
+    - target: {fileID: 5375950734678631958, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5404767341165498067, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -32209,6 +32213,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 248116704}
+    - target: {fileID: 7092224252073548659, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7112433622447617094, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42133,6 +42141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rain: {fileID: 451973473}
+  rainPosition: {fileID: 0}
   rainIsOn: 0
 --- !u!1 &1748889484
 GameObject:

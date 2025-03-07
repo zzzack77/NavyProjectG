@@ -44,7 +44,6 @@ public class RudderAngleUI : MonoBehaviour
         rotation *= rudderAngleUnitScaler;
         //starRudderDial.transform.rotation = Quaternion.Euler(starRudderDial.transform.rotation.eulerAngles.x, 0, rotation);
         starRudderDial.transform.localRotation = Quaternion.Euler(0, 0, -rotation);
-
     }
 
     public void SetPortClinometer(float rotation)
