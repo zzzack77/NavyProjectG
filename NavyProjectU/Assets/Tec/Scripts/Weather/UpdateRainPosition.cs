@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpdateRainPosition : MonoBehaviour
 {
     [SerializeField] private GameObject rain;
-
+    [SerializeField] private Transform rainPosition;
     public bool rainIsOn = false;
     // Start is called before the first frame update
     void Start()
@@ -16,28 +16,8 @@ public class UpdateRainPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rain.transform.position = transform.position;
-        if (Input.GetMouseButtonDown(0))
-        {
-            ToggleRain(rainIsOn);
-        }
+        rainPosition.position = transform.position;
     }
-
-    public void ToggleRain(bool rainIsOn)
-    {
-        if (rainIsOn)
-        {
-            // code for on
-            rain.SetActive(true);
-            rainIsOn = !rainIsOn;
-        }
-        else
-        {
-            // code for off
-            rain.SetActive(false);
-            rainIsOn = !rainIsOn;
-            
-        }
-    }
-
+    public void ActivateRain() { rain.SetActive(true); }
+    public void DeactivateRain() { rain.SetActive(false); }
 }
