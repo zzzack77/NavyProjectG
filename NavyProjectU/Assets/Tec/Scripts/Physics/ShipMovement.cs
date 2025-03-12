@@ -20,6 +20,8 @@ public class ShipMovement : MonoBehaviour
 
     InputSubscription InputManager;
 
+    LogitechThrottleInput ThrottleInput;
+
     public Rigidbody rb;
 
     // Boat physiscs stats
@@ -65,6 +67,8 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         InputManager = GetComponent<InputSubscription>();
+
+        ThrottleInput = GetComponent<LogitechThrottleInput>();
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
 
@@ -146,16 +150,23 @@ public class ShipMovement : MonoBehaviour
             if (InputManager.PortToggle) { portDirection *= -1; }
             if (InputManager.StarboardToggle) { starboardDirection *= -1; }
 
-
+            if (ThrottleInput)
+            {
+                //UnityEngine.Debug.Log("ThrottleInput is valid");
+            }
+            else
+            {
+                //UnityEngine.Debug.Log("ThrottleInput is not valid");
+            }
             //accelPortInput = ((Mathf.Acos(((InputManager.PortThrottle * -1) + 1) / 2))/(Mathf.PI/2)) * portDirection;
-            accelPortInput = Mathf.Acos(Mathf.Abs(InputManager.PortThrottle)) * portDirection;
+            accelPortInput = ThrottleInput.portValue * portDirection;
             //accelPortInput = Mathf.Abs(InputManager.PortThrottle) * portDirection;
-            UnityEngine.Debug.Log("Port Throttle: " + (accelPortInput * 180/Mathf.PI));
+            //UnityEngine.Debug.Log("Port Throttle: " + (accelPortInput));
 
             //accelStarboardInput = (Mathf.Acos(((InputManager.StarboardThrottle) + 1) / 2)) * starboardDirection;
-            accelStarboardInput = Mathf.Acos(Mathf.Abs(InputManager.StarboardThrottle)) * starboardDirection;
+            accelStarboardInput = ThrottleInput.starValue * starboardDirection;
             //accelStarboardInput = Mathf.Abs(InputManager.StarboardThrottle) * starboardDirection;
-            UnityEngine.Debug.Log("Starboard Throttle: " + (accelStarboardInput * 180/Mathf.PI));
+            //UnityEngine.Debug.Log("Starboard Throttle: " + (accelStarboardInput));
 
         }
         else
@@ -233,8 +244,10 @@ public class ShipMovement : MonoBehaviour
     {
         if (isSteeringWheelConnected)
         {
+            //UnityEngine.Debug.Log("Test");
             //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
             steeringInput = (InputManager.Turn.x) * -35.0f;
+
         }
         else
         {
