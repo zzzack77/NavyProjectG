@@ -2684,6 +2684,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445675949}
   m_CullTransparentMesh: 1
+--- !u!1 &462185083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2065705130475498563, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478848483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2823,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478848483}
   m_CullTransparentMesh: 1
+--- !u!1 &488293784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4116338924814376904, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488822332
 GameObject:
   m_ObjectHideFlags: 0
@@ -7850,12 +7860,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1237406787}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: throttleL
+      value: 
+      objectReference: {fileID: 462185083}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: throttleR
+      value: 
+      objectReference: {fileID: 1866460034}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: SteeringWheel
+      value: 
+      objectReference: {fileID: 488293784}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isThrottleConnected
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isSteeringWheelConnected
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518131417818971931, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518131417818971931, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518131417818971931, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 1603755453223519163, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11563,6 +11597,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856844184}
   m_CullTransparentMesh: 1
+--- !u!1 &1866460034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7470106594606825140, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+  m_PrefabInstance: {fileID: 1260123612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1878896020
 GameObject:
   m_ObjectHideFlags: 0
@@ -12700,10 +12739,10 @@ SceneRoots:
   - {fileID: 945699394}
   - {fileID: 1829454353}
   - {fileID: 1219146105}
-  - {fileID: 1260123612}
   - {fileID: 1890520888}
   - {fileID: 1237406788}
   - {fileID: 3894686}
   - {fileID: 155212495}
   - {fileID: 920457585}
   - {fileID: 555785074}
+  - {fileID: 1260123612}

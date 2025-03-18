@@ -54,6 +54,10 @@ public class ShipMovement : MonoBehaviour
     public bool isSteeringWheelConnected;
     public bool isFrozen;
 
+    public GameObject SteeringWheel;
+    public GameObject throttleR;
+    public GameObject throttleL;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,6 +102,11 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
         if (isFrozen) { ResetPos(); }
+
+        SteeringWheel.transform.localEulerAngles = new Vector3(0, 0, -steeringInput);
+
+        throttleR.transform.localEulerAngles = new Vector3(-accelPortInput * 90, 0, 0);
+        throttleL.transform.localEulerAngles = new Vector3(-accelStarboardInput * 90, 0, 0);
 
     }
 
