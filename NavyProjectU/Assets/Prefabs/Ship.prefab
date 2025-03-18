@@ -3150,17 +3150,22 @@ MonoBehaviour:
   camera1: {fileID: 2570061701201826625}
   camera2: {fileID: 0}
   privateVariables: {fileID: 0}
-  visualsTransform: {fileID: 0}
+
+  visualsTransform: {fileID: 4888500409067139426}
+
   rb: {fileID: 7772279565842285386}
   accelPortInput: 0
+  portPower: 0
   accelStarboardInput: 0
+  starPower: 0
   steeringInput: 0
   shipPower: 3500000
   suspensionRestDist: 5
   springStrength: 15000000
   springDamper: 1000000
   dragFactor: 1
-  dragCoefficient: 25000
+  dragCoefficient: 35000
+  rearDragCoefficient: 400000
   boatWeight: 10000
   rpmPropMax: 250
   rpmPropStarboard: 0
@@ -3171,6 +3176,9 @@ MonoBehaviour:
   isThrottleConnected: 1
   isSteeringWheelConnected: 1
   isFrozen: 0
+  throttleL: {fileID: 2065705130475498563}
+  throttleR: {fileID: 7470106594606825140}
+  steeringWheel: {fileID: 0}
 --- !u!54 &7772279565842285386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11131,9 +11139,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
   m_PrefabInstance: {fileID: 970125666318510842}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1926831136568678804 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7508645638898060434, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
+
+--- !u!1 &2065705130475498563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1286991521984726713, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
+  m_PrefabInstance: {fileID: 970125666318510842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7470106594606825140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1522864862903872434, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
+
   m_PrefabInstance: {fileID: 970125666318510842}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3947292559019442795

@@ -22,12 +22,18 @@ public class ShipMovement : MonoBehaviour
 
     InputSubscription InputManager;
 
+    LogitechThrottleInput ThrottleInput;
+
     public Rigidbody rb;
 
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
+    public float portPower = 0.0f;
+    bool bPortReverse = false;
     float portDirection = 1.0f;
     public float accelStarboardInput = 0.0f;
+    public float starPower = 0.0f;
+    bool bStarReverse = false;
     float starboardDirection = 1.0f;
     public float steeringInput;
     public float shipPower = 3500000.0f;
@@ -37,7 +43,8 @@ public class ShipMovement : MonoBehaviour
     public float springDamper = 500000.0f;
 
     public float dragFactor = 1.0f;
-    public float dragCoefficient = 25000.0f;
+    public float dragCoefficient = 35000.0f;
+    public float rearDragCoefficient = 65000.0f;
     public float boatWeight = 10000.0f;
 
     private float rpmEngineMax = 3000.0f;
@@ -67,6 +74,8 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         InputManager = GetComponent<InputSubscription>();
+
+        ThrottleInput = GetComponent<LogitechThrottleInput>();
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
         //assessorUI = GameObject.Find("GameManager").GetComponent<AssessorUI>();
@@ -155,21 +164,22 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
-
-            if (InputManager.PortToggle) { portDirection *= -1; }
-            if (InputManager.StarboardToggle) { starboardDirection *= -1; }
-
-
-            //accelPortInput = ((Mathf.Acos(((InputManager.PortThrottle * -1) + 1) / 2))/(Mathf.PI/2)) * portDirection;
-            accelPortInput = Mathf.Acos(Mathf.Abs(InputManager.PortThrottle)) * portDirection;
-            //accelPortInput = Mathf.Abs(InputManager.PortThrottle) * portDirection;
-            UnityEngine.Debug.Log("Port Throttle: " + (accelPortInput * 180/Mathf.PI));
-
-            //accelStarboardInput = (Mathf.Acos(((InputManager.StarboardThrottle) + 1) / 2)) * starboardDirection;
-            accelStarboardInput = Mathf.Acos(Mathf.Abs(InputManager.StarboardThrottle)) * starboardDirection;
-            //accelStarboardInput = Mathf.Abs(InputManager.StarboardThrottle) * starboardDirection;
-            UnityEngine.Debug.Log("Starboard Throttle: " + (accelStarboardInput * 180/Mathf.PI));
-
+            if (InputManager.PortToggle)
+            {
+                accelPortInput = -1;
+            }
+            else 
+            { 
+                accelPortInput = ThrottleInput.portValue;
+            }
+            if (InputManager.StarboardToggle)
+            {
+                accelStarboardInput = -1;
+            }
+            else 
+            {
+                accelStarboardInput = ThrottleInput.starValue;
+            }
         }
         else
         {
@@ -210,6 +220,8 @@ public class ShipMovement : MonoBehaviour
             }
         }
 
+        starPower = rpmPropStarboard / rpmPropMax;
+
         // Port Propeller
 
         if (rpmPortInput > rpmPropPort)
@@ -229,6 +241,8 @@ public class ShipMovement : MonoBehaviour
                 rpmPropPort = rpmPortInput;
             }
         }
+
+        portPower = rpmPropPort / rpmPropMax;
     }
     // Auto Pilot code
     public void AutoPilotMode()
@@ -246,8 +260,10 @@ public class ShipMovement : MonoBehaviour
     {
         if (isSteeringWheelConnected)
         {
+            //UnityEngine.Debug.Log("Test");
             //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
             steeringInput = (InputManager.Turn.x) * -35.0f;
+
         }
         else
         {
