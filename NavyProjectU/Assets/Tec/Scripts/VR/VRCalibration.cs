@@ -8,21 +8,22 @@ using UnityEngine.XR;
 public class VRCalibration : MonoBehaviour
 {
     [SerializeField] private GameObject xrOriginGO;
-    public GameObject leftHand, rightHand; 
-    public GameObject leftWheelGripPoint, rightWheelGripPoint;
-    public GameObject xrCamera;
+    [SerializeField] private Transform leftHand, rightHand;
+    [SerializeField] private Transform leftWheelGripPoint, rightWheelGripPoint;
+    [SerializeField] private Transform xrCamera;
     [SerializeField] private XROrigin xrOrigin;
-    [SerializeField] private GameObject userOriginPos;
-    public Camera xrOriginCamera;
-    // Start is called before the first frame update
+    [SerializeField] private Transform userOriginPos;
+    [SerializeField] private Transform floorPos;
+    [SerializeField] private Camera xrOriginCamera;
+    
     void Start()
     {
-        //xrOrigin = GameObject.Find("XR Origin");
 
-        //if (xrOrigin == null)
-        //{
-        //    Debug.LogError("XR Origin Game Object Not Found!");
-        //}
+
+        if (xrOrigin == null)
+        {
+            Debug.LogError("XR Origin Game Object Not Found!");
+        }
 
         if (xrCamera == null)
         {
@@ -30,7 +31,7 @@ public class VRCalibration : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F5))
@@ -49,6 +50,7 @@ public class VRCalibration : MonoBehaviour
         Vector3 virtualLeftGripPos = leftWheelGripPoint.transform.position;
         Vector3 virtualRightGripPos = rightWheelGripPoint.transform.position;
 
+        // Get the mid points of the real hands and virtual grip points
         Vector3 virtualGripMidPoint = (virtualLeftGripPos + virtualRightGripPos) / 2;
         Vector3 realGripMidPoint = (realLeftHandPos + realRightHandPos) / 2;
 
@@ -59,8 +61,10 @@ public class VRCalibration : MonoBehaviour
         Vector3 offsetEulerAngles = fullRotationOffset.eulerAngles; // Convert to Euler angles
         Quaternion yAxisRotationOffset = Quaternion.Euler(0, offsetEulerAngles.y, 0); // Only use Y-axis
         
+        // Set rotation
         xrCamera.transform.rotation = yAxisRotationOffset * xrCamera.transform.rotation;
 
+        // Calculate and apply the user position
         Vector3 positionOffset = userOriginPos.transform.position - xrOriginCamera.transform.position;
         xrOrigin.transform.position += positionOffset;
     }
