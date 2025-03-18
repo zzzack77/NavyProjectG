@@ -12,9 +12,7 @@ using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
 {
-    public Camera camera1;
-    public Camera camera2;
-
+    
     public PrivateVariables privateVariables;
     public GameObject assessorUI;
 
@@ -73,8 +71,6 @@ public class ShipMovement : MonoBehaviour
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
         //assessorUI = GameObject.Find("GameManager").GetComponent<AssessorUI>();
         assessorUI.SetActive(false);
-        camera1.gameObject.SetActive(true);
-        camera2.gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
@@ -106,11 +102,7 @@ public class ShipMovement : MonoBehaviour
         // If private variabels is null defult to manual mode (A, D key presses)
         else { ManualMode(); }
 
-        if (Input.GetKeyDown(KeyCode.F1)) // Switch to first display
-        {
-            camera1.gameObject.SetActive(!camera1.gameObject.activeSelf);
-            camera2.gameObject.SetActive(!camera2.gameObject.activeSelf);
-        }
+        
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
         if (Input.GetKeyDown(KeyCode.F10)) 
@@ -299,8 +291,11 @@ public class ShipMovement : MonoBehaviour
 
     public void SetThrottleModelRotation()
     {
-        throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x + accelPortInput * 90.0f, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
-        throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x + accelStarboardInput * 90.0f, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+        if (throttleL != null && throttleR != null)
+        {
+            throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x + accelPortInput * 90.0f, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
+            throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x + accelStarboardInput * 90.0f, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+        }
     }
 
     public void SetSteeringWheelModelRotation()

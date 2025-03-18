@@ -34,7 +34,7 @@ public class DayNight : MonoBehaviour
         }
         else
         {
-            UnityEngine.Debug.Log("Day: " + bDaytime);
+            //UnityEngine.Debug.Log("Day: " + bDaytime);
         }
     }
 
