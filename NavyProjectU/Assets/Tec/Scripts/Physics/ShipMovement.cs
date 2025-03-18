@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using System.Security.Cryptography;
-
-
-//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UIElements;
@@ -12,10 +8,7 @@ using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
 {
-    public Camera camera1;
-    public Camera camera2;
-
-    public PrivateVariables privateVariables;
+    private PrivateVariables privateVariables;
     public Transform visualsTransform;
 
     InputSubscription InputManager;
@@ -77,8 +70,7 @@ public class ShipMovement : MonoBehaviour
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
 
-        camera1.gameObject.SetActive(true);
-        camera2.gameObject.SetActive(false);
+        
     }
     private void FixedUpdate()
     {
@@ -109,11 +101,6 @@ public class ShipMovement : MonoBehaviour
         // If private variabels is null defult to manual mode (A, D key presses)
         else { ManualMode(); }
 
-        if (Input.GetKeyDown(KeyCode.F1)) // Switch to first display
-        {
-            camera1.gameObject.SetActive(!camera1.gameObject.activeSelf);
-            camera2.gameObject.SetActive(!camera2.gameObject.activeSelf);
-        }
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
         if (isFrozen) { ResetPos(); }
