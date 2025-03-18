@@ -16,11 +16,14 @@ public class AudioFunctions : MonoBehaviour
     public float BoatRev;
 
     private bool IsOn;
+
+    public ShipMovement accelPortInput;
+    public ShipMovement accelStarboardInput;
     #endregion
 
     void Start()
     {
-        // Start audio for waves and boat idel
+        // Start audio for waves and boat idle
         Wave();
         BoatIdle();
     }
@@ -101,6 +104,8 @@ public class AudioFunctions : MonoBehaviour
 
             IsOn = false;
         }
+
+        BoatSource.pitch = ShipMovement.accelPortInput;
         #endregion
 
         #region Reverse Throttle
