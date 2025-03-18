@@ -31727,14 +31727,6 @@ PrefabInstance:
       propertyPath: camera2
       value: 
       objectReference: {fileID: 1237406787}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: isThrottleConnected
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: isSteeringWheelConnected
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1603755453223519163, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
