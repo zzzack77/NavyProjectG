@@ -16,6 +16,8 @@ public class ShipMovement : MonoBehaviour
     public Camera camera2;
 
     public PrivateVariables privateVariables;
+    public GameObject assessorUI;
+
     public Transform visualsTransform;
 
     InputSubscription InputManager;
@@ -76,6 +78,7 @@ public class ShipMovement : MonoBehaviour
         ThrottleInput = GetComponent<LogitechThrottleInput>();
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
+        //assessorUI = GameObject.Find("GameManager").GetComponent<AssessorUI>();
 
         camera1.gameObject.SetActive(true);
         camera2.gameObject.SetActive(false);
@@ -116,8 +119,18 @@ public class ShipMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
+        if (Input.GetKeyDown(KeyCode.F10)) 
+        {
+            if (assessorUI.activeSelf) { assessorUI.SetActive(false); }
+            else { assessorUI.SetActive(true); }
+
+        }
         if (isFrozen) { ResetPos(); }
 
+        steeringWheel.transform.localEulerAngles = new Vector3(0f, 0f, -steeringInput);
+
+        throttleR.transform.localEulerAngles = new Vector3(-accelStarboardInput * 90, 0f, 0f);
+        throttleL.transform.localEulerAngles = new Vector3(-accelPortInput * 90, 0f, 0f);
     }
 
     // Resets boat without restarting the scene

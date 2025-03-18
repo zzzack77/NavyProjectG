@@ -19,18 +19,32 @@ public class ThrottleCalibration : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
+        //Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Vector3 handPos = rightHand.transform.position;
+            //Vector3 handPos = rightHand.transform.position;
 
-            newThrottle.transform.localPosition = finalThrottlePos;
-            newThrottle.transform.localRotation = Quaternion.Euler(0, rightHand.transform.eulerAngles.y, 0);
+            //newThrottle.transform.localPosition = finalThrottlePos;
 
-            Vector3 offset = newThrottle.transform.position - rightHand.transform.position;
+            //Vector3 offset = newThrottle.transform.position - rightHand.transform.position;
 
-            newThrottle.transform.localPosition += new Vector3(offset.x, 0, offset.z + zOffset);
+            //newThrottle.transform.localPosition += new Vector3(offset.x, 0, offset.z + zOffset);
+
+            CalibrateThrottle();
         }
+    }
+
+    public void CalibrateThrottle()
+    {
+        Vector3 finalThrottlePos = new Vector3(rightHand.transform.localPosition.x, throttleY, rightHand.transform.localPosition.z);
+
+        Vector3 handPos = rightHand.transform.position;
+
+        newThrottle.transform.localPosition = finalThrottlePos;
+
+        Vector3 offset = newThrottle.transform.position - rightHand.transform.position;
+
+        newThrottle.transform.localPosition += new Vector3(offset.x, 0, offset.z + zOffset);
     }
 }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class AssessorUI : MonoBehaviour
 {
     private PrivateVariables privateVariables;
+
+    public GameObject headingValue;
 
     // Errors
     public Button systemFailureB;
@@ -16,14 +19,32 @@ public class AssessorUI : MonoBehaviour
     public Button logFailureB;
     public Button rudderIndicatorFailureB;
 
-    // Assessor editor buttons
-    public Button editB;
-    public Button resetPlayerPosB;
-    public Button resetThrottleB;
-    public Button resetWheelB;
+    // Assessor control buttons
     public Button pauseB;
     public Button restartB;
     public Button endB;
+
+    // Settings
+    public Button resetPlayerPosB;
+    public Button resetThrottleB;
+    public Button toggleRainB;
+    public Button toggleFogB;
+    public Button toggleNightB;
+
+    // Boat stats
+    //public Button rudderAngleB;
+    //public Button rateOfTurnB;
+    //public Button throttleSpeedB;
+
+    public GameObject rudderAngleV;
+    public GameObject rateOfTurnV;
+    public GameObject boatSpeedV;
+
+    public RawImage HeadingImage;
+    public Transform Ship;
+    private float ye = 1 / 360f;
+    
+    private float offset = 179.49865f;
 
     public bool isPaused = false;
 
@@ -32,7 +53,10 @@ public class AssessorUI : MonoBehaviour
     {
         privateVariables = GetComponent<PrivateVariables>();
     }
-
+    private void FixedUpdate()
+    {
+        HeadingImage.uvRect = new Rect((Ship.localEulerAngles.y * ye) - offset, 0, 1, 1);
+    }
     // Error on button click events
     public void Press1SystemFailureB() { privateVariables.SystemFailure = true; }
     public void Press2GyroFailureB() { privateVariables.GyroFailure = true; }
@@ -40,10 +64,7 @@ public class AssessorUI : MonoBehaviour
     public void Press4AutoPilotFailureB() { privateVariables.AutoPilotFailure = true;}
     public void Press5LogFailureB() { privateVariables.LogFailure = true; }
     public void Press6RudderIndicatorFailureB() { privateVariables.RudderIndicatorFailure = true;}
-    public void Press7EditB() { }
-    public void Press8ResetPlayerPosB() { }
-    public void Press9ResetThrottleB() { }
-    public void Press10ResetWheelB() { }
+    
     // Pause scene
     public void Press11PauseB() 
     {
@@ -73,5 +94,50 @@ public class AssessorUI : MonoBehaviour
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    // These are the function that get called when buttons are pressed
+    // place correct code in each function to be called on assessor clicks
+    public void PressResetPlayerB() { }
+    public void PressResetThrottleB() { }
+    public void PressToggleRainB() { }
+    public void PressToggleFogB() { }
+    public void PressToggleNightB() { }
+
+    public void OnHeadingUpdate(float value)
+    {
+        TextMeshProUGUI headingText = headingValue.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (headingText != null)
+        {
+            headingText.text = value.ToString("000.0");
+        }
+    }
+    public void OnRudderAngleUpdate(float value)
+    {
+        TextMeshProUGUI headingText = rudderAngleV.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (headingText != null)
+        {
+            headingText.text = value.ToString("0.0");
+        }
+    }
+    public void OnRateOFTurnUpdate(float value)
+    {
+        TextMeshProUGUI rotText = rateOfTurnV.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (rotText != null)
+        {
+            rotText.text = value.ToString("0.0");
+        }
+    }
+    public void OnBoatSpeedUpdate(float value)
+    {
+        TextMeshProUGUI boatSpeedText = boatSpeedV.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (boatSpeedText != null)
+        {
+            boatSpeedText.text = value.ToString("0.0");
+        }
     }
 }

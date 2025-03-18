@@ -23,7 +23,7 @@ public class HeadingUI : MonoBehaviour
         privateVariables = GetComponent<PrivateVariables>();
 
     }
-    void Update()
+    private void FixedUpdate()
     {
         HeadingImage.uvRect = new Rect((Ship.localEulerAngles.y * ye) - offset, 0, 1, 1);
 
