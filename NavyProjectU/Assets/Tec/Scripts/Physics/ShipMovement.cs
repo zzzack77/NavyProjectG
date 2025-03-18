@@ -155,15 +155,15 @@ public class ShipMovement : MonoBehaviour
             {
                 accelPortInput = -1;
             }
-            else 
-            { 
+            else
+            {
                 accelPortInput = ThrottleInput.portValue;
             }
             if (InputManager.StarboardToggle)
             {
                 accelStarboardInput = -1;
             }
-            else 
+            else
             {
                 accelStarboardInput = ThrottleInput.starValue;
             }
