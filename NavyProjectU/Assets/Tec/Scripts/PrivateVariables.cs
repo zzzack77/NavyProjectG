@@ -74,16 +74,19 @@ public class PrivateVariables : MonoBehaviour
     private AudioFunctions audioFunctions;
     private RudderAngleUI rudderAngleUI;
     private HeadingUI headingUI;
-
+    private AssessorUI assessorUI;
 
     private void Awake()
     {
-        autopilotSoftTouch = GameObject.Find("GameManager").GetComponent<AutoPilot2>();
-        echoSounderSoftTouch = GameObject.Find("GameManager").GetComponent<EchoSounderSoftTouch>();
-        errorUI = GameObject.Find("GameManager").GetComponent<ErrorUI>();
+        GameObject gameManger = GameObject.Find("GameManager");
+
+        autopilotSoftTouch = gameManger.GetComponent<AutoPilot2>();
+        echoSounderSoftTouch = gameManger.GetComponent<EchoSounderSoftTouch>();
+        errorUI = gameManger.GetComponent<ErrorUI>();
         audioFunctions = GameObject.Find("MainCamera").GetComponent<AudioFunctions>();
-        rudderAngleUI = GameObject.Find("GameManager").GetComponent<RudderAngleUI>();
-        headingUI = GameObject.Find("GameManager").GetComponent<HeadingUI>();
+        rudderAngleUI = gameManger.GetComponent<RudderAngleUI>();
+        headingUI = gameManger.GetComponent<HeadingUI>();
+        assessorUI = gameManger.GetComponent<AssessorUI>();
     }
 
     // Rotation variables
@@ -97,6 +100,7 @@ public class PrivateVariables : MonoBehaviour
             else heading = value;
             autopilotSoftTouch.OnHeadingUpdate();
             headingUI.OnHeadingUpdate();
+            assessorUI.OnHeadingUpdate(value);
         }
     }
     public float Pitch
@@ -153,6 +157,7 @@ public class PrivateVariables : MonoBehaviour
         {
             rateOfTurn = value;
             headingUI.OnRateOfTurnUpdate();
+            assessorUI.OnRateOFTurnUpdate(value);
         }
     }
     public float SpeedKn
@@ -162,6 +167,7 @@ public class PrivateVariables : MonoBehaviour
         {
             speedKn = value;
             headingUI.OnSpeedKnUpdate();
+            assessorUI.OnBoatSpeedUpdate(value);
         }
     }
 
@@ -175,6 +181,7 @@ public class PrivateVariables : MonoBehaviour
             {
                 portRudderAngle = value;
                 rudderAngleUI.SetPortRudderAngle(value);
+                assessorUI.OnRudderAngleUpdate(value);
             }
         }
     }
@@ -187,6 +194,7 @@ public class PrivateVariables : MonoBehaviour
             {
                 starRudderAngle = value;
                 rudderAngleUI.SetStarRudderAngle(value);
+                //assessorUI.OnRudderAngleUpdate(value);
             }
         }
     }

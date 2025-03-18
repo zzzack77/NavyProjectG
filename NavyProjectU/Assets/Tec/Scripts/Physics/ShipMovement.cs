@@ -69,8 +69,6 @@ public class ShipMovement : MonoBehaviour
         ThrottleInput = GetComponent<LogitechThrottleInput>();
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
-
-        
     }
     private void FixedUpdate()
     {
@@ -79,6 +77,7 @@ public class ShipMovement : MonoBehaviour
         RPMCode();
         SetThrottleModelRotation();
         SetSteeringWheelModelRotation();
+
     }
 
     // Update is called once per frame
@@ -100,6 +99,10 @@ public class ShipMovement : MonoBehaviour
 
         // If private variabels is null defult to manual mode (A, D key presses)
         else { ManualMode(); }
+
+        // Toggles steering and throttle from keyboard to hardware
+        if (Input.GetKeyDown(KeyCode.F1)) isSteeringWheelConnected = !isSteeringWheelConnected;
+        if (Input.GetKeyDown(KeyCode.F2)) isThrottleConnected = !isThrottleConnected;
 
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
@@ -237,7 +240,7 @@ public class ShipMovement : MonoBehaviour
             //UnityEngine.Debug.Log("Test");
             //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
             steeringInput = (InputManager.Turn.x) * -35.0f;
-
+            
         }
         else
         {
