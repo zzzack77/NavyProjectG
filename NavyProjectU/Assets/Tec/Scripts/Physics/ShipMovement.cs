@@ -118,6 +118,10 @@ public class ShipMovement : MonoBehaviour
         }
         if (isFrozen) { ResetPos(); }
 
+        steeringWheel.transform.localEulerAngles = new Vector3(0f, 0f, -steeringInput);
+
+        throttleR.transform.localEulerAngles = new Vector3(-accelStarboardInput * 90, 0f, 0f);
+        throttleL.transform.localEulerAngles = new Vector3(-accelPortInput * 90, 0f, 0f);
     }
 
     // Resets boat without restarting the scene
