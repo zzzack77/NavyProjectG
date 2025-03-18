@@ -14,8 +14,13 @@ public class AudioManager : MonoBehaviour
 
     public bool IsOn;
 
+    public ShipMovement ShipMovement;
+
     void Start()
     {
+        ShipMovement = GameObject.Find("Ship").GetComponent<ShipMovement>();
+
+
         BoatIdling();
 
         IsOn = true;
@@ -46,49 +51,51 @@ public class AudioManager : MonoBehaviour
 
     public void BoatThrottle()
     {
-        if (Input.GetKeyDown(KeyCode.W)) 
-        {
-            keyPressStartTime = Time.time;  
-            IsOn = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.W)) 
+        //{
+        //    keyPressStartTime = Time.time;  
+        //    IsOn = true;
+        //}
 
-        if (Input.GetKey(KeyCode.W))  
-        {
-            
-            keyHoldDuration = Time.time - keyPressStartTime;        
-        }
+        //if (Input.GetKey(KeyCode.W))  
+        //{
 
-        if (Input.GetKeyUp(KeyCode.W))  
-        {
-            keyPressStartTime = -1f;                               
+        //    keyHoldDuration = Time.time - keyPressStartTime;        
+        //}
 
-            keyHoldDuration = 0f;
+        //if (Input.GetKeyUp(KeyCode.W))  
+        //{
+        //    keyPressStartTime = -1f;                               
 
-            IsOn = false;
+        //    keyHoldDuration = 0f;
 
-        }
+        //    IsOn = false;
 
-        if (IsOn == true)
-        {
-            BoatRev = (keyHoldDuration / 10) + 0.5f;
-        }
-        else
-        {
-            BoatRev -= 0.2f * Time.deltaTime;
+        //}
 
-            if (BoatRev <= 0.5f)
-            {
-                BoatRev = 0.5f;
-            }
-        }
+        //if (IsOn == true)
+        //{
+        //    BoatRev = (keyHoldDuration / 10) + 0.5f;
+        //}
+        //else
+        //{
+        //    BoatRev -= 0.2f * Time.deltaTime;
 
-        BoatSource.pitch = BoatRev;
+        //    if (BoatRev <= 0.5f)
+        //    {
+        //        BoatRev = 0.5f;
+        //    }
+        //}
 
-        if (BoatRev >= 1.4f)
-        {
-            BoatSource.pitch = 1.4f;    
-        }
+        //BoatSource.pitch = BoatRev;
 
-        Debug.Log(BoatRev);
+        //if (BoatRev >= 1.4f)
+        //{
+        //    BoatSource.pitch = 1.4f;    
+        //}
+
+        //Debug.Log(BoatRev);
+
+        BoatSource.pitch = ShipMovement.accelPortInput + 0.7f;
     }
 }

@@ -10618,10 +10618,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoatSource: {fileID: 751109104}
-  BoatIdle: {fileID: 8300000, guid: 00a2e19dd5e87f641be38b9a3037311f, type: 3}
+  BoatIdle: {fileID: 8300000, guid: 75cd49587911687439e6fa27420cf35b, type: 3}
   Horn: {fileID: 8300000, guid: 66c0279bdf7d1d344819b1df6e162026, type: 3}
   BoatRev: 0
   IsOn: 0
+  ShipMovement: {fileID: 0}
 --- !u!82 &751109104
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17518,7 +17519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaveSource: {fileID: 1637474148}
-  Waves: {fileID: 8300000, guid: 0fa5296d025bd0043a7ee9f5787c8ee2, type: 3}
+  Waves: {fileID: 8300000, guid: d447fe27e95e92a4195d46f6168e2cf3, type: 3}
 --- !u!82 &1637474148
 AudioSource:
   m_ObjectHideFlags: 0
