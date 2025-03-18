@@ -89,13 +89,13 @@ public class TraceMovement : MonoBehaviour
 
             if (Starboard)
             {
-                if (parentScript.accelStarboardInput != 0.0f)
+                if (parentScript.starPower != 0.0f)
                 {
                     float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
-                    float availableTorque = parentScript.shipPower * parentScript.accelStarboardInput;
+                    float availableTorque = parentScript.shipPower * parentScript.starPower;
 
                     boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
@@ -105,13 +105,13 @@ public class TraceMovement : MonoBehaviour
             }
             else
             {
-                if (parentScript.accelPortInput != 0.0f)
+                if (parentScript.portPower != 0.0f)
                 {
                     float boatSpeed = Vector3.Dot(transform.forward, boatRigidBody.velocity);
 
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(boatSpeed));
 
-                    float availableTorque = parentScript.shipPower * parentScript.accelPortInput;
+                    float availableTorque = parentScript.shipPower * parentScript.portPower;
 
                     boatRigidBody.AddForceAtPosition(accelDir * availableTorque, transform.position);
 
@@ -123,10 +123,17 @@ public class TraceMovement : MonoBehaviour
             var localVel = transform.InverseTransformDirection(parentScript.rb.velocity);
 
             float rearDrag = 0.5f * parentScript.dragCoefficient * (localVel.z * parentScript.rb.velocity.magnitude);
+            float forwardDrag = 0.5f * parentScript.rearDragCoefficient * (localVel.z * parentScript.rb.velocity.magnitude);
 
             //UnityEngine.Debug.Log("Drag Force: " + (-accelDir * rearDrag).magnitude);
-
-            boatRigidBody.AddForceAtPosition(-accelDir * rearDrag, parentScript.rb.transform.position);
+            if(localVel.z > 0)
+            {
+                boatRigidBody.AddForceAtPosition(-accelDir * rearDrag, parentScript.rb.transform.position);
+            }
+            else if(localVel.z < 0)
+            {
+                boatRigidBody.AddForceAtPosition(-accelDir * forwardDrag, parentScript.rb.transform.position);
+            }
 
         }
     }

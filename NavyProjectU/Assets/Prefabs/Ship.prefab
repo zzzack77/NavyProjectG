@@ -3150,17 +3150,20 @@ MonoBehaviour:
   camera1: {fileID: 2570061701201826625}
   camera2: {fileID: 0}
   privateVariables: {fileID: 0}
-  visualsTransform: {fileID: 0}
+  visualsTransform: {fileID: 4888500409067139426}
   rb: {fileID: 7772279565842285386}
   accelPortInput: 0
+  portPower: 0
   accelStarboardInput: 0
+  starPower: 0
   steeringInput: 0
   shipPower: 3500000
   suspensionRestDist: 5
   springStrength: 15000000
   springDamper: 1000000
   dragFactor: 1
-  dragCoefficient: 25000
+  dragCoefficient: 35000
+  rearDragCoefficient: 400000
   boatWeight: 10000
   rpmPropMax: 250
   rpmPropStarboard: 0

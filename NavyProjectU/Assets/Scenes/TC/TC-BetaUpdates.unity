@@ -31728,10 +31728,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1237406787}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: visualsTransform
-      value: 
-      objectReference: {fileID: 519496711}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isThrottleConnected
       value: 1
       objectReference: {fileID: 0}
@@ -43756,8 +43752,8 @@ Transform:
   m_GameObject: {fileID: 1829454349}
   serializedVersion: 2
   m_LocalRotation: {x: 0.01745245, y: 0, z: 0, w: 0.99984777}
-  m_LocalPosition: {x: 0, y: -60, z: 0}
-  m_LocalScale: {x: 500, y: 500, z: 500}
+  m_LocalPosition: {x: 0, y: -315.7, z: 0}
+  m_LocalScale: {x: 750, y: 750, z: 750}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
