@@ -273,6 +273,6 @@ public class ShipMovement : MonoBehaviour
 
     public void SetSteeringWheelModelRotation()
     {
-
+        steeringWheel.transform.eulerAngles = new Vector3(0, 0, steeringInput);
     }
 }
