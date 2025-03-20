@@ -12,17 +12,8 @@ public class VRTestMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //float horizontal = Input.GetAxisRaw("Horizontal");
-        //float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, (float)y, vertical).normalized;
 
         if (Input.GetKey(KeyCode.LeftArrow))
