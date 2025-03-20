@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShaderSimulation : MonoBehaviour
 {
     public GameObject colliderObject;
-    [SerializeField] private float previousTime = 0.0f;
+    //[SerializeField] private float previousTime = 0.0f;
     [SerializeField] private float simulatedTime = 0.0f;
     [SerializeField] private float waveSpeedX = 5f;
     [SerializeField] private float waveSpeedY = 5f;

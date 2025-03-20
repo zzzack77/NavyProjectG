@@ -8,7 +8,7 @@ public class ThrottleCalibration : MonoBehaviour
     public GameObject rightHand;
     public float throttleY = 2.209249f;
     public float zOffset;
-    private bool throttleIsSpawned = false;
+    //private bool throttleIsSpawned = false;
    // public Vector3 offset = new Vector3(0.9f, 0, 0.7f);
     // Start is called before the first frame update
     void Start()

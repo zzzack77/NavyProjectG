@@ -10,7 +10,7 @@ public class TurnRudder : MonoBehaviour
 
     public ShipMovement parent;
     public bool Invert;
-    float TurnAngle = 0.0f;
+    private float TurnAngle;
 
     // Start is called before the first frame update
     void Start()
