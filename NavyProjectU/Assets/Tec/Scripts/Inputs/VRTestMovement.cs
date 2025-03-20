@@ -73,6 +73,6 @@ public class VRTestMovement : MonoBehaviour
             y = 0;
         }
 
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime, Space.World);
     }
 }
