@@ -143,18 +143,20 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
+
             if (InputManager.PortToggle) accelPortInput = -1;
             else accelPortInput = ThrottleInput.portValue;
             if (InputManager.StarboardToggle) accelStarboardInput = -1;
             else accelStarboardInput = ThrottleInput.starValue;
+
         }
         else
         {
-            if (Input.GetKey(KeyCode.W) && accelPortInput < 1.0f) { accelPortInput = accelPortInput + 0.01f; }
-            else if (Input.GetKey(KeyCode.S) && accelPortInput > -1.0f) { accelPortInput = accelPortInput - 0.01f; }
+            if (Input.GetKey(KeyCode.W) && accelPortInput < 1.0f) { accelPortInput = accelPortInput + 0.01f; if (accelPortInput > 1.0f) { accelPortInput = 1.0f; } }
+            else if (Input.GetKey(KeyCode.S) && accelPortInput > -1.0f) { accelPortInput = accelPortInput - 0.01f; if (accelPortInput < -1.0f) { accelPortInput = -1.0f; } }
 
-            if (Input.GetKey(KeyCode.R) && accelStarboardInput < 1.0f) { accelStarboardInput = accelStarboardInput + 0.01f; }
-            else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; }
+            if (Input.GetKey(KeyCode.R) && accelStarboardInput < 1.0f) { accelStarboardInput = accelStarboardInput + 0.01f; if (accelStarboardInput > 1.0f) { accelStarboardInput = 1.0f; } }
+            else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; if (accelStarboardInput < -1.0f) { accelStarboardInput = -1.0f; } }
         }
     }
     public void RPMCode()
@@ -227,11 +229,9 @@ public class ShipMovement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.A) && steeringInput < 35.0f) { steeringInput = steeringInput + 0.1f; }
-            else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; }
+            if (Input.GetKey(KeyCode.A) && steeringInput < 35.0f) { steeringInput = steeringInput + 0.1f; if (steeringInput > 35.0f) { steeringInput = 35.0f; } }
+            else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; if (steeringInput < -35.0f) { steeringInput = -35.0f; } }
         }
-        if (Input.GetKey(KeyCode.A) && steeringInput < 35.0f) { steeringInput = steeringInput + 0.1f; }
-        else if (Input.GetKey(KeyCode.D) && steeringInput > -35.0f) { steeringInput = steeringInput - 0.1f; }
     }
     public void NFUMode() { steeringInput = -privateVariables.NfuSteeringValue; }
 
