@@ -17,7 +17,10 @@ public class MoveThrottles : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
-        throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+        if (throttleL != null && throttleR != null)
+        {
+            throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
+            throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+        }
     }
 }

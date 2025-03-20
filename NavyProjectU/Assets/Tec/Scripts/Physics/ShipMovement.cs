@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using System.Security.Cryptography;
-
-
-//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UIElements;
@@ -12,27 +8,25 @@ using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
 {
-    public Camera camera1;
-    public Camera camera2;
+    private PrivateVariables privateVariables;
 
-    public PrivateVariables privateVariables;
     public Transform visualsTransform;
 
-    InputSubscription InputManager;
+    public InputSubscription InputManager;
 
-    LogitechThrottleInput ThrottleInput;
+    public LogitechThrottleInput ThrottleInput;
 
     public Rigidbody rb;
 
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
     public float portPower = 0.0f;
-    bool bPortReverse = false;
-    float portDirection = 1.0f;
+    //bool bPortReverse = false;
+    //float portDirection = 1.0f;
     public float accelStarboardInput = 0.0f;
     public float starPower = 0.0f;
-    bool bStarReverse = false;
-    float starboardDirection = 1.0f;
+    //bool bStarReverse = false;
+    //float starboardDirection = 1.0f;
     public float steeringInput;
     public float shipPower = 3500000.0f;
 
@@ -45,9 +39,9 @@ public class ShipMovement : MonoBehaviour
     public float rearDragCoefficient = 65000.0f;
     public float boatWeight = 10000.0f;
 
-    private float rpmEngineMax = 3000.0f;
-    private float rpmEngineStarboard = 0.0f;
-    private float rpmEnginePort = 0.0f;
+    //private float rpmEngineMax = 3000.0f;
+    //private float rpmEngineStarboard = 0.0f;
+    //private float rpmEnginePort = 0.0f;
 
     public float rpmPropMax = 250.0f;
     public float rpmPropStarboard = 0.0f;
@@ -76,9 +70,6 @@ public class ShipMovement : MonoBehaviour
         ThrottleInput = GetComponent<LogitechThrottleInput>();
 
         privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
-
-        camera1.gameObject.SetActive(true);
-        camera2.gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
@@ -87,6 +78,7 @@ public class ShipMovement : MonoBehaviour
         RPMCode();
         SetThrottleModelRotation();
         SetSteeringWheelModelRotation();
+
     }
 
     // Update is called once per frame
@@ -109,11 +101,11 @@ public class ShipMovement : MonoBehaviour
         // If private variabels is null defult to manual mode (A, D key presses)
         else { ManualMode(); }
 
-        if (Input.GetKeyDown(KeyCode.F1)) // Switch to first display
-        {
-            camera1.gameObject.SetActive(!camera1.gameObject.activeSelf);
-            camera2.gameObject.SetActive(!camera2.gameObject.activeSelf);
-        }
+        // Toggles steering and throttle from keyboard to hardware
+        if (Input.GetKeyDown(KeyCode.F1)) isSteeringWheelConnected = !isSteeringWheelConnected;
+        if (Input.GetKeyDown(KeyCode.F2)) isThrottleConnected = !isThrottleConnected;
+
+        //if (Input.GetKeyDown(KeyCode.F10)) ChangeDisplay(0);
         if (Input.GetKeyDown(KeyCode.F11)) { isFrozen = true; }
         if (Input.GetKeyDown(KeyCode.F12)) { isFrozen = false; }
         if (isFrozen) { ResetPos(); }
@@ -151,22 +143,12 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
-            if (InputManager.PortToggle)
-            {
-                accelPortInput = -1;
-            }
-            else
-            {
-                accelPortInput = ThrottleInput.portValue;
-            }
-            if (InputManager.StarboardToggle)
-            {
-                accelStarboardInput = -1;
-            }
-            else
-            {
-                accelStarboardInput = ThrottleInput.starValue;
-            }
+
+            if (InputManager.PortToggle) accelPortInput = -1;
+            else accelPortInput = ThrottleInput.portValue;
+            if (InputManager.StarboardToggle) accelStarboardInput = -1;
+            else accelStarboardInput = ThrottleInput.starValue;
+
         }
         else
         {
@@ -189,7 +171,6 @@ public class ShipMovement : MonoBehaviour
         privateVariables.StarPredictedRPM = rpmStarboardInput;
 
         // Starborad Propeller
-
         if (rpmStarboardInput > rpmPropStarboard)
         {
             rpmPropStarboard = rpmPropStarboard + 1.0f;
@@ -210,7 +191,6 @@ public class ShipMovement : MonoBehaviour
         starPower = rpmPropStarboard / rpmPropMax;
 
         // Port Propeller
-
         if (rpmPortInput > rpmPropPort)
         {
             rpmPropPort = rpmPropPort + 1.0f;
@@ -231,26 +211,21 @@ public class ShipMovement : MonoBehaviour
 
         portPower = rpmPropPort / rpmPropMax;
     }
+
     // Auto Pilot code
     public void AutoPilotMode()
     {
         float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
-        Debug.Log(difference);
-
-
-
+        
         if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 2.5f, 7); }
-        else { steeringInput = Mathf.Clamp((360 - difference), 2.5f, 7); }
-
+        else steeringInput = Mathf.Clamp((360 - difference), 2.5f, 7);
     }
+
     public void ManualMode()
     {
         if (isSteeringWheelConnected)
         {
-            //UnityEngine.Debug.Log("Test");
-            //steeringInput = Input.GetAxis("Horizontal") * -35.0f;
             steeringInput = (InputManager.Turn.x) * -35.0f;
-
         }
         else
         {
@@ -265,7 +240,6 @@ public class ShipMovement : MonoBehaviour
         if (displayIndex >= 0 && displayIndex < Display.displays.Length)
         {
             Screen.SetResolution(Display.displays[1].systemWidth, Display.displays[1].systemHeight, FullScreenMode.Windowed);
-
         }
         else
         {
@@ -281,6 +255,10 @@ public class ShipMovement : MonoBehaviour
 
     public void SetSteeringWheelModelRotation()
     {
-
+        if (steeringWheel != null)
+        {
+            steeringWheel.transform.eulerAngles = new Vector3(0, 0, steeringInput);
+        }
+        else Debug.LogError("Connect the steering wheel asset in the inspector");
     }
 }

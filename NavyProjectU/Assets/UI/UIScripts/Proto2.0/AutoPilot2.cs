@@ -291,7 +291,6 @@ public class AutoPilot2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 privateVariables.NfuSteeringValue = rightScrollbar.size * 35;
             }
-            Debug.Log(privateVariables.NfuSteeringValue);
         }
     }
 

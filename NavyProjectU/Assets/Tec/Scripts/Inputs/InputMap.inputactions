@@ -75,7 +75,7 @@
                     "id": "bcb6196a-04b4-49b2-9832-e653bf1b591e",
                     "path": "<HID::Logitech Logitech Flight Yoke>/z",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Normalize(min=-1,max=1)",
                     "groups": "",
                     "action": "PortThrottle",
                     "isComposite": false,
