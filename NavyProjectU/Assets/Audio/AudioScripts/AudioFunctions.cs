@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioFunctions : MonoBehaviour
 {
     #region AudioSources,Clips
-    public AudioSource BoatSource, PortSource, StarboardSource, AlarmSource, WaveSource;
+    public AudioSource BoatSource, AlarmSource, WaveSource;
     public AudioClip Waves, BoatEngine, Horn, FaultAlarm;
     #endregion
 
@@ -50,14 +50,14 @@ public class AudioFunctions : MonoBehaviour
     }
     void BoatIdle()
     {
-        if (BoatSource != null)
-        {
-            PortSource.clip = BoatEngine;
-            PortSource.Play();
-            StarboardSource.clip = BoatEngine;
-            StarboardSource.Play();
+        //if (BoatSource != null)
+        //{
+        //    PortSource.clip = BoatEngine;
+        //    PortSource.Play();
+        //    StarboardSource.clip = BoatEngine;
+        //    StarboardSource.Play();
 
-        }
+        //}
     }
     public void AlarmAudioOn()
     {
@@ -89,8 +89,8 @@ public class AudioFunctions : MonoBehaviour
 
     public void BoatThrottle()
     {
-        PortSource.pitch = ShipMovement.accelPortInput + 0.65f;
-        StarboardSource.pitch = ShipMovement.accelStarboardInput + 0.65f;
+        //PortSource.pitch = ShipMovement.accelPortInput + 0.65f;
+        //StarboardSource.pitch = ShipMovement.accelStarboardInput + 0.65f;
 
 
         //#region Forward Throttle
