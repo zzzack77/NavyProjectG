@@ -8,10 +8,13 @@ using UnityEngine.UI;
 public class AssessorUI : MonoBehaviour
 {
     private PrivateVariables privateVariables;
-
+    public VRCalibration vrCalibration;
+    public ThrottleCalibration throttleCalibration;
+    public DayNight dayNight;
     public GameObject headingValue;
 
     // Errors
+    [Header("Errors")]
     public Button systemFailureB;
     public Button gyroFailureB;
     public Button steeringGearFailureB;
@@ -20,15 +23,18 @@ public class AssessorUI : MonoBehaviour
     public Button rudderIndicatorFailureB;
 
     // Assessor control buttons
+    [Header("Assessor control buttons")]
     public Button pauseB;
     public Button restartB;
     public Button endB;
 
     // Settings
+    [Header("Settings")]
     public Button resetPlayerPosB;
     public Button resetThrottleB;
     public Button toggleRainB;
     public Button toggleFogB;
+    public Button toggleRedSunB;
     public Button toggleNightB;
 
     // Boat stats
@@ -36,12 +42,16 @@ public class AssessorUI : MonoBehaviour
     //public Button rateOfTurnB;
     //public Button throttleSpeedB;
 
+    [Header("Boat stats")]
     public GameObject rudderAngleV;
     public GameObject rateOfTurnV;
     public GameObject boatSpeedV;
 
     public RawImage HeadingImage;
     public Transform Ship;
+
+    public GameObject rain;
+
     private float ye = 1 / 360f;
 
     private float offset = 179.49865f;
@@ -52,6 +62,7 @@ public class AssessorUI : MonoBehaviour
     void Start()
     {
         privateVariables = GetComponent<PrivateVariables>();
+        dayNight = GetComponent<DayNight>();
     }
     private void FixedUpdate()
     {
@@ -98,11 +109,14 @@ public class AssessorUI : MonoBehaviour
 
     // These are the function that get called when buttons are pressed
     // place correct code in each function to be called on assessor clicks
-    public void PressResetPlayerB() { }
-    public void PressResetThrottleB() { }
-    public void PressToggleRainB() { }
+    public void PressResetPlayerB() { vrCalibration.VRCalibrateUser(); }
+    public void PressResetThrottleB() { throttleCalibration.ThrottleCalibrationFunction(); }
+    public void PressToggleRainB() { rain.SetActive(!rain.activeSelf); }
     public void PressToggleFogB() { }
-    public void PressToggleNightB() { }
+    public void PressToggleRedSun() { }
+    public void PressToggleNightB() { if (dayNight.bDaytime) dayNight.SetNight();
+        else dayNight.SetDay();
+    }
 
     public void OnHeadingUpdate(float value)
     {

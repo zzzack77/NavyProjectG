@@ -21,17 +21,27 @@ public class ThrottleCalibration : MonoBehaviour
         }
     }
 
-    void Update()
-    { 
+    //void Update()
+    //{ 
+    //    Vector3 finalThrottlePos = new Vector3(rightHand.localPosition.x, throttleY, rightHand.localPosition.z);
+    //    if (Input.GetKeyDown(KeyCode.T))
+    //    {
+    //        throttle.localPosition = finalThrottlePos;
+
+    //        Vector3 offset = throttle.position - rightHand.position;
+
+    //        throttle.localPosition += new Vector3(offset.x, 0, offset.z);
+    //    }
+    //}
+    public void ThrottleCalibrationFunction()
+    {
         Vector3 finalThrottlePos = new Vector3(rightHand.localPosition.x, throttleY, rightHand.localPosition.z);
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            throttle.localPosition = finalThrottlePos;
 
-            Vector3 offset = throttle.position - rightHand.position;
+        throttle.localPosition = finalThrottlePos;
 
-            throttle.localPosition += new Vector3(offset.x, 0, offset.z);
-        }
+        Vector3 offset = throttle.position - rightHand.position;
+
+        throttle.localPosition += new Vector3(offset.x, 0, offset.z);
     }
 }
 
