@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using Rewired;
 
+//[RequireComponent(typeof(CharacterController))]
 public class ShipMovement : MonoBehaviour
 {
     private PrivateVariables privateVariables;
@@ -21,11 +23,11 @@ public class ShipMovement : MonoBehaviour
     // Boat physiscs stats
     public float accelPortInput = 0.0f;
     public float portPower = 0.0f;
-    //bool bPortReverse = false;
+    bool bPortReverse;
     //float portDirection = 1.0f;
     public float accelStarboardInput = 0.0f;
     public float starPower = 0.0f;
-    //bool bStarReverse = false;
+    bool bStarReverse;
     //float starboardDirection = 1.0f;
     public float steeringInput;
     public float shipPower = 3500000.0f;
@@ -62,9 +64,13 @@ public class ShipMovement : MonoBehaviour
     public GameObject throttleR;
     public GameObject steeringWheel;
 
+    private Player player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = ReInput.players.GetPlayer(0);
+
         InputManager = GetComponent<InputSubscription>();
 
         ThrottleInput = GetComponent<LogitechThrottleInput>();
@@ -143,11 +149,45 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
+            
+            accelPortInput = player.GetAxis("PortThrottle");
+            accelStarboardInput = player.GetAxis("StarThrottle");
 
-            if (InputManager.PortToggle) accelPortInput = -1;
-            else accelPortInput = ThrottleInput.portValue;
-            if (InputManager.StarboardToggle) accelStarboardInput = -1;
-            else accelStarboardInput = ThrottleInput.starValue;
+            bPortReverse = player.GetButtonDown("PortReverse");
+            bStarReverse = player.GetButtonDown("StarReverse");
+
+            if(accelPortInput <= 0)
+            {
+                if (bPortReverse)
+                {
+                    UnityEngine.Debug.Log(bPortReverse);
+                    accelPortInput = -1;
+                }
+                else
+                {
+                    accelPortInput = 0;
+                }
+            }
+
+            if (accelStarboardInput <= 0)
+            {
+                if (bStarReverse)
+                {
+                    UnityEngine.Debug.Log(bStarReverse);
+                    accelStarboardInput = -1;
+                }
+                else
+                {
+                    accelStarboardInput = 0;
+                }
+            }
+
+
+
+            //if (InputManager.PortToggle) accelPortInput = -1;
+            //else accelPortInput = ThrottleInput.portValue;
+            //if (InputManager.StarboardToggle) accelStarboardInput = -1;
+            //else accelStarboardInput = ThrottleInput.starValue;
 
         }
         else
@@ -225,7 +265,8 @@ public class ShipMovement : MonoBehaviour
     {
         if (isSteeringWheelConnected)
         {
-            steeringInput = (InputManager.Turn.x) * -35.0f;
+            steeringInput = player.GetAxis("Turn") * -35.0f;
+            //steeringInput = (InputManager.Turn.x) * -35.0f;
         }
         else
         {
