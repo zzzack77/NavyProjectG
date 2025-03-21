@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AssessorUI : MonoBehaviour
 {
+    //public ReflectionProbe baker;
+    //public GameObject reflectionbean;
+    public ReflectionProbe reflectionProbe;
+
+    // Scripts
     private PrivateVariables privateVariables;
     public VRCalibration vrCalibration;
     public ThrottleCalibration throttleCalibration;
     public DayNight dayNight;
+    public SkyboxManager skyboxManager;
     public GameObject headingValue;
 
     // Errors
@@ -58,11 +65,22 @@ public class AssessorUI : MonoBehaviour
 
     public bool isPaused = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
         privateVariables = GetComponent<PrivateVariables>();
         dayNight = GetComponent<DayNight>();
+        skyboxManager = GetComponent<SkyboxManager>();
+
+        //baker = gameObject.AddComponent<ReflectionProbe>();
+        //baker.cullingMask = 0;
+        //baker.refreshMode = ReflectionProbeRefreshMode.ViaScripting;
+        //baker.mode = ReflectionProbeMode.Realtime;
+        //baker.timeSlicingMode = ReflectionProbeTimeSlicingMode.NoTimeSlicing;
+
+        //RenderSettings.defaultReflectionMode = DefaultReflectionMode.Custom;
+        //StartCoroutine(UpdateEnvironment());
     }
     private void FixedUpdate()
     {
@@ -111,12 +129,11 @@ public class AssessorUI : MonoBehaviour
     // place correct code in each function to be called on assessor clicks
     public void PressResetPlayerB() { vrCalibration.VRCalibrateUser(); }
     public void PressResetThrottleB() { throttleCalibration.ThrottleCalibrationFunction(); }
-    public void PressToggleRainB() { rain.SetActive(!rain.activeSelf); }
-    public void PressToggleFogB() { }
-    public void PressToggleRedSun() { }
-    public void PressToggleNightB() { if (dayNight.bDaytime) dayNight.SetNight();
-        else dayNight.SetDay();
-    }
+    public void PressDayB() { skyboxManager.SetSkyClear(); reflectionProbe.RenderProbe(); }
+    public void PressToggleRainB() { rain.SetActive(!rain.activeSelf); reflectionProbe.RenderProbe(); }
+    public void PressToggleFogB() { skyboxManager.SetSkyCloudy(); reflectionProbe.RenderProbe();}
+    public void PressToggleRedSun() { skyboxManager.SetSkyRS(); reflectionProbe.RenderProbe(); }
+    public void PressToggleNightB() { skyboxManager.SetSkyN(); reflectionProbe.RenderProbe(); }
 
     public void OnHeadingUpdate(float value)
     {
@@ -154,4 +171,11 @@ public class AssessorUI : MonoBehaviour
             boatSpeedText.text = value.ToString("0.0");
         }
     }
+    //IEnumerator UpdateEnvironment()
+    //{
+    //    DynamicGI.UpdateEnvironment();
+    //    baker.RenderProbe();
+    //    yield return new WaitForEndOfFrame();
+    //    RenderSettings.customReflectionTexture = baker.texture;
+    //}
 }
