@@ -257,7 +257,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (steeringWheel != null)
         {
-            steeringWheel.transform.eulerAngles = new Vector3(0, 0, steeringInput);
+            steeringWheel.transform.localEulerAngles = new Vector3(0, 0, -steeringInput);
         }
         else Debug.LogError("Connect the steering wheel asset in the inspector");
     }

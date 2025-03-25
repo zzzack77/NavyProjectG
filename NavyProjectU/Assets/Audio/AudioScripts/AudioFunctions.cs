@@ -14,7 +14,7 @@ public class AudioFunctions : MonoBehaviour
     #region ThrottleVars
     //private float keyPressStartTime = -1f;
     //private float keyHoldDuration = 0f;
-    public float BoatRev;
+    //public float BoatRev;
 
     //private bool IsOn;
 
@@ -76,15 +76,25 @@ public class AudioFunctions : MonoBehaviour
             PortSource.clip = BoatEngine;
             PortSource.Play();
             PortSource.pitch = ShipMovement.accelPortInput + 0.7f;
-            BoatRev = PortSource.pitch; //check
+           
+            if (PortSource.pitch >= 1.4f)
+            {
+                PortSource.pitch = 1.4f;
+            }
         }
         if (StarSource != null)
         {
             StarSource.clip = BoatEngine;
             StarSource.Play();
             StarSource.pitch = ShipMovement.accelStarboardInput + 0.7f;
+
+            if (StarSource.pitch >= 1.4f)
+            {
+                StarSource.pitch = 1.4f;
+            }
         }
     }
+
     public void AlarmAudioOn()
     {
         if (AlarmSource != null)
