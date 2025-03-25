@@ -138,6 +138,7 @@ public class ShipMovement : MonoBehaviour
         privateVariables.StarRudderAngle = steeringInput;
         privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
         privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
+        Debug.Log(visualsTransform.transform.rotation.eulerAngles.z);
     }
     public void VerticalMovement()
     {
@@ -249,15 +250,15 @@ public class ShipMovement : MonoBehaviour
 
     public void SetThrottleModelRotation()
     {
-        throttleL.transform.eulerAngles = new Vector3(throttleL.transform.eulerAngles.x + accelPortInput * 90.0f, throttleL.transform.eulerAngles.y, throttleL.transform.eulerAngles.z);
-        throttleR.transform.eulerAngles = new Vector3(throttleR.transform.eulerAngles.x + accelStarboardInput * 90.0f, throttleR.transform.eulerAngles.y, throttleR.transform.eulerAngles.z);
+        throttleL.transform.localEulerAngles = new Vector3(accelPortInput * -90.0f, 0,0);
+        throttleR.transform.localEulerAngles = new Vector3(accelStarboardInput * -90.0f, 0, 0);
     }
 
     public void SetSteeringWheelModelRotation()
     {
         if (steeringWheel != null)
         {
-            steeringWheel.transform.eulerAngles = new Vector3(0, 0, steeringInput);
+            steeringWheel.transform.localEulerAngles = new Vector3(0, 0, -steeringInput);
         }
         else Debug.LogError("Connect the steering wheel asset in the inspector");
     }
