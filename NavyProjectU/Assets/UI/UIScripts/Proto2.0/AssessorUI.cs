@@ -11,6 +11,7 @@ public class AssessorUI : MonoBehaviour
     //public ReflectionProbe baker;
     //public GameObject reflectionbean;
     public ReflectionProbe reflectionProbe;
+    public AudioFunctions audioFunctions;
 
     // Scripts
     private PrivateVariables privateVariables;
@@ -130,7 +131,11 @@ public class AssessorUI : MonoBehaviour
     public void PressResetPlayerB() { vrCalibration.VRCalibrateUser(); }
     public void PressResetThrottleB() { throttleCalibration.ThrottleCalibrationFunction(); }
     public void PressDayB() { skyboxManager.SetSkyClear(); reflectionProbe.RenderProbe(); }
-    public void PressToggleRainB() { rain.SetActive(!rain.activeSelf); reflectionProbe.RenderProbe(); }
+    public void PressToggleRainB() {
+        rain.SetActive(!rain.activeSelf); 
+        if (rain.activeSelf) audioFunctions.StartRain();
+        else audioFunctions.StopRain();
+    }
     public void PressToggleFogB() { skyboxManager.SetSkyCloudy(); reflectionProbe.RenderProbe();}
     public void PressToggleRedSun() { skyboxManager.SetSkyRS(); reflectionProbe.RenderProbe(); }
     public void PressToggleNightB() { skyboxManager.SetSkyN(); reflectionProbe.RenderProbe(); }
