@@ -25,10 +25,10 @@ public class AudioFunctions : MonoBehaviour
     void Start()
     {
         ShipMovement = GameObject.Find("Ship").GetComponent<ShipMovement>();
-        
-        // Start audio for waves and boat idle
-        Wave();
+
         BoatIdle();
+        Wave();
+
     }
 
     
@@ -39,6 +39,7 @@ public class AudioFunctions : MonoBehaviour
         //BoatThrottle();
         BoatHorn();
         Rain();
+        BoatThrottle();
     }
 
     public void Wave()
@@ -75,25 +76,33 @@ public class AudioFunctions : MonoBehaviour
         {
             PortSource.clip = BoatEngine;
             PortSource.Play();
-            PortSource.pitch = ShipMovement.accelPortInput + 0.7f;
-           
-            if (PortSource.pitch >= 1.4f)
-            {
-                PortSource.pitch = 1.4f;
-            }
         }
         if (StarSource != null)
         {
             StarSource.clip = BoatEngine;
             StarSource.Play();
-            StarSource.pitch = ShipMovement.accelStarboardInput + 0.7f;
-
-            if (StarSource.pitch >= 1.4f)
-            {
-                StarSource.pitch = 1.4f;
-            }
         }
     }
+
+    void BoatThrottle()
+    {
+        PortSource.pitch = ShipMovement.accelPortInput + 0.7f;
+
+        if (PortSource.pitch >= 1.4f)
+        {
+            PortSource.pitch = 1.4f;
+            Debug.Log(PortSource.pitch);
+        }
+
+        StarSource.pitch = ShipMovement.accelStarboardInput + 0.7f;
+
+        if (StarSource.pitch >= 1.4f)
+        {
+            StarSource.pitch = 1.4f;
+        }
+
+    }
+
 
     public void AlarmAudioOn()
     {
