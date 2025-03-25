@@ -125,7 +125,7 @@ public class AudioFunctions : MonoBehaviour
     {
         if (BoatSource != null)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.H))
             {
                 BoatSource.PlayOneShot(Horn);
             }
