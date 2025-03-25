@@ -10,34 +10,6 @@ public class SkyboxManager : MonoBehaviour
     public Material RedSun;
 
 
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            SetSkyClear();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            SetSkyCloudy();
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SetSkyN();
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            SetSkyRS();
-        }
- 
-    }
-
     public void SetSkyClear()
     {
         RenderSettings.skybox = Clear;
