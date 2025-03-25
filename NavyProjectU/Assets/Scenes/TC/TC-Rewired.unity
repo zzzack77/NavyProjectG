@@ -1491,7 +1491,7 @@ MonoBehaviour:
         disableKeyboard: 0
         disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
-      maxJoysticksPerPlayer: 1
+      maxJoysticksPerPlayer: 100
       autoAssignJoysticks: 1
       assignJoysticksToPlayingPlayersOnly: 0
       distributeJoysticksEvenly: 1
@@ -1830,7 +1830,7 @@ MonoBehaviour:
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 2
+    joystickMapIdCounter: 5
     keyboardMapIdCounter: 0
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
@@ -9602,11 +9602,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478204911}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &483667092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7672726772951947936, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-  m_PrefabInstance: {fileID: 1260123612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &484239719
 GameObject:
   m_ObjectHideFlags: 0
@@ -38457,16 +38452,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: steeringWheel
-      value: 
-      objectReference: {fileID: 483667092}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isThrottleConnected
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: isSteeringWheelConnected
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1602476254959039673, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_IsActive
@@ -38628,6 +38619,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 91a8ddd2897f7ff438285c7abbe7b37f, type: 2}
+    - target: {fileID: 5375950734678631958, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: rain
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5404767341165498067, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

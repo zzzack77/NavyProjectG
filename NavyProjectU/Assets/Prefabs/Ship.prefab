@@ -1728,6 +1728,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoatSource: {fileID: 4393470360089839396}
+  PortSource: {fileID: 0}
+  StarboardSource: {fileID: 0}
   AlarmSource: {fileID: 4727753314550756452}
   WaveSource: {fileID: 6102334424023637814}
   Waves: {fileID: 8300000, guid: 0fa5296d025bd0043a7ee9f5787c8ee2, type: 3}
@@ -1735,6 +1737,7 @@ MonoBehaviour:
   Horn: {fileID: 8300000, guid: 66c0279bdf7d1d344819b1df6e162026, type: 3}
   FaultAlarm: {fileID: 8300000, guid: 4493a7bb0842f8c4a966e506d20ef3b3, type: 3}
   BoatRev: 0
+  ShipMovement: {fileID: 0}
 --- !u!114 &5956265485342361684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3147,10 +3150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a25555395f4924a91df56f6328a7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera1: {fileID: 2570061701201826625}
-  camera2: {fileID: 0}
-  privateVariables: {fileID: 0}
   visualsTransform: {fileID: 4888500409067139426}
+  InputManager: {fileID: 0}
+  ThrottleInput: {fileID: 0}
   rb: {fileID: 7772279565842285386}
   accelPortInput: 0
   portPower: 0
@@ -3176,7 +3178,7 @@ MonoBehaviour:
   isFrozen: 0
   throttleL: {fileID: 2065705130475498563}
   throttleR: {fileID: 7470106594606825140}
-  steeringWheel: {fileID: 0}
+  steeringWheel: {fileID: 4116338924814376904}
 --- !u!54 &7772279565842285386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11136,6 +11138,11 @@ Transform:
 --- !u!1 &2065705130475498563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1286991521984726713, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
+  m_PrefabInstance: {fileID: 970125666318510842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4116338924814376904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3771404417690760498, guid: 6a856e379dddbd247b49f709d14197b3, type: 3}
   m_PrefabInstance: {fileID: 970125666318510842}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7470106594606825140 stripped
