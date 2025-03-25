@@ -138,7 +138,7 @@ public class ShipMovement : MonoBehaviour
         privateVariables.StarRudderAngle = steeringInput;
         privateVariables.PortClinometer = visualsTransform.transform.rotation.eulerAngles.x;
         privateVariables.StarClinometer = visualsTransform.transform.rotation.eulerAngles.z;
-        Debug.Log(visualsTransform.transform.rotation.eulerAngles.z);
+        //Debug.Log(visualsTransform.transform.rotation.eulerAngles.z);
     }
     public void VerticalMovement()
     {
@@ -217,9 +217,13 @@ public class ShipMovement : MonoBehaviour
     public void AutoPilotMode()
     {
         float difference = (privateVariables.SetAutoCourse - privateVariables.Heading + 360) % 360;
-        
-        if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 2.5f, 7); }
-        else steeringInput = Mathf.Clamp((360 - difference), 2.5f, 7);
+        if (difference > 0.1f)
+        {
+            if (difference <= 180) { steeringInput = -Mathf.Clamp(difference, 0.5f, 7); }
+            else steeringInput = Mathf.Clamp((360 - difference), 0.5f, 7);
+        }
+        else { steeringInput = 0f; }
+        Debug.Log(difference);
     }
 
     public void ManualMode()
