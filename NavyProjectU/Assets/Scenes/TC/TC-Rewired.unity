@@ -1764,17 +1764,10 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    - id: 1
-      categoryId: 0
-      layoutId: 0
-      name: 
-      hardwareGuidString: 5623cc13-d2b1-4f5e-9b87-d3a1840d3040
-      customControllerUid: 0
-      actionElementMaps:
       - _actionCategoryId: 0
         _actionId: 5
         _elementType: 1
-        _elementIdentifierId: 9
+        _elementIdentifierId: 25
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -1785,32 +1778,10 @@ MonoBehaviour:
       - _actionCategoryId: 0
         _actionId: 6
         _elementType: 1
-        _elementIdentifierId: 11
+        _elementIdentifierId: 27
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
-        _keyboardKeyCode: 0
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
-        _actionId: 5
-        _elementType: 1
-        _elementIdentifierId: 9
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 1
-        _keyboardKeyCode: 0
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
-        _actionId: 6
-        _elementType: 1
-        _elementIdentifierId: 11
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 1
         _keyboardKeyCode: 0
         _modifierKey1: 0
         _modifierKey2: 0
@@ -38451,14 +38422,6 @@ PrefabInstance:
       propertyPath: camera2
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: isThrottleConnected
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      propertyPath: isSteeringWheelConnected
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1602476254959039673, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -38622,7 +38585,7 @@ PrefabInstance:
     - target: {fileID: 5375950734678631958, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: rain
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 688859261}
     - target: {fileID: 5404767341165498067, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -47437,7 +47400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b0f1bf0160f36429399cbba6e6d366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rain: {fileID: 0}
+  rain: {fileID: 688859261}
   rainIsOn: 0
 --- !u!1 &1748889484
 GameObject:

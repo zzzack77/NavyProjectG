@@ -149,45 +149,41 @@ public class ShipMovement : MonoBehaviour
     {
         if (isThrottleConnected)
         {
-            
-            accelPortInput = player.GetAxis("PortThrottle");
-            accelStarboardInput = player.GetAxis("StarThrottle");
 
-            bPortReverse = player.GetButtonDown("PortReverse");
-            bStarReverse = player.GetButtonDown("StarReverse");
+            bPortReverse = player.GetButton("PortReverse");
+            bStarReverse = player.GetButton("StarReverse");
 
-            if(accelPortInput <= 0)
+            //UnityEngine.Debug.Log(bPortReverse);
+            //UnityEngine.Debug.Log(bStarReverse);
+
+
+            if (bPortReverse)
             {
-                if (bPortReverse)
-                {
-                    UnityEngine.Debug.Log(bPortReverse);
-                    accelPortInput = -1;
-                }
-                else
-                {
-                    accelPortInput = 0;
-                }
+                UnityEngine.Debug.Log(bPortReverse);
+                accelPortInput = -1;
+            }
+            else
+            {
+                accelPortInput = player.GetAxis("PortThrottle");
             }
 
-            if (accelStarboardInput <= 0)
+            if (bStarReverse)
             {
-                if (bStarReverse)
-                {
-                    UnityEngine.Debug.Log(bStarReverse);
-                    accelStarboardInput = -1;
-                }
-                else
-                {
-                    accelStarboardInput = 0;
-                }
+                UnityEngine.Debug.Log(bStarReverse);
+                accelStarboardInput = -1;
             }
-
-
+            else
+            {
+                accelStarboardInput = player.GetAxis("StarThrottle");
+            }
 
             //if (InputManager.PortToggle) accelPortInput = -1;
             //else accelPortInput = ThrottleInput.portValue;
             //if (InputManager.StarboardToggle) accelStarboardInput = -1;
             //else accelStarboardInput = ThrottleInput.starValue;
+
+            UnityEngine.Debug.Log(bPortReverse);
+            UnityEngine.Debug.Log(bStarReverse);
 
         }
         else
