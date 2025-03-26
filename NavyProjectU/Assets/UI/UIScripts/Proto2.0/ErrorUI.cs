@@ -3,18 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
-public class ErrorUI : MonoBehaviour
+public class ErrorUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     PrivateVariables _privateVariables;
 
-    private Button systemFailureB;
-    private Button gyroFailureB;
-    private Button steeringGearFailureB;
-    private Button autoPilotFailureB;
-    private Button logFailureB;
-    private Button rudderIndicatorFailureB;
+    public Button systemFailureB;
+    public Button gyroFailureB;
+    public Button steeringGearFailureB;
+    public Button autoPilotFailureB;
+    public Button logFailureB;
+    public Button rudderIndicatorFailureB;
 
     // Start is called before the first frame update
     void Start()
@@ -22,34 +23,34 @@ public class ErrorUI : MonoBehaviour
         _privateVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<PrivateVariables>();
 
         GameObject errorUICanvas = GameObject.Find("ErrorSTouchUI");
-        if (errorUICanvas != null)
-        {
-            Button[] buttons = errorUICanvas.GetComponentsInChildren<Button>();
+        //if (errorUICanvas != null)
+        //{
+        //    Button[] buttons = errorUICanvas.GetComponentsInChildren<Button>();
 
-            var buttonMappings = new Dictionary<string, (Action listener, Action<Button> assign)>
-            {
-                { "SystemFailureB", (SystemFailureAcknowledge, b => systemFailureB = b) },
-                { "GyroFailureB", (GyroFailureAcknowledge, b => gyroFailureB = b) },
-                { "SteeringGearFailureB", (SteeringGearFailureAcknowledge, b => steeringGearFailureB = b) },
-                { "AutoPilotFailureB", (AutoPilotFailureAcknowledge, b => autoPilotFailureB = b) },
-                { "LogFailureB", (LogFailureAcknowledge, b => logFailureB = b) },
-                { "RudderIndicatorFailureB", (RudderIndicatorAcknowledge, b => rudderIndicatorFailureB = b) }
-            };
+        //    var buttonMappings = new Dictionary<string, (Action listener, Action<Button> assign)>
+        //    {
+        //        { "SystemFailureB", (SystemFailureAcknowledge, b => systemFailureB = b) },
+        //        { "GyroFailureB", (GyroFailureAcknowledge, b => gyroFailureB = b) },
+        //        { "SteeringGearFailureB", (SteeringGearFailureAcknowledge, b => steeringGearFailureB = b) },
+        //        { "AutoPilotFailureB", (AutoPilotFailureAcknowledge, b => autoPilotFailureB = b) },
+        //        { "LogFailureB", (LogFailureAcknowledge, b => logFailureB = b) },
+        //        { "RudderIndicatorFailureB", (RudderIndicatorAcknowledge, b => rudderIndicatorFailureB = b) }
+        //    };
 
-            foreach (Button button in buttons)
-            {
-                if (buttonMappings.TryGetValue(button.name, out var mapping))
-                {
-                    mapping.assign(button);
-                    button.onClick.AddListener(() => mapping.listener());
-                    //Debug.Log($"{button.name} assigned");
-                }
-            }
-        }
-        else
-        {
-            Debug.LogError("Error Soft Touch Pannel failed to be initilised");
-        }
+        //    //foreach (Button button in buttons)
+        //    //{
+        //    //    if (buttonMappings.TryGetValue(button.name, out var mapping))
+        //    //    {
+        //    //        mapping.assign(button);
+        //    //        button.onClick.AddListener(() => mapping.listener());
+        //    //        Debug.Log($"{button.name} assigned");
+        //    //    }
+        //    //}
+        //}
+        //else
+        //{
+        //    Debug.LogError("Error Soft Touch Pannel failed to be initilised");
+        //}
     }
 
     // Update is called once per frame
@@ -127,10 +128,20 @@ public class ErrorUI : MonoBehaviour
         _privateVariables.GyroFailure = false;
         _privateVariables.SystemFailure = false;
     }
-    public void SystemFailureAcknowledge() { _privateVariables.SystemFailure = false; }
+    public void SystemFailureAcknowledge() { _privateVariables.SystemFailure = false; Debug.Log("hello"); }
     public void GyroFailureAcknowledge() { _privateVariables.GyroFailure = false; }
     public void SteeringGearFailureAcknowledge() { _privateVariables.SteeringGearFailure = false; }
     public void AutoPilotFailureAcknowledge() { _privateVariables.AutoPilotFailure = false; }
     public void LogFailureAcknowledge() { _privateVariables.LogFailure = false; }
     public void RudderIndicatorAcknowledge() { _privateVariables.RudderIndicatorFailure = false; }
+
+    // Event triggers so holding buttons down can work
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
 }

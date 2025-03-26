@@ -2,16 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AssessorUI : MonoBehaviour
 {
-    private PrivateVariables privateVariables;
+    //public ReflectionProbe baker;
+    //public GameObject reflectionbean;
+    public ReflectionProbe reflectionProbe;
+    public AudioFunctions audioFunctions;
 
+    // Scripts
+    private PrivateVariables privateVariables;
+    public VRCalibration vrCalibration;
+    public ThrottleCalibration throttleCalibration;
+    public DayNight dayNight;
+    public SkyboxManager skyboxManager;
     public GameObject headingValue;
 
     // Errors
+    [Header("Errors")]
     public Button systemFailureB;
     public Button gyroFailureB;
     public Button steeringGearFailureB;
@@ -20,15 +31,18 @@ public class AssessorUI : MonoBehaviour
     public Button rudderIndicatorFailureB;
 
     // Assessor control buttons
+    [Header("Assessor control buttons")]
     public Button pauseB;
     public Button restartB;
     public Button endB;
 
     // Settings
+    [Header("Settings")]
     public Button resetPlayerPosB;
     public Button resetThrottleB;
     public Button toggleRainB;
     public Button toggleFogB;
+    public Button toggleRedSunB;
     public Button toggleNightB;
 
     // Boat stats
@@ -36,22 +50,38 @@ public class AssessorUI : MonoBehaviour
     //public Button rateOfTurnB;
     //public Button throttleSpeedB;
 
+    [Header("Boat stats")]
     public GameObject rudderAngleV;
     public GameObject rateOfTurnV;
     public GameObject boatSpeedV;
 
     public RawImage HeadingImage;
     public Transform Ship;
+
+    public GameObject rain;
+
     private float ye = 1 / 360f;
 
     private float offset = 179.49865f;
 
     public bool isPaused = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
         privateVariables = GetComponent<PrivateVariables>();
+        dayNight = GetComponent<DayNight>();
+        skyboxManager = GetComponent<SkyboxManager>();
+
+        //baker = gameObject.AddComponent<ReflectionProbe>();
+        //baker.cullingMask = 0;
+        //baker.refreshMode = ReflectionProbeRefreshMode.ViaScripting;
+        //baker.mode = ReflectionProbeMode.Realtime;
+        //baker.timeSlicingMode = ReflectionProbeTimeSlicingMode.NoTimeSlicing;
+
+        //RenderSettings.defaultReflectionMode = DefaultReflectionMode.Custom;
+        //StartCoroutine(UpdateEnvironment());
     }
     private void FixedUpdate()
     {
@@ -98,11 +128,17 @@ public class AssessorUI : MonoBehaviour
 
     // These are the function that get called when buttons are pressed
     // place correct code in each function to be called on assessor clicks
-    public void PressResetPlayerB() { }
-    public void PressResetThrottleB() { }
-    public void PressToggleRainB() { }
-    public void PressToggleFogB() { }
-    public void PressToggleNightB() { }
+    public void PressResetPlayerB() { vrCalibration.VRCalibrateUser(); }
+    public void PressResetThrottleB() { throttleCalibration.ThrottleCalibrationFunction(); }
+    public void PressDayB() { skyboxManager.SetSkyClear(); reflectionProbe.RenderProbe(); }
+    public void PressToggleRainB() {
+        rain.SetActive(!rain.activeSelf); 
+        if (rain.activeSelf) audioFunctions.StartRain();
+        else audioFunctions.StopRain();
+    }
+    public void PressToggleFogB() { skyboxManager.SetSkyCloudy(); reflectionProbe.RenderProbe();}
+    public void PressToggleRedSun() { skyboxManager.SetSkyRS(); reflectionProbe.RenderProbe(); }
+    public void PressToggleNightB() { skyboxManager.SetSkyN(); reflectionProbe.RenderProbe(); }
 
     public void OnHeadingUpdate(float value)
     {
@@ -140,4 +176,11 @@ public class AssessorUI : MonoBehaviour
             boatSpeedText.text = value.ToString("0.0");
         }
     }
+    //IEnumerator UpdateEnvironment()
+    //{
+    //    DynamicGI.UpdateEnvironment();
+    //    baker.RenderProbe();
+    //    yield return new WaitForEndOfFrame();
+    //    RenderSettings.customReflectionTexture = baker.texture;
+    //}
 }

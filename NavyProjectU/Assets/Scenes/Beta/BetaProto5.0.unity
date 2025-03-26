@@ -3969,6 +3969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9cc8d574775a44aed9d7b303709c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrCalibration: {fileID: 920457584}
+  throttleCalibration: {fileID: 0}
+  dayNight: {fileID: 0}
   headingValue: {fileID: 1258255890}
   systemFailureB: {fileID: 1860175117}
   gyroFailureB: {fileID: 1100225704}
@@ -3983,12 +3986,14 @@ MonoBehaviour:
   resetThrottleB: {fileID: 1149490985}
   toggleRainB: {fileID: 1198526643}
   toggleFogB: {fileID: 198914294}
+  toggleRedSunB: {fileID: 0}
   toggleNightB: {fileID: 101246751}
   rudderAngleV: {fileID: 957858187}
   rateOfTurnV: {fileID: 1978726721}
   boatSpeedV: {fileID: 1696202129}
   HeadingImage: {fileID: 618263060}
   Ship: {fileID: 1881458597}
+  rain: {fileID: 688859261}
   isPaused: 0
 --- !u!114 &248116706
 MonoBehaviour:
@@ -19378,7 +19383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3624227007845009636, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3699278088000458536, guid: d1f87d5a54cb25b4fb9c5cc03eee59e5, type: 3}
       propertyPath: m_IsTrigger
@@ -38134,6 +38139,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 91a8ddd2897f7ff438285c7abbe7b37f, type: 2}
+    - target: {fileID: 5375950734678631958, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: rain
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5404767341165498067, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -38342,6 +38351,7 @@ PrefabInstance:
     - {fileID: 6323582691674651895, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
     - {fileID: 7311812367709631134, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
     - {fileID: 6254412614252047536, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+    - {fileID: 7092224252073548659, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: -1
@@ -38349,9 +38359,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: -1
       addedObject: {fileID: 237585374}
-    - targetCorrespondingSourceObject: {fileID: 208821950388627114, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1742553970}
     - targetCorrespondingSourceObject: {fileID: 4888500409067139426, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1091579255}
@@ -46904,52 +46911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1742553969
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1742553970}
-  - component: {fileID: 1742553971}
-  m_Layer: 0
-  m_Name: Rain Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1742553970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742553969}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.86, z: 34.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881458597}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1742553971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742553969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b0f1bf0160f36429399cbba6e6d366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rain: {fileID: 0}
-  rainIsOn: 0
 --- !u!1 &1748889484
 GameObject:
   m_ObjectHideFlags: 0
@@ -48175,7 +48136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1812402351
 ParticleSystemRenderer:
   serializedVersion: 6
