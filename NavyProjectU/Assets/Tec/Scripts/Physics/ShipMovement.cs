@@ -154,13 +154,11 @@ public class ShipMovement : MonoBehaviour
             bPortReverse = player.GetButton("PortReverse");
             bStarReverse = player.GetButton("StarReverse");
 
-            //UnityEngine.Debug.Log(bPortReverse);
-            //UnityEngine.Debug.Log(bStarReverse);
 
 
             if (bPortReverse)
             {
-                UnityEngine.Debug.Log(bPortReverse);
+                //UnityEngine.Debug.Log(bPortReverse);
                 accelPortInput = -1;
             }
             else
@@ -170,7 +168,7 @@ public class ShipMovement : MonoBehaviour
 
             if (bStarReverse)
             {
-                UnityEngine.Debug.Log(bStarReverse);
+                //UnityEngine.Debug.Log(bStarReverse);
                 accelStarboardInput = -1;
             }
             else
@@ -183,8 +181,6 @@ public class ShipMovement : MonoBehaviour
             //if (InputManager.StarboardToggle) accelStarboardInput = -1;
             //else accelStarboardInput = ThrottleInput.starValue;
 
-            UnityEngine.Debug.Log(bPortReverse);
-            UnityEngine.Debug.Log(bStarReverse);
 
         }
         else

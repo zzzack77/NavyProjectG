@@ -1728,15 +1728,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoatSource: {fileID: 4393470360089839396}
+  StarSource: {fileID: 0}
   PortSource: {fileID: 0}
-  StarboardSource: {fileID: 0}
   AlarmSource: {fileID: 4727753314550756452}
   WaveSource: {fileID: 6102334424023637814}
+  RainSource: {fileID: 0}
   Waves: {fileID: 8300000, guid: 0fa5296d025bd0043a7ee9f5787c8ee2, type: 3}
   BoatEngine: {fileID: 8300000, guid: 00a2e19dd5e87f641be38b9a3037311f, type: 3}
   Horn: {fileID: 8300000, guid: 66c0279bdf7d1d344819b1df6e162026, type: 3}
   FaultAlarm: {fileID: 8300000, guid: 4493a7bb0842f8c4a966e506d20ef3b3, type: 3}
-  BoatRev: 0
+  rain: {fileID: 0}
   ShipMovement: {fileID: 0}
 --- !u!114 &5956265485342361684
 MonoBehaviour:
