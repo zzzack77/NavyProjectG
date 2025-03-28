@@ -37,7 +37,7 @@ public class Heeling : MonoBehaviour
         float turnRadius = ((velocity * (360.0f / parent.rateOfTurn))/Mathf.PI)/2;
 
 
-        float heelAngle = Mathf.Asin((displacement * (velocity*velocity)/ turnRadius)*((comHeight*comHeight)/(displacement*gravity*1.0f))) * (180/Mathf.PI);
+        float heelAngle = Mathf.Asin(((displacement * (velocity*velocity)/ turnRadius)*((comHeight*comHeight)/(displacement*gravity*-20.0f)))) * (180/Mathf.PI);
 
         Debug.Log(displacement);
         Debug.Log(velocity);

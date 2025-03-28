@@ -39262,6 +39262,18 @@ PrefabInstance:
       propertyPath: camera2
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: dragFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: isThrottleConnected
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320367360844907748, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
+      propertyPath: isSteeringWheelConnected
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1602476254959039673, guid: 78a8bd937be6a9a4eafa5d5cb6d58c25, type: 3}
       propertyPath: m_IsActive
       value: 1
