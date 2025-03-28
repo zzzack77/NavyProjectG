@@ -52,14 +52,14 @@ public class TurnRudder : MonoBehaviour
         }
         if (Invert == true)
         {
-            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - -parent.steeringInput, parent.transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - -parent.portActualRudder, parent.transform.eulerAngles.z);
             //Debug.Log(parent.steeringInput);
             
 
         }
         else
         {
-            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - parent.steeringInput, parent.transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(parent.transform.eulerAngles.x, parent.transform.eulerAngles.y - parent.portActualRudder, parent.transform.eulerAngles.z);
             //Debug.Log(parent.steeringInput);
 
         }

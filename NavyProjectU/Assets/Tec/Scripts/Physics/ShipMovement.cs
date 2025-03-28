@@ -30,6 +30,9 @@ public class ShipMovement : MonoBehaviour
     bool bStarReverse;
     //float starboardDirection = 1.0f;
     public float steeringInput;
+    public float starActualRudder;
+    public float portActualRudder;
+    public float rudderSpeed = 0.1f;
     public float shipPower = 3500000.0f;
 
     public float suspensionRestDist = 5.0f;
@@ -48,6 +51,7 @@ public class ShipMovement : MonoBehaviour
     public float rpmPropMax = 250.0f;
     public float rpmPropStarboard = 0.0f;
     public float rpmPropPort = 0.0f;
+    public float rpmSpeed = 1.0f;
 
     [Header("Boat stats")]
     public float boatSpeedkph;
@@ -81,6 +85,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (privateVariables != null) { privateVariables.Heading = transform.rotation.eulerAngles.y; }
         UpdateInspectorvariables();
+        RudderAnglePredicted();
         RPMCode();
         SetThrottleModelRotation();
         SetSteeringWheelModelRotation();
@@ -192,6 +197,33 @@ public class ShipMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.F) && accelStarboardInput > -1.0f) { accelStarboardInput = accelStarboardInput - 0.01f; if (accelStarboardInput < -1.0f) { accelStarboardInput = -1.0f; } }
         }
     }
+    // Updates starActualRudder and portActualRudder by 0.3 per fixed update to match steeringInput (wheel input) 
+    // these variables are used to update UI
+    public void RudderAnglePredicted()
+    {
+        // Starboard dial 
+        if (steeringInput < starActualRudder)
+        {
+            starActualRudder = starActualRudder - rudderSpeed;
+            if (starActualRudder < steeringInput) { starActualRudder = steeringInput; }
+        }
+        else if (steeringInput > starActualRudder)
+        {
+            starActualRudder = starActualRudder + rudderSpeed;
+            if (starActualRudder > steeringInput) { starActualRudder = steeringInput; }
+        }
+        // Port dial
+        if (steeringInput > portActualRudder)
+        {
+            portActualRudder = portActualRudder + rudderSpeed;
+            if (portActualRudder > steeringInput) { portActualRudder = steeringInput; }
+        }
+        else if (steeringInput < portActualRudder)
+        {
+            portActualRudder = portActualRudder - rudderSpeed;
+            if (portActualRudder < steeringInput) { starActualRudder = steeringInput; }
+        }
+    }
     public void RPMCode()
     {
         float rpmPortInput = accelPortInput * rpmPropMax;
@@ -206,7 +238,7 @@ public class ShipMovement : MonoBehaviour
         // Starborad Propeller
         if (rpmStarboardInput > rpmPropStarboard)
         {
-            rpmPropStarboard = rpmPropStarboard + 1.0f;
+            rpmPropStarboard = rpmPropStarboard + rpmSpeed;
             if (rpmPropStarboard > rpmStarboardInput)
             {
                 rpmPropStarboard = rpmStarboardInput;
@@ -214,7 +246,7 @@ public class ShipMovement : MonoBehaviour
         }
         else if (rpmStarboardInput < rpmPropStarboard)
         {
-            rpmPropStarboard = rpmPropStarboard - 1.0f;
+            rpmPropStarboard = rpmPropStarboard - rpmSpeed;
             if (rpmPropStarboard < rpmStarboardInput)
             {
                 rpmPropStarboard = rpmStarboardInput;
@@ -226,7 +258,7 @@ public class ShipMovement : MonoBehaviour
         // Port Propeller
         if (rpmPortInput > rpmPropPort)
         {
-            rpmPropPort = rpmPropPort + 1.0f;
+            rpmPropPort = rpmPropPort + rpmSpeed;
             if (rpmPropPort > rpmPortInput)
             {
                 rpmPropPort = rpmPortInput;
@@ -235,7 +267,7 @@ public class ShipMovement : MonoBehaviour
         }
         else if (rpmPortInput < rpmPropPort)
         {
-            rpmPropPort = rpmPropPort - 1.0f;
+            rpmPropPort = rpmPropPort - rpmSpeed;
             if (rpmPropPort < rpmPortInput)
             {
                 rpmPropPort = rpmPortInput;
