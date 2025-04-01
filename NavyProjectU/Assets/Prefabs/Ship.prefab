@@ -3160,17 +3160,21 @@ MonoBehaviour:
   accelStarboardInput: 0
   starPower: 0
   steeringInput: 0
+  starActualRudder: 0
+  portActualRudder: 0
+  rudderSpeed: 0.1
   shipPower: 3500000
   suspensionRestDist: 5
   springStrength: 15000000
   springDamper: 1000000
-  dragFactor: 1
+  dragFactor: 10
   dragCoefficient: 35000
   rearDragCoefficient: 400000
-  boatWeight: 10000
+  boatWeight: 1000
   rpmPropMax: 250
   rpmPropStarboard: 0
   rpmPropPort: 0
+  rpmSpeed: 1
   boatSpeedkph: 0
   boatSpeedkn: 0
   rateOfTurn: 0
@@ -9982,6 +9986,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4a7483a80b38549b76a31622b5e2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  metacentricHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -35
+      value: 1
+      inSlope: -0.0038010748
+      outSlope: -0.0038010748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.4146471
+    - serializedVersion: 3
+      time: -20
+      value: 0.5
+      inSlope: -0.096666664
+      outSlope: -0.096666664
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: -15
+      value: -0.3
+      inSlope: -0.07
+      outSlope: -0.07
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 15
+      value: -0.3
+      inSlope: 0.07
+      outSlope: 0.07
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 0.5
+      inSlope: 0.096666664
+      outSlope: 0.096666664
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 35
+      value: 1
+      inSlope: 0.0017183995
+      outSlope: 0.0017183995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.36008605
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   parent: {fileID: 1320367360844907748}
   Invert: 0
 --- !u!1 &8204695762270767879
